@@ -50,7 +50,6 @@
     }
 }
 
-
 /* Correction spécifique pour le bouton dans la section about */
 @media (max-width: 768px) {
     .about-text .btn {
@@ -78,10 +77,9 @@
     .about-content .about-text .btn::after {
         align-self: center;
         position: relative;
-        top: 0px; /* Ajustement pixel par pixel si nécessaire */
+        top: 0px;
     }
 }
-
 
 /* Centrer le bouton dans la section About en mobile */
 @media (max-width: 768px) {

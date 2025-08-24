@@ -7,7 +7,6 @@ menuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 
-
 // Close menu when clicking on a link
 document.querySelectorAll('.nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
@@ -53,7 +52,6 @@ window.addEventListener('scroll', function() {
     }
 });
 
-
 // Animation on scroll
 function animateOnScroll() {
     const elements = document.querySelectorAll('.service-card, .pricing-card, .about-content, .contact-container, .timeline-item');
@@ -84,4 +82,3 @@ document.querySelectorAll('.service-card, .pricing-card, .about-content, .contac
 window.addEventListener('scroll', animateOnScroll);
 // Initial check on page load
 window.addEventListener('load', animateOnScroll);
-
