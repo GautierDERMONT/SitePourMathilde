@@ -1,0 +1,282 @@
+/* Responsive Design */
+@media (max-width: 992px) {
+    .hero-content, .about-content, .contact-container {
+        flex-direction: column;
+    }
+    
+    .hero-text, .hero-image, .about-text, .about-image {
+        flex: none;
+        width: 100%;
+    }
+    
+    .hero-text {
+        order: 2;
+        text-align: center;
+    }
+    
+    .hero-image {
+        order: 1;
+    }
+    
+    .about-image {
+        margin-bottom: 30px;
+    }
+    
+    .section-title h2 {
+        font-size: 2rem;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .quote-box {
+        padding: 20px 25px 20px 30px;
+        margin: 0 5px 25px 15px;
+    }
+    
+    .quote-box::before {
+        left: 8px;
+        top: 12px;
+        height: calc(100% - 24px);
+        width: 4px;
+        border-radius: 2px;
+    }
+    
+    .quote-box p {
+        font-size: 1.1rem;
+    }
+}
+
+
+/* Correction spécifique pour le bouton dans la section about */
+@media (max-width: 768px) {
+    .about-text .btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .about-text .btn::after {
+        position: static;
+        transform: none;
+        vertical-align: middle;
+        margin-left: 5px;
+    }
+}
+
+/* Alternative plus spécifique si nécessaire */
+@media (max-width: 768px) {
+    .about-content .about-text .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .about-content .about-text .btn::after {
+        align-self: center;
+        position: relative;
+        top: 0px; /* Ajustement pixel par pixel si nécessaire */
+    }
+}
+
+
+/* Centrer le bouton dans la section About en mobile */
+@media (max-width: 768px) {
+    .about-text {
+        text-align: center;
+    }
+    
+    .about-text .btn {
+        display: block;
+        margin: 0 auto;
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        z-index: 1002;
+    }
+    
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #FDF7F3;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 15px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .nav-menu li {
+        margin: 5px 15px;
+    }
+    
+    .hero {
+        padding-top: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        gap: 8px;
+    }
+    
+    .btn::after {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+    }
+    
+    .section-title h2 {
+        font-size: 1.8rem;
+    }
+    
+    .service-card, .pricing-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .timeline {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .timeline::before {
+        left: 50%;
+        width: 4px;
+        height: 100%;
+        transform: translateX(-50%);
+    }
+    
+    .timeline-item {
+        width: 80%;
+        margin-bottom: 40px;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .timeline-item::before {
+        top: 30px;
+        left: -10px;
+    }
+    
+    .timeline-date {
+        margin-left: 30px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Responsive pour la timeline */
+/* Responsive pour la timeline - Version corrigée */
+@media (max-width: 992px) {
+    .timeline {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 60px 0 20px 40px;
+        margin: 40px 0;
+    }
+    
+    .timeline::before {
+        top: 0;
+        left: 20px;
+        width: 4px;
+        height: 100%;
+        transform: translateX(0);
+    }
+    
+    .timeline-item {
+        width: 100%;
+        margin-bottom: 40px;
+        text-align: left;
+        display: block;
+        padding-top: 0;
+        padding-left: 0;
+    }
+    
+    .timeline-item::before {
+        top: 10px;
+        left: -35px;
+        transform: none;
+    }
+    
+    .timeline-date {
+        margin-left: 10px;
+        margin-bottom: 10px;
+        position: static;
+        display: inline-block;
+    }
+    
+    .timeline-content {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .timeline {
+        padding-left: 30px;
+    }
+    
+    .timeline-item::before {
+        left: -28px;
+    }
+    
+    .timeline-content {
+        padding: 15px;
+    }
+    
+    .timeline-content h3 {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline {
+        padding-left: 25px;
+    }
+    
+    .timeline-item::before {
+        left: -16px;
+        width: 8px;
+        height: 8px;
+    }
+    
+    .timeline::before {
+        left: 15px;
+    }
+}
