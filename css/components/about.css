@@ -49,6 +49,13 @@
     z-index: 1;
 }
 
+/* Style spécifique pour le titre "Diététicienne" dans la section about */
+.about-text h3.special-title {
+    font-size: 1.6rem !important;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
 .timeline-item {
     position: relative;
     text-align: center;
@@ -94,10 +101,12 @@
     margin-top: 25px;
 }
 
+/* Style spécifique pour les titres de diplômes dans la timeline */
 .timeline-content h3 {
-    font-size: 1.2rem;
-    color: var(--dark-color);
-    margin-bottom: 10px;
+    font-size: 1rem !important;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 8px;
 }
 
 .timeline-content p {

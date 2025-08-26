@@ -29,6 +29,20 @@
     .hero-text h1 {
         font-size: 2.5rem;
     }
+    
+    /* Responsive pour la section tarifs */
+    .pricing-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+    
+    .pricing-card {
+        padding: 30px 25px;
+    }
+    
+    .price {
+        font-size: 2.2rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -47,6 +61,68 @@
     
     .quote-box p {
         font-size: 1.1rem;
+    }
+    
+    /* Correction de la navigation mobile */
+    .nav-menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 15px;
+    }
+    
+    .nav-menu li {
+        margin: 8px 15px;
+        flex: 0 0 auto;
+    }
+    
+    /* Pour s'assurer que les deux derniers éléments soient centrés */
+    .nav-menu::after {
+        content: '';
+        width: 100%;
+        order: 1;
+    }
+    
+    .nav-menu li:nth-child(4),
+    .nav-menu li:nth-child(5) {
+        order: 2;
+    }
+    
+    /* Responsive pour la section tarifs */
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .pricing-card {
+        padding: 25px 20px;
+    }
+    
+    .pricing-card h3 {
+        font-size: 1.6rem;
+    }
+    
+    .price {
+        font-size: 2rem;
+    }
+    
+    .pricing-features li {
+        padding: 10px 0;
+        justify-content: flex-start;
+        padding-left: 30px;
+    }
+    
+    .price-tag {
+        padding: 6px 15px 6px 25px;
+        
+    }
+    
+    .price-tag::before {
+        top: 12px;
+        left: 10px;
+        width: 4px;
+        height: 58%;
     }
 }
 
@@ -146,7 +222,12 @@
     }
 }
 
+/* Pour les très petits écrans */
 @media (max-width: 480px) {
+    .nav-menu li {
+        margin: 8px 10px;
+    }
+    
     .logo {
         font-size: 1.5rem;
     }
@@ -165,6 +246,162 @@
     
     .service-card, .pricing-card {
         padding: 20px;
+    }
+    
+    /* Responsive pour la section tarifs */
+    .pricing-card {
+        padding: 20px 15px;
+    }
+    
+    .pricing-card h3 {
+        font-size: 1.4rem;
+    }
+    
+    .price {
+        font-size: 1.8rem;
+    }
+    
+    .pricing-features li {
+        font-size: 0.9rem;
+        padding-left: 25px;
+    }
+    
+    .pricing-features li::before,
+    .pricing-features li::after {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .price-tag .price {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        gap: 25px;
+    }
+    
+    .service-image {
+        height: 180px;
+    }
+    
+    .service-content {
+        padding: 15px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .service-image {
+        height: 160px;
+    }
+    
+    .service-card:hover {
+        transform: perspective(1000px) rotateY(3deg) rotateX(1deg);
+    }
+}
+
+/* Adaptation responsive des tailles de titres */
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 2.8rem !important;
+    }
+    
+    h2 {
+        font-size: 2.4rem !important;
+    }
+    
+    h4 {
+        font-size: 1.7rem !important;
+    }
+}
+
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2.5rem !important;
+    }
+    
+    h2 {
+        font-size: 2.2rem !important;
+    }
+    
+    h4 {
+        font-size: 1.6rem !important;
+    }
+    
+    h5 {
+        font-size: 1.5rem !important;
+    }
+    
+    h6 {
+        font-size: 1.3rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem !important;
+    }
+    
+    h2 {
+        font-size: 2rem !important;
+    }
+    
+    h4 {
+        font-size: 1.5rem !important;
+    }
+    
+    h5 {
+        font-size: 1.4rem !important;
+    }
+    
+    h6 {
+        font-size: 1.2rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 1.9rem !important;
+    }
+    
+    h2 {
+        font-size: 1.7rem !important;
+    }
+    
+    h4 {
+        font-size: 1.4rem !important;
+    }
+    
+    h5 {
+        font-size: 1.3rem !important;
+    }
+    
+    h6 {
+        font-size: 1.1rem !important;
+    }
+}
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: 2.1rem !important;
+    }
+    
+    h2 {
+        font-size: 2.3rem !important;
+    }
+    
+    h4 {
+        font-size: 1.6rem !important;
+    }
+    
+    h5 {
+        font-size: 2.3rem !important;
     }
 }
 

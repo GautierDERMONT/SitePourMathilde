@@ -32,11 +32,84 @@
     font-weight: 700;
 }
 
+/* Ajouter cette section dans votre fichier pricing.css */
 .pricing-features {
     margin-bottom: 25px;
+    text-align: left;
 }
 
 .pricing-features li {
-    padding: 8px 0;
+    padding: 12px 0 12px 40px; /* Augmenter le padding vertical */
     border-bottom: 1px solid #eee;
+    position: relative;
+    list-style: none;
+    display: flex;
+    align-items: center; /* Centrer verticalement */
+    min-height: 40px; /* Hauteur minimum pour mieux centrer */
+}
+
+.pricing-features li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: #B81329;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pricing-features li::after {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+/* Ajouter cette section dans votre fichier pricing.css */
+.price-tag {
+    background-color: #FDF7F3;
+    padding: 8px 20px 8px 30px;  
+    box-shadow: var(--shadow);
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.price-tag::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    width: 4px;
+    height: 58%;
+    background-color: #B81329;
+    border-radius: 4px;
+}
+
+.pricing-card h3{
+color: var(--primary-color)  
+}
+
+.price-tag .price {
+    font-size: 2rem;
+    color: var(--dark-color);
+    font-weight: normal; /* Enlève le gras */
+    font-family: serif; /* Applique la police serif */
+    font-weight: 800;
+    margin: 0;
 }

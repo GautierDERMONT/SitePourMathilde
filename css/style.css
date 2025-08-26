@@ -17,8 +17,22 @@
     --transition: all 0.3s ease;
 }
 
-#services.section,
+/* Ajouter cette règle pour cibler spécifiquement la section services */
+
+
+#tarifs.section{
+    background-color: #FDF7F3;
+}
+
+#services.section {
+    background-color: #EED7D1;
+}
+
 #contact.section {
+    background-color: #F9EBE7;
+}
+
+#pricing.section{
     background-color: #FDF7F3;
 }
 
@@ -27,6 +41,39 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+
+h1, h2, h5, h6 {
+    font-family: serif;
+
+}
+
+h1 {
+    font-size: 3rem !important;
+}
+
+h2 {
+    font-size: 2.6rem !important;
+}
+
+h3 {
+    font-size: 1.3rem !important;
+}
+
+
+h4 {
+    font-size: 1.4rem !important;
+}
+
+h5 {
+    font-size: 1.6rem !important;
+}
+
+h6 {
+    font-size: 1.4rem !important;
+}
+
+
 
 body {
     font-family: 'Aria Text G1 Regular', sans-serif;
@@ -67,6 +114,8 @@ img {
     transition: var(--transition);
     gap: 8px;
 }
+
+
 
 .btn:hover {
     background-color: #3C8189;

@@ -40,6 +40,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+
+
 // Sticky header on scroll
 window.addEventListener('scroll', function() {
     const header = document.querySelector('header');

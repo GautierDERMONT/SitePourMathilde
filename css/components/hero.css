@@ -6,6 +6,15 @@
     background-size: cover;
 }
 
+.quote-box {
+    text-align: left !important;
+    margin-left: 0 !important;
+}
+
+.quote-box p {
+    text-align: left !important;
+}
+
 .hero-content {
     display: flex;
     align-items: center;
