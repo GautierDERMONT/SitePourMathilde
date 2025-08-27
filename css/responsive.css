@@ -27,7 +27,7 @@
     }
     
     .hero-text h1 {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
     
     /* Responsive pour la section tarifs */
@@ -241,7 +241,7 @@
     }
     
     .section-title h2 {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
     
     .service-card, .pricing-card {
@@ -309,15 +309,15 @@
 /* Adaptation responsive des tailles de titres */
 @media (max-width: 1200px) {
     h1 {
-        font-size: 2.8rem !important;
+        font-size: 2.7rem !important;
     }
     
     h2 {
-        font-size: 2.4rem !important;
+        font-size: 2.7rem !important;
     }
     
     h4 {
-        font-size: 1.7rem !important;
+        font-size: 2.7rem !important;
     }
 }
 
@@ -393,7 +393,7 @@
     }
     
     h2 {
-        font-size: 2.3rem !important;
+        font-size: 2rem !important;
     }
     
     h4 {
@@ -513,5 +513,43 @@
     
     .timeline::before {
         left: 15px;
+    }
+}
+
+@media (max-width: 992px) {
+    .contact-container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .contact-info {
+        order: 2; /* Les coordonnées et carte en deuxième position */
+        margin-top: 30px;
+    }
+    
+    .contact-form {
+        order: 1; /* Le formulaire en première position */
+    }
+}
+
+@media (max-width: 576px) {
+    .contact-card, .contact-form-container {
+        padding: 25px 20px;
+    }
+    
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .contact-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+        align-self: center;
+    }
+    
+    .btn-submit {
+        width: 100%;
+        justify-content: center;
     }
 }

@@ -37,6 +37,10 @@
 
 .contact-form {
     flex: 1;
+    background-color: var(--white); /* Fond blanc */
+    border-radius: 30px; /* Coins arrondis */
+    padding: 30px; /* Espacement intérieur */
+    box-shadow: var(--shadow); /* Ombre pour donner de la profondeur */
 }
 
 .form-group {
@@ -52,13 +56,42 @@
 .form-control {
     width: 100%;
     padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border: 1px solid #F0F0F0;
+    border-radius: 30px;
     font-family: 'Aria Text G1 Regular', sans-serif;
-    font-size: 1rem;
+    font-size: 1.0rem;
+    background-color: #F0F0F0;
+}
+
+.form-control::placeholder {
+    color: #c1c1c1; /* Couleur plus claire pour le placeholder */
+    opacity: 1; /* Assure la visibilité sur tous les navigateurs */
 }
 
 textarea.form-control {
     min-height: 150px;
     resize: vertical;
+}
+
+.map-container {
+    height: 250px;
+    margin-top: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Nouveau style pour réduire la largeur du bouton */
+.contact-form .btn {
+    width: auto; /* Permet au bouton de s'adapter à son contenu */
+    min-width: 180px; /* Largeur minimale réduite */
+    margin: 0 auto; /* Centre le bouton */
+    display: inline-flex;
+    justify-content: center;
 }

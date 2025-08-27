@@ -84,11 +84,13 @@
 .price-tag {
     background-color: #FDF7F3;
     padding: 8px 20px 8px 30px;  
-    box-shadow: var(--shadow);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12); /* ombre plus grande et plus foncée */
     position: relative;
     display: inline-block;
     margin-bottom: 10px;
+    border-radius: 10px;
 }
+
 
 .price-tag::before {
     content: '';

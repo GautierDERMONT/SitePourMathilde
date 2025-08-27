@@ -41,6 +41,7 @@ header {
     transition: var(--transition);
     position: relative;
     padding: 5px 0;
+    color: #225A5F;
 }
 
 .nav-menu a::after {
@@ -50,7 +51,7 @@ header {
     left: 50%;
     width: 0;
     height: 2px;
-    background-color: var(--primary-color);
+    background-color: #EDB183;
     transition: var(--transition);
     transform: translateX(-50%);
 }
