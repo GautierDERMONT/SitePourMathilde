@@ -516,6 +516,24 @@
     }
 }
 
+/* Correction responsive pour la flèche de la timeline */
+@media (max-width: 992px) {
+    .timeline::after {
+        top: auto;
+        bottom: -10px;
+        right: 94.7%;
+        transform: translateX(50%) rotate(135deg);
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline::after {
+        bottom: -8px;
+        width: 8px;
+        height: 8px;
+    }
+}
+
 @media (max-width: 992px) {
     .contact-container {
         display: flex;

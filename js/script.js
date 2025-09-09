@@ -63,7 +63,7 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Animation on scroll
+// Animation on scroll - EXCLURE les éléments déjà gérés par recettes.js
 function animateOnScroll() {
     const elements = document.querySelectorAll('.service-card, .pricing-card, .about-content, .contact-container, .timeline-item');
     
@@ -74,7 +74,6 @@ function animateOnScroll() {
         if (elementPosition < screenPosition) {
             element.style.opacity = 1;
             element.style.transform = 'translateY(0)';
-            // Ajout spécifique pour les éléments de timeline
             if (element.classList.contains('timeline-item')) {
                 element.classList.add('visible');
             }
@@ -82,11 +81,14 @@ function animateOnScroll() {
     });
 }
 
-// Initialize elements for animation
+// Initialize elements for animation - EXCLURE les recette-card
 document.querySelectorAll('.service-card, .pricing-card, .about-content, .contact-container, .timeline-item').forEach(element => {
-    element.style.opacity = 0;
-    element.style.transform = 'translateY(20px)';
-    element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    // Ne pas initialiser les recette-card qui sont déjà gérées par recettes.js
+    if (!element.classList.contains('recette-card')) {
+        element.style.opacity = 0;
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    }
 });
 
 // Listen for scroll events

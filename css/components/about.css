@@ -1,9 +1,17 @@
 /* About Section */
+
+.about-section {
+    padding: 50px 0;
+    background-color: #FDF7F3; /* Nouvel arrière-plan */
+}
+
 .about-content {
     display: flex;
     align-items: center;
     gap: 50px;
 }
+
+
 
 .about-image {
     flex: 1;
@@ -76,12 +84,26 @@
     left: 50%;
     width: 10px;
     height: 10px;
-    background: #F9EBE7;
+    background: #FDF7F3;
     border: 4px solid #EDB183;
     border-radius: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
    
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    width: 8px;
+    height: 8px;
+    background-color: transparent;
+    border-top: 4px solid #EDB183;
+    border-right: 4px solid #EDB183;
+    border-radius: 2px;
+    transform: translateY(-50%) rotate(45deg);
+    z-index: 2;
 }
 
 .timeline-date {

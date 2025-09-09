@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recettes - Mathilde JOYEUX - Diététicienne Nutritionniste</title>
+    <link rel="icon" type="image/x-icon" href="../images/icon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/components/recettes.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo"><img src="../images/LogoMat.png" alt="Mathilde JOYEUX Diététicienne"></a>
+            <div class="menu-toggle">
+                <svg width="40" height="40" viewBox="0 0 100 100">
+                    <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                    <path class="line line2" d="M 20,50 H 80" />
+                    <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                </svg>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="recettes.html" class="active">Recettes</a></li>
+                <li><a href="tarifs.html">Tarifs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+
+    <!-- Recettes Section -->
+    <section class="recettes-section section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mes recettes santé</h2>
+                <p>Des plats simples, nutritifs et délicieux pour toutes les occasions</p>
+            </div>
+
+            <!-- Filtres de catégories -->
+            <div class="recettes-filters">
+                <button class="filter-btn active" data-filter="all" style="display: none;"></button>
+                <button class="filter-btn" data-filter="petit-dejeuner">Petit-déjeuner</button>
+                <button class="filter-btn" data-filter="dejeuner">Déjeuner</button>
+                <button class="filter-btn" data-filter="diner">Dîner</button>
+                <button class="filter-btn" data-filter="collation">Collations</button>
+                <button class="filter-btn" data-filter="dessert">Desserts</button>
+            </div>
+
+            <!-- Grille de recettes -->
+            <div class="recettes-grid">
+                <!-- Recette 1 -->
+                <article class="recette-card" data-category="petit-dejeuner">
+                    <div class="recette-image">
+                        <img src="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'&gt;&lt;rect width='400' height='300' fill='%23F9EBE7'/&gt;&lt;text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%23333'&gt;Bowl petit-déjeuner&lt;/text&gt;&lt;/svg&gt;" alt="Bowl petit-déjeuner">
+                        <div class="recette-category">Petit-déjeuner</div>
+                    </div>
+                    <div class="recette-content">
+                        <h3>Bowl petit-déjeuner énergétique</h3>
+                        <p>Un mélange de flocons d'avoine, fruits frais et graines pour bien commencer la journée.</p>
+                        <div class="recette-meta">
+                            <span class="recette-time">15 min</span>
+                            <span class="recette-difficulty">Facile</span>
+                        </div>
+                        <a href="#" class="btn recette-btn">Voir la recette</a>
+                    </div>
+                </article>
+
+                <!-- Recette 2 -->
+                <article class="recette-card" data-category="dejeuner">
+                    <div class="recette-image">
+                        <img src="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'&gt;&lt;rect width='400' height='300' fill='%23F9EBE7'/&gt;&lt;text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%23333'&gt;Salade complète&lt;/text&gt;&lt;/svg&gt;" alt="Salade complète">
+                        <div class="recette-category">Déjeuner</div>
+                    </div>
+                    <div class="recette-content">
+                        <h3>Salade complète aux légumes de saison</h3>
+                        <p>Une salade équilibrée avec des légumes croquants, des protéines et une vinaigrette maison.</p>
+                        <div class="recette-meta">
+                            <span class="recette-time">20 min</span>
+                            <span class="recette-difficulty">Facile</span>
+                        </div>
+                        <a href="#" class="btn recette-btn">Voir la recette</a>
+                    </div>
+                </article>
+
+                <!-- Recette 3 -->
+                <article class="recette-card" data-category="diner">
+                    <div class="recette-image">
+                        <img src="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'&gt;&lt;rect width='400' height='300' fill='%23F9EBE7'/&gt;&lt;text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%23333'&gt;Curry végétarien&lt;/text&gt;&lt;/svg&gt;" alt="Curry végétarien">
+                        <div class="recette-category">Dîner</div>
+                    </div>
+                    <div class="recette-content">
+                        <h3>Curry de légumes et pois chiches</h3>
+                        <p>Un plat réconfortant et épicé, riche en protéines végétales et en saveurs.</p>
+                        <div class="recette-meta">
+                            <span class="recette-time">35 min</span>
+                            <span class="recette-difficulty">Moyen</span>
+                        </div>
+                        <a href="#" class="btn recette-btn">Voir la recette</a>
+                    </div>
+                </article>
+
+                <!-- Recette 4 -->
+                <article class="recette-card" data-category="collation">
+                    <div class="recette-image">
+                        <img src="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'&gt;&lt;rect width='400' height='300' fill='%23F9EBE7'/&gt;&lt;text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%23333'&gt;Energy balls&lt;/text&gt;&lt;/svg&gt;" alt="Energy balls">
+                        <div class="recette-category">Collation</div>
+                    </div>
+                    <div class="recette-content">
+                        <h3>Energy balls aux fruits secs</h3>
+                        <p>Des boules énergétiques sans cuisson, parfaites pour un encas healthy et gourmand.</p>
+                        <div class="recette-meta">
+                            <span class="recette-time">10 min</span>
+                            <span class="recette-difficulty">Facile</span>
+                        </div>
+                        <a href="#" class="btn recette-btn">Voir la recette</a>
+                    </div>
+                </article>
+
+                <!-- Recette 5 -->
+                <article class="recette-card" data-category="dessert">
+                    <div class="recette-image">
+                        <img src="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'&gt;&lt;rect width='400' height='300' fill='%23F9EBE7'/&gt;&lt;text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%23333'&gt;Mousse chocolat&lt;/text&gt;&lt;/svg&gt;" alt="Mousse au chocolat">
+                        <div class="recette-category">Dessert</div>
+                    </div>
+                    <div class="recette-content">
+                        <h3>Mousse au chocolat allégée</h3>
+                        <p>Une mousse onctueuse au chocolat, légère en sucre mais riche en goût.</p>
+                        <div class="recette-meta">
+                            <span class="recette-time">15 min + repos</span>
+                            <span class="recette-difficulty">Facile</span>
+                        </div>
+                        <a href="#" class="btn recette-btn">Voir la recette</a>
+                    </div>
+                </article>
+
+                <!-- Recette 6 -->
+                <article class="recette-card" data-category="dejeuner">
+                    <div class="recette-image">
+                        <img src="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'&gt;&lt;rect width='400' height='300' fill='%23F9EBE7'/&gt;&lt;text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%23333'&gt;Wrap healthy&lt;/text&gt;&lt;/svg&gt;" alt="Wrap healthy">
+                        <div class="recette-category">Déjeuner</div>
+                    </div>
+                    <div class="recette-content">
+                        <h3>Wraps légers aux crudités</h3>
+                        <p>Des wraps colorés et croquants, parfaits pour un déjeuner sur le pouce.</p>
+                        <div class="recette-meta">
+                            <span class="recette-time">15 min</span>
+                            <span class="recette-difficulty">Facile</span>
+                        </div>
+                        <a href="#" class="btn recette-btn">Voir la recette</a>
+                    </div>
+                </article>
+            </div>
+
+        
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>Nutrition & Équilibre</h4>
+                    <p>Votre diététicienne nutritionniste pour une alimentation saine et équilibrée, adaptée à vos besoins.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="recettes.html">Recettes</a></li>
+                        <li><a href="tarifs.html">Tarifs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Horaires</h4>
+                    <ul>
+                        <li>Lundi-Vendredi: 9h-19h</li>
+                        <li>Samedi: 10h-16h</li>
+                        <li>Dimanche: Fermé</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Réseaux sociaux</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.280.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.370-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Mathilde JOYEUX - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/recettes.js"></script>
+</body>
+</html>
