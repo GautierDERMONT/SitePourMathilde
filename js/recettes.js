@@ -4,11 +4,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const recetteCards = document.querySelectorAll('.recette-card');
     let activeFilter = 'all';
 
-    // Initialiser l'animation pour toutes les recette-card
+    // Initialiser l'animation pour les recette-card qui ne sont pas visibles initialement
     recetteCards.forEach(card => {
-        card.style.opacity = 0;
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.8s ease, transform 0.8s ease, display 0.3s ease';
+        const cardPosition = card.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight;
+        
+        if (cardPosition > screenPosition) {
+            // Carte hors de la vue initiale - initialiser l'animation
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.8s ease, transform 0.8s ease, display 0.3s ease';
+        } else {
+            // Carte déjà visible - pas d'animation
+            card.style.opacity = 1;
+            card.style.transform = 'translateY(0)';
+            card.style.transition = 'display 0.3s ease';
+        }
     });
 
     // Fonction d'animation pour les cartes de recettes
@@ -84,22 +95,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Gestion du formulaire newsletter
-    const newsletterForm = document.querySelector('.newsletter-form');
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const emailInput = this.querySelector('input[type="email"]');
-            alert(`Merci de vous être inscrit à notre newsletter avec l'adresse: ${emailInput.value}`);
-            emailInput.value = '';
-        });
-    }
-    
-    // Bouton "Voir plus de recettes"
-    const loadMoreBtn = document.querySelector('.load-more-btn');
-    if (loadMoreBtn) {
-        loadMoreBtn.addEventListener('click', function() {
-            alert('Fonctionnalité "Voir plus" à implémenter selon vos besoins.');
-        });
-    }
+
 });

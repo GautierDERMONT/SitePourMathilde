@@ -8,7 +8,7 @@
 
 :root {
     --primary-color:#1E555C;
-    --secondary-color: #FF9800;
+    --secondary-color: #EDB183;
     --light-color: #FDF7F3;
     --dark-color: #333;
     --text-color: #555;
@@ -189,7 +189,7 @@ img {
 }
 
 .section-title p {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     max-width: 700px;
     margin: 0 auto;
 }

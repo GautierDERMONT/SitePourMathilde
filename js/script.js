@@ -63,9 +63,14 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Animation on scroll - EXCLURE les éléments déjà gérés par recettes.js
+// Animation on scroll - EXCLURE les éléments déjà visibles à l'écran sur les pages spécifiques
 function animateOnScroll() {
     const elements = document.querySelectorAll('.service-card, .pricing-card, .about-content, .contact-container, .timeline-item');
+    
+    // Vérifier si nous sommes sur une page où on veut désactiver les animations initiales
+    const isTargetPage = window.location.pathname.includes('recettes') || 
+                         window.location.pathname.includes('tarifs') || 
+                         window.location.pathname.includes('contact');
     
     elements.forEach(element => {
         const elementPosition = element.getBoundingClientRect().top;
@@ -81,15 +86,65 @@ function animateOnScroll() {
     });
 }
 
-// Initialize elements for animation - EXCLURE les recette-card
+// Initialize elements for animation - EXCLURE les éléments déjà visibles sur les pages spécifiques
 document.querySelectorAll('.service-card, .pricing-card, .about-content, .contact-container, .timeline-item').forEach(element => {
-    // Ne pas initialiser les recette-card qui sont déjà gérées par recettes.js
-    if (!element.classList.contains('recette-card')) {
+    // Vérifier si nous sommes sur une page cible
+    const isTargetPage = window.location.pathname.includes('recettes') || 
+                         window.location.pathname.includes('tarifs') || 
+                         window.location.pathname.includes('contact');
+    
+    if (isTargetPage) {
+        // Sur les pages cibles, vérifier si l'élément est déjà visible
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight;
+        
+        if (elementPosition > screenPosition) {
+            // Élément hors de la vue initiale - initialiser l'animation
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        } else {
+            // Élément déjà visible - pas d'animation
+            element.style.opacity = 1;
+            element.style.transform = 'translateY(0)';
+            element.style.transition = 'none';
+        }
+    } else {
+        // Sur les autres pages, garder l'animation normale
         element.style.opacity = 0;
         element.style.transform = 'translateY(20px)';
         element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
     }
 });
+
+
+// Hero background carousel functionality
+function initHeroCarousel() {
+    const heroSection = document.querySelector('.hero');
+    if (!heroSection) return;
+    
+    const slides = document.querySelectorAll('.hero-bg-slide');
+    if (slides.length === 0) return;
+    
+    let currentSlide = 0;
+    
+    function showNextSlide() {
+        // Masquer la slide actuelle
+        slides[currentSlide].classList.remove('active');
+        
+        // Passer à la slide suivante
+        currentSlide = (currentSlide + 1) % slides.length;
+        
+        // Afficher la nouvelle slide
+        slides[currentSlide].classList.add('active');
+    }
+    
+    // Changer de slide toutes les 5 secondes
+    setInterval(showNextSlide, 5000);
+}
+
+// Initialiser le carrousel au chargement de la page
+document.addEventListener('DOMContentLoaded', initHeroCarousel);
 
 // Listen for scroll events
 window.addEventListener('scroll', animateOnScroll);

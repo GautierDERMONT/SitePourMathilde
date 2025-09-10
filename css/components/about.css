@@ -1,25 +1,62 @@
-/* About Section */
-
+/* About Section - Version modernisée */
 .about-section {
     padding: 50px 0;
-    background-color: #FDF7F3; /* Nouvel arrière-plan */
+    background-color: #F9EBE7;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+    z-index: 0;
 }
 
 .about-content {
     display: flex;
     align-items: center;
-    gap: 50px;
+    gap: 60px;
+    position: relative;
+    z-index: 1;
 }
-
-
 
 .about-image {
     flex: 1;
+    position: relative;
 }
 
 .about-image img {
+    width: 100%;
     border-radius: 20px;
-    box-shadow: var(--shadow);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+   
+}
+
+
+
+.about-image::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #EDB183;
+    border-radius: 20px;
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+
+.about-image:hover::after {
+    bottom: -15px;
+    left: -15px;
 }
 
 .about-text {
@@ -27,13 +64,68 @@
 }
 
 .about-text h3 {
-    font-size: 2rem;
-    color: var(--dark-color);
-    margin-bottom: 20px;
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    position: relative;
+    display: inline-block;
 }
 
+/* Style spécifique pour le titre "Diététicienne Nutritionniste" - Taille augmentée */
+.about-text h3.special-title {
+    font-size: 1.6rem !important;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+
 .about-text p {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-color), #3C8189);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    box-shadow: 0 5px 15px rgba(30, 85, 92, 0.2);
+}
+
+.feature-content h4 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: var(--dark-color);
+}
+
+.feature-content p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    color: var(--text-color);
 }
 
 /* Timeline Section - Version améliorée */
@@ -41,7 +133,7 @@
     position: relative;
     display: flex;
     justify-content: space-between;
-    margin: 60px 0;
+    margin: 80px 0;
     padding: 0 20px;
 }
 
@@ -52,19 +144,10 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: #EDB183;
+    background: #B81329;
     transform: translateY(-50%);
     z-index: 1;
     border-radius: 5px;
-}
-
-
-
-/* Style spécifique pour le titre "Diététicienne" dans la section about */
-.about-text h3.special-title {
-    font-size: 1.6rem !important;
-    margin-bottom: 20px;
-    font-weight: bold;
 }
 
 .timeline-item {
@@ -82,14 +165,14 @@
     position: absolute;
     top: 0%;
     left: 50%;
-    width: 10px;
-    height: 10px;
-    background: #FDF7F3;
-    border: 4px solid #EDB183;
+    width: 14px;
+    height: 14px;
+    background: #F9EBE7;
+    border: 4px solid var(--primary-color);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
-   
+    box-shadow: 0 0 0 5px rgba(30, 85, 92, 0.1);
 }
 
 .timeline::after {
@@ -99,48 +182,178 @@
     width: 8px;
     height: 8px;
     background-color: transparent;
-    border-top: 4px solid #EDB183;
-    border-right: 4px solid #EDB183;
+    border-top: 4px solid #B81329;
+    border-right: 4px solid #B81329;
     border-radius: 2px;
     transform: translateY(-50%) rotate(45deg);
     z-index: 2;
 }
 
 .timeline-date {
-    background-color: #EDB183;
+    background-color: var(--primary-color);
     top: 6%;
     color: var(--white);
-    padding: 8px 15px;
-    border-radius: 20px;
+    padding: 10px 20px;
+    border-radius: 30px;
     font-weight: 600;
-    margin: 0 auto 15px;
+    margin: 0 auto 20px;
     width: fit-content;
     position: relative;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    box-shadow: 0 5px 15px rgba(30, 85, 92, 0.3);
 }
 
 .timeline-content {
     background-color: var(--white);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: var(--shadow);
-    margin-top: 25px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    margin-top: 30px;
+    transition: transform 0.3s ease;
 }
 
-/* Style spécifique pour les titres de diplômes dans la timeline */
+.timeline-content:hover {
+    transform: translateY(-5px);
+}
+
 .timeline-content h3 {
-    font-size: 1rem !important;
+    font-size: 1.1rem !important;
     font-weight: 600;
     color: var(--primary-color);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .timeline-content p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--text-color);
 }
 
 .timeline-item.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .about-text, .about-image {
+        flex: none;
+        width: 100%;
+    }
+    
+    .about-image {
+        margin-bottom: 40px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 60px 0 20px 40px;
+        margin: 60px 0;
+    }
+    
+    .timeline::before {
+        top: 0;
+        left: 20px;
+        width: 4px;
+        height: 100%;
+        transform: translateX(0);
+    }
+    
+    .timeline-item {
+        width: 100%;
+        margin-bottom: 40px;
+        text-align: left;
+        display: block;
+        padding-top: 0;
+        padding-left: 0;
+    }
+    
+    .timeline-item::before {
+        top: 25px;
+        left: -35px;
+        transform: none;
+    }
+    
+    .timeline-date {
+        margin-left: 10px;
+        margin-bottom: 15px;
+        position: static;
+        display: inline-block;
+    }
+    
+    .timeline-content {
+        margin-top: 15px;
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        padding: 60px 0;
+    }
+    
+    .about-text h3 {
+        font-size: 1.8rem;
+    }
+    
+    .feature-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .feature-icon {
+        align-self: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-text h3 {
+        font-size: 1.6rem;
+    }
+    
+    .timeline {
+        padding-left: 25px;
+    }
+    
+    .timeline-item::before {
+        left: -16px;
+        width: 12px;
+        height: 12px;
+    }
+    
+    .timeline::before {
+        left: 15px;
+    }
+}
+
+@media (max-width: 992px) {
+    .timeline::after {
+        top: auto;
+        bottom: -10px;
+        right: 94.7%;
+        transform: translateX(50%) rotate(135deg);
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline::after {
+        bottom: -8px;
+        width: 8px;
+        height: 8px;
+    }
 }

@@ -204,9 +204,7 @@
         margin: 5px 15px;
     }
     
-    .hero {
-        padding-top: 120px;
-    }
+    
 }
 
 @media (max-width: 768px) {
@@ -371,7 +369,7 @@
     }
     
     h2 {
-        font-size: 1.7rem !important;
+        font-size: 2rem !important;
     }
     
     h4 {
@@ -479,7 +477,10 @@
     
     .timeline-content {
         margin-top: 10px;
+        margin-left: 10px; /* Décalage supplémentaire */
     }
+
+    
 }
 
 @media (max-width: 768px) {
@@ -493,6 +494,7 @@
     
     .timeline-content {
         padding: 15px;
+        margin-left: 20px; /* Décalage supplémentaire */
     }
     
     .timeline-content h3 {
