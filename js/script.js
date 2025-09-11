@@ -119,6 +119,7 @@ document.querySelectorAll('.service-card, .pricing-card, .about-content, .contac
 
 
 // Hero background carousel functionality
+// Hero background carousel functionality - VERSION CORRIGÉE
 function initHeroCarousel() {
     const heroSection = document.querySelector('.hero');
     if (!heroSection) return;
@@ -128,15 +129,29 @@ function initHeroCarousel() {
     
     let currentSlide = 0;
     
+    // Initialiser toutes les slides comme invisibles sauf la première
+    slides.forEach((slide, index) => {
+        if (index !== 0) {
+            slide.style.opacity = 0;
+        } else {
+            slide.style.opacity = 1;
+            slide.classList.add('active');
+        }
+    });
+    
     function showNextSlide() {
-        // Masquer la slide actuelle
+        // Masquer la slide actuelle avec transition
+        slides[currentSlide].style.opacity = 0;
         slides[currentSlide].classList.remove('active');
         
         // Passer à la slide suivante
         currentSlide = (currentSlide + 1) % slides.length;
         
-        // Afficher la nouvelle slide
-        slides[currentSlide].classList.add('active');
+        // Afficher la nouvelle slide avec transition
+        setTimeout(() => {
+            slides[currentSlide].style.opacity = 1;
+            slides[currentSlide].classList.add('active');
+        }, 50); // Petit délai pour permettre la transition
     }
     
     // Changer de slide toutes les 5 secondes

@@ -1,28 +1,8 @@
-// Filtrage des recettes par catégorie avec fonctionnalité toggle
 document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const recetteCards = document.querySelectorAll('.recette-card');
     let activeFilter = 'all';
 
-    // Initialiser l'animation pour les recette-card qui ne sont pas visibles initialement
-    recetteCards.forEach(card => {
-        const cardPosition = card.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight;
-        
-        if (cardPosition > screenPosition) {
-            // Carte hors de la vue initiale - initialiser l'animation
-            card.style.opacity = 0;
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'opacity 0.8s ease, transform 0.8s ease, display 0.3s ease';
-        } else {
-            // Carte déjà visible - pas d'animation
-            card.style.opacity = 1;
-            card.style.transform = 'translateY(0)';
-            card.style.transition = 'display 0.3s ease';
-        }
-    });
-
-    // Fonction d'animation pour les cartes de recettes
     function animateRecettes() {
         recetteCards.forEach(card => {
             if (card.style.display !== 'none') {
@@ -37,26 +17,71 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Animation initiale au chargement
+    document.querySelectorAll('.recette-card').forEach(card => {
+            const cardPosition = card.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight;
+            
+            if (cardPosition > screenPosition) {
+                // Seulement animer les cartes hors de l'écran
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            }
+        });
+
     setTimeout(animateRecettes, 100);
     
-    // Écouter le défilement pour animer les cartes au fur et à mesure
     window.addEventListener('scroll', animateRecettes);
 
-    // Gestion des filtres
+    recetteCards.forEach((card, index) => {
+        card.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A' || e.target.closest('a')) return;
+            
+            const recetteId = 'recette' + (index + 1);
+            const recette = recettesData[recetteId];
+            
+            if (recette) {
+                document.getElementById('modal-title').textContent = recette.title;
+                document.getElementById('modal-category').textContent = recette.category;
+                document.getElementById('modal-image').src = recette.image;
+                document.getElementById('modal-image').alt = recette.title;
+                document.getElementById('modal-calories').textContent = recette.calories;
+                document.getElementById('modal-protein').textContent = recette.protein;
+                document.getElementById('modal-carbs').textContent = recette.carbs;
+                document.getElementById('modal-fat').textContent = recette.fat;
+                
+                const ingredientsList = document.getElementById('modal-ingredients');
+                ingredientsList.innerHTML = '';
+                recette.ingredients.forEach(ingredient => {
+                    const li = document.createElement('li');
+                    li.textContent = ingredient;
+                    ingredientsList.appendChild(li);
+                });
+                
+                const instructionsList = document.getElementById('modal-instructions');
+                instructionsList.innerHTML = '';
+                recette.instructions.forEach(instruction => {
+                    const li = document.createElement('li');
+                    li.textContent = instruction;
+                    instructionsList.appendChild(li);
+                });
+                
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
             const filterValue = this.getAttribute('data-filter');
             
-            // Si on clique sur le filtre déjà actif, on réinitialise à "all"
             if (filterValue === activeFilter && filterValue !== 'all') {
-                // Activer le filtre "all" à la place
                 const allButton = document.querySelector('.filter-btn[data-filter="all"]');
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 allButton.classList.add('active');
                 activeFilter = 'all';
                 
-                // Afficher toutes les recettes
                 recetteCards.forEach(card => {
                     card.style.display = 'flex';
                     setTimeout(() => {
@@ -65,12 +90,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     }, 10);
                 });
             } else {
-                // Appliquer le nouveau filtre
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 this.classList.add('active');
                 activeFilter = filterValue;
                 
-                // Filtrer les recettes
                 recetteCards.forEach(card => {
                     const cardCategory = card.getAttribute('data-category');
                     
@@ -90,12 +113,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
             
-            // Réanimer les cartes après le filtrage
             setTimeout(animateRecettes, 50);
         });
     });
 
-        // Données des recettes (normalement viendraient d'une base de données)
     const recettesData = {
         "recette1": {
             title: "Bowl petit-déjeuner énergétique",
@@ -229,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "Séparer les blancs des jaunes d'œufs.",
                 "Mélanger les jaunes avec le sucre de coco jusqu'à ce que le mélange blanchisse.",
                 "Incorporer le chocolat fondu refroidi.",
-                "Monter les blancs en neige ferme avec une pincée de sel.",
+                "Monter les blancs en neige ferme avec une pincée de salt.",
                 "Incorporer délicatement les blancs en neige au mélange chocolat.",
                 "Répartir dans des verrines et réfrigérer au moins 4 heures.",
                 "Décorer avec des framboises avant de servir."
@@ -265,12 +286,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // Gestion des modals
     const modal = document.getElementById('recette-modal');
     const closeModal = document.querySelector('.close-modal');
     const recetteButtons = document.querySelectorAll('.recette-btn');
 
-    // Ouvrir le modal avec les données de la recette
     recetteButtons.forEach((button, index) => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
@@ -287,7 +306,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('modal-carbs').textContent = recette.carbs;
                 document.getElementById('modal-fat').textContent = recette.fat;
                 
-                // Ajouter les ingrédients
                 const ingredientsList = document.getElementById('modal-ingredients');
                 ingredientsList.innerHTML = '';
                 recette.ingredients.forEach(ingredient => {
@@ -296,7 +314,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     ingredientsList.appendChild(li);
                 });
                 
-                // Ajouter les instructions
                 const instructionsList = document.getElementById('modal-instructions');
                 instructionsList.innerHTML = '';
                 recette.instructions.forEach(instruction => {
@@ -305,20 +322,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     instructionsList.appendChild(li);
                 });
                 
-                // Afficher le modal
                 modal.style.display = 'block';
-                document.body.style.overflow = 'hidden'; // Empêcher le défilement
+                document.body.style.overflow = 'hidden';
             }
         });
     });
 
-    // Fermer le modal
     closeModal.addEventListener('click', () => {
         modal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Réactiver le défilement
+        document.body.style.overflow = 'auto';
     });
 
-    // Fermer le modal en cliquant à l'extérieur
     window.addEventListener('click', (e) => {
         if (e.target === modal) {
             modal.style.display = 'none';
@@ -326,13 +340,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Fermer le modal avec la touche Échap
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.style.display === 'block') {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
     });
-    
-
 });
