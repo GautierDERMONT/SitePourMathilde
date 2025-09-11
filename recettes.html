@@ -31,6 +31,55 @@
         </div>
     </header>
 
+            <!-- Modals pour les recettes -->
+        <div class="recette-modal" id="recette-modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="modal-header">
+                    <h3 id="modal-title"></h3>
+                    <div class="modal-category" id="modal-category"></div>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-image">
+                        <img id="modal-image" src="" alt="">
+                    </div>
+                    <div class="modal-details">
+                        <div class="nutrition-info">
+                            <h4>Informations nutritionnelles</h4>
+                            <div class="nutrition-grid">
+                                <div class="nutrition-item">
+                                    <span class="nutrition-value" id="modal-calories"></span>
+                                    <span class="nutrition-label">Calories</span>
+                                </div>
+                                <div class="nutrition-item">
+                                    <span class="nutrition-value" id="modal-protein"></span>
+                                    <span class="nutrition-label">Protéines</span>
+                                </div>
+                                <div class="nutrition-item">
+                                    <span class="nutrition-value" id="modal-carbs"></span>
+                                    <span class="nutrition-label">Glucides</span>
+                                </div>
+                                <div class="nutrition-item">
+                                    <span class="nutrition-value" id="modal-fat"></span>
+                                    <span class="nutrition-label">Lipides</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="ingredients-section">
+                            <h4>Ingrédients</h4>
+                            <ul id="modal-ingredients"></ul>
+                        </div>
+                        
+                        <div class="instructions-section">
+                            <h4>Instructions</h4>
+                            <ol id="modal-instructions"></ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     <!-- Recettes Section -->
     <section class="recettes-section section">
