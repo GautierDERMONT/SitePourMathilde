@@ -11,11 +11,20 @@ if (menuToggle && navMenu) {
 
 // Close menu when clicking on a link
 document.querySelectorAll('.nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', (e) => {
+        // Empêcher le comportement par défaut qui pourrait causer des problèmes
+        e.preventDefault();
+        
         if (menuToggle && navMenu) {
             menuToggle.classList.remove('active');
             navMenu.classList.remove('active');
         }
+        
+        // Navigation manuelle après un court délai
+        const targetUrl = link.getAttribute('href');
+        setTimeout(() => {
+            window.location.href = targetUrl;
+        }, 300);
     });
 });
 
@@ -118,7 +127,6 @@ document.querySelectorAll('.service-card, .pricing-card, .about-content, .contac
 });
 
 
-// Hero background carousel functionality
 // Hero background carousel functionality - VERSION CORRIGÉE
 function initHeroCarousel() {
     const heroSection = document.querySelector('.hero');
@@ -133,6 +141,7 @@ function initHeroCarousel() {
     slides.forEach((slide, index) => {
         if (index !== 0) {
             slide.style.opacity = 0;
+            slide.classList.remove('active');
         } else {
             slide.style.opacity = 1;
             slide.classList.add('active');
@@ -157,6 +166,107 @@ function initHeroCarousel() {
     // Changer de slide toutes les 5 secondes
     setInterval(showNextSlide, 5000);
 }
+
+
+
+
+// Navigation background carousel functionality - VERSION CORRIGÉE
+function initNavigationCarousel() {
+    const navigationSection = document.querySelector('.navigation-section');
+    if (!navigationSection) return;
+    
+    const slides = document.querySelectorAll('.navigation-bg-slide');
+    if (slides.length === 0) return;
+    
+    let currentSlide = 0;
+    
+    // Initialiser toutes les slides comme invisibles sauf la première
+    slides.forEach((slide, index) => {
+        if (index !== 0) {
+            slide.style.opacity = 0;
+            slide.classList.remove('active');
+        } else {
+            slide.style.opacity = 1;
+            slide.classList.add('active');
+        }
+    });
+    
+    function showNextSlide() {
+        // Masquer la slide actuelle avec transition
+        slides[currentSlide].style.opacity = 0;
+        slides[currentSlide].classList.remove('active');
+        
+        // Passer à la slide suivante
+        currentSlide = (currentSlide + 1) % slides.length;
+        
+        // Afficher la nouvelle slide avec transition
+        setTimeout(() => {
+            slides[currentSlide].style.opacity = 1;
+            slides[currentSlide].classList.add('active');
+        }, 50);
+    }
+    
+    // Changer de slide toutes les 5 secondes
+    setInterval(showNextSlide, 5000);
+}
+
+// Lazy loading pour les images de fond
+function lazyLoadBackgroundImages() {
+    const backgroundSlides = document.querySelectorAll('[data-bg]');
+    
+    const loadImage = (slide) => {
+        const imageUrl = slide.getAttribute('data-bg');
+        const img = new Image();
+        
+        img.src = imageUrl;
+        img.onload = () => {
+            slide.style.backgroundImage = `url('${imageUrl}')`;
+            slide.classList.add('loaded');
+        };
+        
+        img.onerror = () => {
+            console.error(`Erreur de chargement de l'image: ${imageUrl}`);
+        };
+    };
+    
+    // Options pour l'Intersection Observer
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+    
+    // Callback pour l'Observer
+    const handleIntersection = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                loadImage(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+    
+    // Créer l'Observer et observer chaque slide
+    const observer = new IntersectionObserver(handleIntersection, options);
+    backgroundSlides.forEach(slide => {
+        observer.observe(slide);
+    });
+    
+    // Charger immédiatement la première slide active
+    const activeSlide = document.querySelector('.hero-bg-slide.active');
+    if (activeSlide && activeSlide.hasAttribute('data-bg')) {
+        loadImage(activeSlide);
+    }
+}
+
+// Appeler la fonction au chargement du DOM
+document.addEventListener('DOMContentLoaded', lazyLoadBackgroundImages);
+
+// Initialiser les deux carrousels au chargement de la page
+document.addEventListener('DOMContentLoaded', function() {
+    initHeroCarousel();
+    initNavigationCarousel();
+});
 
 // Initialiser le carrousel au chargement de la page
 document.addEventListener('DOMContentLoaded', initHeroCarousel);

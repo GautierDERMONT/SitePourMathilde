@@ -1,0 +1,387 @@
+/* Services Section */
+.services {
+    background-color: #EDB183;
+    padding: 30px 0; /* Réduction du padding */
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Réduction de la largeur minimale */
+    gap: 30px; /* Réduction de l'espacement entre les cartes */
+    padding: 15px 0; /* Réduction du padding */
+}
+
+.service-card {
+    background-color: var(--white);
+    padding: 12px; /* Réduction du padding */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Ombre plus légère */
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+    margin-bottom: 0; /* Suppression de la marge du bas */
+    transform: rotate(2deg) !important;
+}
+
+/* Bordure blanche à l'intérieur */
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 8px; /* Réduction de l'espace */
+    left: 8px; /* Réduction de l'espace */
+    right: 8px; /* Réduction de l'espace */
+    bottom: 8px; /* Réduction de l'espace */
+    border: 2px solid white;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.service-image {
+    height: 160px; /* Réduction de la hauteur */
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #f0f0f0;
+    margin-bottom: 5px; /* Réduction importante de l'espace sous l'image */
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.service-content {
+    padding: 10px 8px 8px; /* Réduction du padding (haut droite bas) */
+    text-align: left;
+    position: relative;
+    background: white;
+}
+
+.service-card h3 {
+    font-size: 1.2rem; /* Réduction de la taille de police */
+    margin: 3px 0 5px; /* Réduction importante des marges (haut droite bas) */
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 5px; /* Réduction de l'espace sous le titre */
+}
+
+.service-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px; /* Réduction de la largeur */
+    height: 2px;
+}
+
+/* Variations d'angle pour un effet plus naturel */
+.service-card:nth-child(2n) {
+    transform: rotate(-1deg) !important;
+}
+
+.service-card:nth-child(3n) {
+    transform: rotate(1.5deg) !important;
+}
+
+.service-card:nth-child(5n) {
+    transform: rotate(1.5deg)!important;
+}
+
+.service-card:nth-child(6n) {
+    transform: rotate(-1.5deg)!important;
+}
+
+.service-card:hover h3::after {
+    width: 60px; /* Réduction de la largeur au survol */
+}
+
+.service-card p {
+    color: var(--text-color);
+    line-height: 1.4; /* Réduction de l'interligne */
+    margin-top: 5px; /* Réduction de l'espace au-dessus du paragraphe */
+    margin-bottom: 3px; /* Réduction de l'espace sous le paragraphe */
+    font-size: 0.9rem; /* Réduction légère de la taille de police */
+}
+
+/* Légère ombre portée pour donner l'impression que le cadre est décollé */
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: 4px; /* Réduction de l'espace */
+    left: 4px; /* Réduction de l'espace */
+    right: 4px; /* Réduction de l'espace */
+    bottom: 4px; /* Réduction de l'espace */
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+}
+
+/* Accompaniments Section - Style modifié pour ressembler aux service-card */
+.accompaniments {
+    padding: 30px 0;
+    background-color: #EDB183;
+    margin-top: 0; /* Ajout pour supprimer la marge du haut */
+}
+
+/* Ajuster l'espacement interne des éléments à la place */
+.accompaniments .container {
+    padding-top: 40px;
+    padding-bottom: 160px;
+}
+
+.accompaniments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.accompaniment-item {
+   background-color: var(--white);
+    padding: 12px; /* Réduction du padding */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Ombre plus légère */
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+    margin-bottom: 0; /* Suppression de la marge du bas */
+    transform: rotate(2deg) !important;
+   
+}
+
+/* Bordure blanche à l'intérieur */
+.accompaniment-item::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border: 2px solid white;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Image d'accompagnement */
+.accompaniment-image {
+    height: 160px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #f0f0f0;
+    margin-bottom: 5px;
+}
+
+.accompaniment-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.accompaniment-content {
+    padding: 10px 8px 8px;
+    text-align: left;
+    position: relative;
+    background: white;
+}
+
+.accompaniment-item h3 {
+    color: var(--primary-color);
+    margin: 3px 0 5px;
+    font-size: 1.2rem;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.accompaniment-item p {
+    color: var(--text-color);
+    line-height: 1.4;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    font-size: 0.9rem;
+}
+
+/* Légère ombre portée pour donner l'impression que le cadre est décollé */
+.accompaniment-item::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+}
+
+/* Variations d'angle pour un effet plus naturel comme les service-card */
+.accompaniment-item:nth-child(2n) {
+    transform: rotate(-1deg) !important;
+}
+
+.accompaniment-item:nth-child(3n) {
+    transform: rotate(1.5deg) !important;
+}
+
+.accompaniment-item:nth-child(5n) {
+    transform: rotate(1.5deg) !important;
+}
+
+.accompaniment-item:nth-child(6n) {
+    transform: rotate(-1.5deg) !important;
+}
+
+/* Punaises uniquement pour les cartes de services */
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #d4af37 40%, #8b6914 90%);
+    border-radius: 50%;
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.3),
+        inset 2px 2px 2px rgba(255, 255, 255, 0.5),
+        inset -2px -2px 2px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+/* Position de base pour les punaises */
+.service-card {
+    position: relative;
+}
+
+/* Tête de la punaise */
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    z-index: 12;
+}
+
+/* Tige métallique (toujours gris brillant) */
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 15px;
+    background: linear-gradient(to bottom, #c0c0c0, #f0f0f0, #c0c0c0);
+    border-radius: 2px;
+    z-index: 11;
+}
+
+/* Variations de couleur pour la tête */
+.service-card:nth-child(3n+1)::before {
+    background: radial-gradient(circle, #ffd700 40%, #b8860b 90%); /* Or */
+}
+
+.service-card:nth-child(3n+2)::before {
+    background: radial-gradient(circle, #c0c0c0 40%, #808080 90%); /* Argent */
+}
+
+.service-card:nth-child(3n+3)::before {
+    background: radial-gradient(circle, #cd7f32 40%, #8c531c 90%); /* Bronze */
+}
+
+
+/* Effet de scotch washi tape uniquement pour les accompagnements */
+.accompaniment-item::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 60px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.7);
+    background-image: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 5px,
+            rgba(0, 0, 0, 0.1) 5px,
+            rgba(0, 0, 0, 0.1) 7px
+        );
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    border-radius: 2px;
+    opacity: 0.9;
+}
+
+/* Variations de couleur pour le scotch */
+.accompaniment-item:nth-child(3n+1)::before {
+    background-color: rgba(237, 177, 131, 0.7); /* Couleur corail */
+}
+
+.accompaniment-item:nth-child(3n+2)::before {
+    background-color: rgba(255, 240, 200, 0.7); /* Couleur crème */
+}
+
+.accompaniment-item:nth-child(3n+3)::before {
+    background-color: rgba(200, 230, 255, 0.7); /* Couleur bleu clair */
+}
+
+/* Effet d'ombre sous le scotch */
+.accompaniment-item::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 58px;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 9;
+    filter: blur(1px);
+}
+
+/* Ajustement pour les bords du scotch qui dépassent */
+.accompaniment-item {
+    overflow: visible;
+}
+
+/* Ajustement de la bordure blanche existante pour qu'elle ne soit pas cachée par le scotch */
+.accompaniment-item > .accompaniment-content {
+    z-index: 2;
+    position: relative;
+}
+
+.service-card {
+    overflow: visible;
+}
+
+.service-card > .service-content {
+    z-index: 2;
+    position: relative;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .accompaniments-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .services,
+    .accompaniments {
+        padding-bottom: 0 !important; /* Supprime l'espace en bas */
+    }
+
+    .services-grid,
+    .accompaniments-grid {
+        margin-bottom: 5 !important; /* évite marge sous la grille */
+    }
+    
+    .accompaniment-item {
+        padding: 20px;
+    }
+}

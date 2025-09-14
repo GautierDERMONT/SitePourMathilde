@@ -292,7 +292,7 @@
 @media (max-width: 480px) {
     .services-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 50px;
     }
     
     .service-image {
@@ -303,6 +303,9 @@
         transform: perspective(1000px) rotateY(3deg) rotateX(1deg);
     }
 }
+
+
+
 
 /* Adaptation responsive des tailles de titres */
 @media (max-width: 1200px) {

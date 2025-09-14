@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarifs - Mathilde JOYEUX</title>
+    <title>Prestations - Mathilde JOYEUX</title>
     <link rel="icon" type="image/x-icon" href="images/icon.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
@@ -13,6 +13,7 @@
 <body>
     <!-- Header -->
     <header>
+       
         <div class="container header-container">
             <a href="index.html" class="logo"><img src="images/LogoMat.png" alt="Mathilde JOYEUX Diététicienne"></a>
             <div class="menu-toggle">
@@ -24,52 +25,118 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html">Accueil</a></li>
-                <li><a href="prestations.html">Prestations</a></li>
+                <li><a href="prestations.html" class="active">Prestations</a></li>
                 <li><a href="recettes.html">Recettes</a></li>
-                <li><a href="tarifs.html" class="active">Tarifs</a></li>
+                <li><a href="tarifs.html">Tarifs</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </header>
 
-    <!-- Pricing Section -->
-    <section class="section">
+    <!-- prestations Section -->
+    <section class="section services">
         <div class="container">
             <div class="section-title">
-                <h2>Mes tarifs</h2>
-                <p>Des prestations adaptées à vos besoins et à votre budget</p>
+                <h2>Mes services</h2>
+                <p>Un accompagnement personnalisé selon vos besoins</p>
             </div>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Consultation de suivi</h3>
-                    <div class="price-tag">
-                        <div class="price">40 €</div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/bilan-nutritionnel.jpg" loading="lazy" alt="Bilan Nutritionnel">
                     </div>
-                    <ul class="pricing-features">
-                        <li>Évaluation des progrès</li>
-                        <li>Adaptation du programme</li>
-                        <li>Conseils et recommandations</li>
-                        <li>Réponses à vos questions</li>
-                        <li>Durée : 45min</li>
-                    </ul>
-                    <a href="contact.html" class="btn">Réserver</a>
+                    <div class="service-content">
+                        <h3>Bilan nutritionnel complet</h3>
+                        <p>Évaluation approfondie de vos habitudes alimentaires avec balance à impédancemétrie pour une analyse précise de votre composition corporelle.</p>
+                    </div>
                 </div>
-                <div class="pricing-card">
-                    <h3>Bilan de suivi</h3>
-                    <div class="price-tag">
-                        <div class="price">60 €</div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/suivi-personnalise.jpg" loading="lazy" alt="Suivi personnalisé">
                     </div>
-                    <ul class="pricing-features">
-                        <li>1 consultation initiale</li>
-                        <li>2 consultations de suivi</li>
-                        <li>Suivi personnalisé</li>
-                        <li>Accès téléphonique privilégié</li>
-                        <li>Economie de 20€</li>
-                    </ul>
-                    <a href="contact.html" class="btn">Réserver</a>
+                    <div class="service-content">
+                        <h3>Suivi personnalisé</h3>
+                        <p>Accompagnement régulier pour maintenir la motivation et adapter le programme en fonction de votre évolution.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/atelier-groupe.jpg" loading="lazy" alt="Atelier thérapeutique de groupe">
+                    </div>
+                    <div class="service-content">
+                        <h3>Atelier thérapeutique de groupe</h3>
+                        <p>Interventions au sein d'écoles et d'entreprises pour promouvoir une alimentation saine et équilibrée.</p>
+                    </div>
                 </div>
             </div>
-            <p style="text-align: center; margin-top: 30px; font-style: italic;">Les consultations peuvent être remboursées par certaines mutuelles. N'hésitez pas à vous renseigner.</p>
+        </div>
+    </section>
+
+    <!-- Accompaniments Section -->
+    <section class="section accompaniments" style="background-color: #FDF7F3;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mes accompagnements</h2>
+                <p>Spécialisations et domaines d'expertise</p>
+            </div>
+            <div class="accompaniments-grid">
+                <div class="accompaniment-item">
+                     <div class="accompaniment-image">
+                        <img src="images/ReeAli.jpg" loading="lazy" alt="Rééquilibrage alimentaire">
+                     </div>
+                    <h3>Rééquilibrage alimentaire</h3>
+                    <p>Pour prise de poids, perte de poids, ou amélioration des habitudes alimentaires.</p>
+                </div>
+                <div class="accompaniment-item">
+                     <div class="accompaniment-image">
+                        <img src="images/FemmeEnceinte.jpg" loading="lazy" alt="Alimentation de la femme enceinte et allaitante">
+                    </div>
+                    <h3>Alimentation de la femme enceinte et allaitante</h3>
+                    <p>Conseils nutritionnels adaptés aux besoins spécifiques de la grossesse et de l'allaitement.</p>
+                </div>
+                <div class="accompaniment-item">
+                     <div class="accompaniment-image">
+                        <img src="images/obesite.jpg" loading="lazy" alt="Surpoids et obésité">
+                    </div>
+                    <h3>Surpoids et obésité</h3>
+                    <p>Accompagnement personnalisé pour une gestion durable du poids.</p>
+                </div>
+                <div class="accompaniment-item">
+                     <div class="accompaniment-image">
+                        <img src="images/diabete.jpg" loading="lazy" alt="Diabète">
+                    </div>
+                    <h3>Diabète</h3>
+                    <p>Prise en charge nutritionnelle du diabète type 1, type 2 et gestationnel.</p>
+                </div>
+                <div class="accompaniment-item">
+                     <div class="accompaniment-image">
+                        <img src="images/coeur.jpg" loading="lazy" alt="Pathologies cardiovasculaires">
+                    </div>
+                    <h3>Pathologies cardiovasculaires</h3>
+                    <p>Accompagnement pour HTA, dyslipidémies, insuffisance cardiaque, IDM.</p>
+                </div>
+                <div class="accompaniment-item">
+                     <div class="accompaniment-image">
+                        <img src="images/denutrition.jpg" loading="lazy" alt="Dénutrition">
+                    </div>
+                    <h3>Dénutrition</h3>
+                    <p>Prise en charge nutritionnelle pour prévenir et traiter la dénutrition.</p>
+                </div>
+                <div class="accompaniment-item">
+                     <div class="accompaniment-image">
+                        <img src="images/IDDSI.png" loading="lazy" alt="Adaptation de texture (IDDSI)">
+                    </div>
+                    <h3>Adaptation de texture (IDDSI)</h3>
+                    <p>Solutions adaptées pour les troubles de la déglutition.</p>
+                </div>
+                <div class="accompaniment-item">
+                     <div class="accompaniment-image">
+                        <img src="images/digestives.jpg" loading="lazy" alt="Pathologies digestives">
+                    </div>
+                    <h3>Pathologies digestives</h3>
+                    <p>Prise en charge du SII, maladie cœliaque et autres troubles du transit.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -119,8 +186,8 @@
         </div>
     </section>
 
-    <!-- Footer (identique à l'index) -->
-   <footer>
+    <!-- Footer -->
+    <footer>
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col">
@@ -131,7 +198,8 @@
                     <h4>Liens rapides</h4>
                     <ul>
                         <li><a href="index.html">Accueil</a></li>
-                        <li><a href="prestations.html">Prestations</a></li>
+                        <li><a href="services.html">Prestations</a></li>
+                        <li><a href="recettes.html">Recettes</a></li>
                         <li><a href="tarifs.html">Tarifs</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>

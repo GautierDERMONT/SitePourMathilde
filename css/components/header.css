@@ -143,3 +143,15 @@ header {
     stroke-dashoffset: -134;
     stroke-width: 6;
 }
+
+/* Empêcher le zoom sur les éléments interactifs */
+.nav-menu a, .menu-toggle {
+  touch-action: manipulation;
+}
+
+/* Désactiver le zoom sur l'input pour iOS */
+@media screen and (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px; /* Empêche le zoom sur iOS */
+  }
+}
