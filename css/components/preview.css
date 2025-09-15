@@ -38,6 +38,7 @@
 .simple-nav-card:hover {
     transform: scale(1.05); /* Agrandissement de 5% au survol */
     z-index: 10; /* S'assurer que la carte agrandie est au-dessus des autres */
+    
 }
 
 /* Ajuster l'image pour qu'elle s'adapte à la carte agrandie */
@@ -51,12 +52,21 @@
     left: 0;
     width: 100%;
     padding: 12px;
-    background-color:#FADAB9;
+    background-color:#1E555C;
     color: white;
     text-align: center;
     font-weight: 600;
     font-size: 1rem;
+    transition: background-color 0.3s ease; /* Ajout d'une transition fluide */
+
 }
+
+.simple-nav-card:hover .simple-nav-title {
+    background-color: #3C8189; /* Nouvelle couleur au survol */
+}
+
+
+
 
 .simple-nav-image img {
     width: 100%;

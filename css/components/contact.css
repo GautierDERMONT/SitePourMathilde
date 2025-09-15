@@ -41,6 +41,8 @@
     border-radius: 30px; /* Coins arrondis */
     padding: 30px; /* Espacement intérieur */
     box-shadow: var(--shadow); /* Ombre pour donner de la profondeur */
+    border-top: 4px solid #B81329; /* Bordure rouge ajoutée */
+
 }
 
 .form-group {
@@ -95,3 +97,91 @@ textarea.form-control {
     display: inline-flex;
     justify-content: center;
 }
+
+/* Widget Doctolib */
+.doctolib-widget {
+    background-color: var(--white);
+    border-radius: 30px;
+    padding: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    border-top: 4px solid #B81329; /* Bordure rouge ajoutée */
+}
+
+.doctolib-widget h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.doctolib-widget p {
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.doctolib-logo-link {
+    display: inline-block;
+}
+
+.doctolib-logo {
+    width: 150px;
+    height: auto;
+    border-radius: 100px; /* Bordures arrondies */
+    transition: transform 0.3s ease;
+}
+
+/* Responsive pour la section contact */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column-reverse; /* Inverse l'ordre pour mettre le formulaire en dernier */
+    }
+    
+    .contact-info {
+        order: 2; /* Met le formulaire en deuxième position (en bas) */
+    }
+    
+    .contact-form {
+        order: 1; /* Met les infos contact en première position (en haut) */
+        margin-bottom: 30px;
+    }
+}
+
+/* Responsive pour la section contact */
+@media (max-width: 992px) {
+    .contact-container {
+        flex-direction: column-reverse; /* Inverse l'ordre pour mettre le formulaire en dernier */
+    }
+    
+    .contact-info {
+        order: 1; /* Met les infos contact en première position */
+        margin-bottom: 30px;
+    }
+    
+    .contact-form {
+        order: 2; /* Met le formulaire en deuxième position */
+    }
+}
+
+@media (max-width: 576px) {
+    .doctolib-widget, .contact-form {
+        padding: 20px;
+    }
+    
+    .contact-details li {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .contact-details i {
+        margin-right: 0;
+        margin-bottom: 10px;
+        align-self: center;
+    }
+    
+    .contact-form .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+

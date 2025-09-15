@@ -34,8 +34,7 @@ footer {
 }
 
 .footer-col ul li a:hover {
-    color: var(--primary-color);
-    padding-left: 5px;
+    color:#EDB183;
 }
 
 /* Styles pour les icônes de réseaux sociaux */
@@ -71,4 +70,49 @@ footer {
     text-align: center;
     padding-top: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Styles pour les coordonnées dans le footer */
+.footer-col .contact-details {
+    margin-top: 15px;
+}
+
+.footer-col .contact-details li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+.footer-col .contact-details i {
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+}
+
+.footer-col .contact-details svg {
+    margin-right: 12px;
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+   
+}
+
+/* Logo Doctolib dans le footer */
+.doctolib-footer-logo {
+    margin-top: 20px;
+    text-align: left;
+    
+}
+
+.doctolib-footer-logo a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+
+.doctolib-footer-logo .doctolib-logo {
+    width: 120px;
+    height: auto;
+    border-radius: 100px;
 }

@@ -43,20 +43,15 @@
             </div>
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Coordonnées</h3>
-                    <ul class="contact-details">
-                        <li><i>📧</i> contact@nutrition-equilibre.fr</li>
-                        <li><i>📞</i> 01 23 45 67 89</li>
-                        <li><i>📍</i> 123 Avenue de la Nutrition, 75000 Paris</li>
-                        <li><i>⏰</i> Lundi-Vendredi: 9h-19h | Samedi: 10h-16h</li>
-                    </ul>
+                    <div class="doctolib-widget">
+                        <h3>Prendre rendez-vous en ligne</h3>
+                        <p>Réservez facilement votre consultation en ligne via</p>
+                        <a href="https://www.doctolib.fr/" target="_blank" class="doctolib-logo-link">
+                            <img src="images/Doctolib.jpg"loading="lazy" alt="Doctolib" class="doctolib-logo">
+                        </a>
+                    </div>
                     <div class="map-container">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937596!2d2.292292615674389!3d48.85837007928746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fe22e2543ab%3A0x55bd4ffcf4c2d483!2sTour%20Eiffel!5e0!3m2!1sfr!2sfr!4v1719333157893!5m2!1sfr!2sfr&markers=color:red%7C48.85837,2.29448" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4328.363391409548!2d2.137616895562259!3d49.05707190536313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e65fa3fd5b9315%3A0xec949c3ba0e21300!2s2%20Rue%20Saint-Simon%2C%2095310%20Saint-Ouen-l&#39;Aum%C3%B4ne!5e0!3m2!1sfr!2sfr!4v1757937472157!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
                 <div class="contact-form">
@@ -81,12 +76,12 @@
     </section>
 
         <!-- Navigation Section -->
-    <section class="navigation-section">
+   <section class="navigation-section home-navigation">
 
         <div class="navigation-bg-carousel">
-        <div class="navigation-bg-slide active" style="background-image: url('images/slide1.1.jpg');"></div>
-        <div class="navigation-bg-slide" style="background-image: url('images/slide1.2.jpg');"></div>
-        <div class="navigation-bg-slide" style="background-image: url('images/slide1.3.jpg');"></div>
+        <div class="navigation-bg-slide active" style="background-image: url('images/slide1.1.webp');"></div>
+        <div class="navigation-bg-slide" style="background-image: url('images/slide1.2.webp');"></div>
+        <div class="navigation-bg-slide" style="background-image: url('images/slide1.3.webp');"></div>
     </div>
         <div class="container">
             <div class="section-title">
@@ -94,6 +89,12 @@
 
             </div>
             <div class="navigation-grid simple-grid">
+                    <a href="index.html" class="simple-nav-card">
+                            <div class="simple-nav-image">
+                                <img src="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'&gt;&lt;rect width='200' height='200' fill='%23F9EBE7'/&gt;&lt;text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='16' fill='%23333'&gt;Accueil&lt;/text&gt;&lt;/svg&gt;" alt="Accueil">
+                                <div class="simple-nav-title">Accueil</div>
+                            </div>
+                    </a>
                 <a href="prestations.html" class="simple-nav-card">
                     <div class="simple-nav-image">
                         <img src="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'&gt;&lt;rect width='200' height='200' fill='%231E555C'/&gt;&lt;text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='16' fill='%23fff'&gt;Prestations&lt;/text&gt;&lt;/svg&gt;" alt="Prestations">
@@ -114,24 +115,31 @@
                         <div class="simple-nav-title">Tarifs</div>
                     </div>
                 </a>
-                
-                <a href="contact.html" class="simple-nav-card">
-                    <div class="simple-nav-image">
-                        <img src="images/contact.jpg" loading="lazy" alt="Contact">
-                        <div class="simple-nav-title">Contact</div>
-                    </div>
-                </a>
+
             </div>
         </div>
     </section>
 
-    <!-- Footer (identique à l'index) -->
+        <!-- Footer (identique à l'index) -->
     <footer>
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col">
-                    <h4>Nutrition & Équilibre</h4>
-                    <p>Votre diététicienne nutritionniste pour une alimentation saine et équilibrée, adaptée à vos besoins.</p>
+                    <h4>Mathilde JOYEUX</h4>
+                    <!-- Ajout des coordonnées ici -->
+                    <ul class="contact-details">
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/>
+                        </svg></i>mathildejoyeuxdiet@outlook.fr</li>
+                        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg></i>2 Rue Saint-Simon, 95310 Saint-Ouen-l'Aumône</li>
+                    </ul>
+                     <div class="doctolib-footer-logo">
+                            <a href="https://www.doctolib.fr/" target="_blank">
+                            <img src="images/Doctolib.jpg"loading="lazy" alt="Doctolib" class="doctolib-logo">
+                            </a>
+                        </div>
                 </div>
                 <div class="footer-col">
                     <h4>Liens rapides</h4>

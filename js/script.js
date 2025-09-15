@@ -170,6 +170,8 @@ function initHeroCarousel() {
 
 
 
+
+
 // Navigation background carousel functionality - VERSION CORRIGÉE
 function initNavigationCarousel() {
     const navigationSection = document.querySelector('.navigation-section');
@@ -209,6 +211,35 @@ function initNavigationCarousel() {
     // Changer de slide toutes les 5 secondes
     setInterval(showNextSlide, 5000);
 }
+
+// Lazy loading amélioré pour toutes les images
+function initLazyLoading() {
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src || img.src;
+                    img.classList.remove('lazy');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        lazyImages.forEach(img => {
+            // Stocker la source originale dans data-src
+            if (!img.dataset.src) {
+                img.dataset.src = img.src;
+            }
+            imageObserver.observe(img);
+        });
+    }
+}
+
+// Appeler cette fonction au chargement du DOM
+document.addEventListener('DOMContentLoaded', initLazyLoading);
 
 // Lazy loading pour les images de fond
 function lazyLoadBackgroundImages() {
@@ -262,6 +293,8 @@ function lazyLoadBackgroundImages() {
 // Appeler la fonction au chargement du DOM
 document.addEventListener('DOMContentLoaded', lazyLoadBackgroundImages);
 
+
+
 // Initialiser les deux carrousels au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
     initHeroCarousel();
@@ -275,3 +308,88 @@ document.addEventListener('DOMContentLoaded', initHeroCarousel);
 window.addEventListener('scroll', animateOnScroll);
 // Initial check on page load
 window.addEventListener('load', animateOnScroll);
+
+
+// Bouton de retour en haut avec progression - VERSION ULTRA RAPIDE
+function initBackToTopButton() {
+    // Créer l'élément du bouton
+    const backToTopButton = document.createElement('div');
+    backToTopButton.className = 'back-to-top';
+    backToTopButton.setAttribute('aria-label', 'Retour en haut de la page');
+    
+    // Structure SVG pour la barre de progression circulaire (autour du bouton)
+    backToTopButton.innerHTML = `
+        <div class="progress-container">
+            <svg class="progress-ring" viewBox="0 0 64 64">
+                <circle class="progress-bg" cx="32" cy="32" r="30" pathLength="100"></circle>
+                <circle class="progress-fill" cx="32" cy="32" r="30" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"></circle>
+            </svg>
+            <div class="progress-icon">
+                <svg viewBox="0 0 24 24" fill="white">
+                    <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"/>
+                </svg>
+            </div>
+        </div>
+    `;
+    
+    // Ajouter le bouton au body
+    document.body.appendChild(backToTopButton);
+    
+    // Références aux éléments DOM
+    const progressFill = backToTopButton.querySelector('.progress-fill');
+    
+    // Variables pour optimisation
+    let docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    let ticking = false;
+    
+    // Recalculer la hauteur du document lors du redimensionnement
+    window.addEventListener('resize', () => {
+        docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    });
+    
+    // Fonction ultra-optimisée pour mettre à jour le bouton
+    function updateBackToTopButton() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Mise à jour de la visibilité
+        if (scrollTop > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+        
+        // Mise à jour de la barre de progression (calcul simplifié)
+        const scrollProgress = (scrollTop / docHeight) * 100;
+        progressFill.style.strokeDashoffset = 100 - scrollProgress;
+        
+        ticking = false;
+    }
+    
+    // Gestionnaire de défilement optimisé
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            // Utilisation directe sans requestAnimationFrame pour plus de réactivité
+            updateBackToTopButton();
+            ticking = true;
+            
+            // Réinitialiser après un court délai
+            setTimeout(() => {
+                ticking = false;
+            }, 20); // Limiter à 50 appels par seconde maximum
+        }
+    }, { passive: true });
+    
+    // Événement de clic sur le bouton
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Initialiser l'état du bouton
+    updateBackToTopButton();
+}
+
+// Initialiser le bouton au chargement de la page
+document.addEventListener('DOMContentLoaded', initBackToTopButton);

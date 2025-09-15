@@ -1,25 +1,25 @@
 /* Services Section */
 .services {
     background-color: #EDB183;
-    padding: 30px 0; /* Réduction du padding */
+    padding: 30px 0;
 }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Réduction de la largeur minimale */
-    gap: 30px; /* Réduction de l'espacement entre les cartes */
-    padding: 15px 0; /* Réduction du padding */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 15px 0;
 }
 
 .service-card {
     background-color: var(--white);
-    padding: 12px; /* Réduction du padding */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Ombre plus légère */
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
     border-radius: 0;
-    margin-bottom: 0; /* Suppression de la marge du bas */
+    margin-bottom: 0;
     transform: rotate(2deg) !important;
 }
 
@@ -27,21 +27,21 @@
 .service-card::before {
     content: '';
     position: absolute;
-    top: 8px; /* Réduction de l'espace */
-    left: 8px; /* Réduction de l'espace */
-    right: 8px; /* Réduction de l'espace */
-    bottom: 8px; /* Réduction de l'espace */
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
     border: 2px solid white;
     z-index: 2;
     pointer-events: none;
 }
 
 .service-image {
-    height: 160px; /* Réduction de la hauteur */
+    height: 160px;
     overflow: hidden;
     position: relative;
     border: 1px solid #f0f0f0;
-    margin-bottom: 5px; /* Réduction importante de l'espace sous l'image */
+    margin-bottom: 5px;
 }
 
 .service-image img {
@@ -51,18 +51,19 @@
 }
 
 .service-content {
-    padding: 10px 8px 8px; /* Réduction du padding (haut droite bas) */
+    padding: 15px 0px 8px;
     text-align: left;
     position: relative;
     background: white;
 }
 
+
 .service-card h3 {
-    font-size: 1.2rem; /* Réduction de la taille de police */
-    margin: 3px 0 5px; /* Réduction importante des marges (haut droite bas) */
+    font-size: 1.2rem;
+    margin: 8px 0 5px; /* Ajustement de la marge pour l'espace avec le trait */
     color: var(--primary-color);
     position: relative;
-    padding-bottom: 5px; /* Réduction de l'espace sous le titre */
+    padding-bottom: 5px;
 }
 
 .service-card h3::after {
@@ -71,7 +72,7 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 40px; /* Réduction de la largeur */
+    width: 40px;
     height: 2px;
 }
 
@@ -93,25 +94,25 @@
 }
 
 .service-card:hover h3::after {
-    width: 60px; /* Réduction de la largeur au survol */
+    width: 60px;
 }
 
 .service-card p {
     color: var(--text-color);
-    line-height: 1.4; /* Réduction de l'interligne */
-    margin-top: 5px; /* Réduction de l'espace au-dessus du paragraphe */
-    margin-bottom: 3px; /* Réduction de l'espace sous le paragraphe */
-    font-size: 0.9rem; /* Réduction légère de la taille de police */
+    line-height: 1.4;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    font-size: 0.9rem;
 }
 
 /* Légère ombre portée pour donner l'impression que le cadre est décollé */
 .service-card::after {
     content: '';
     position: absolute;
-    top: 4px; /* Réduction de l'espace */
-    left: 4px; /* Réduction de l'espace */
-    right: 4px; /* Réduction de l'espace */
-    bottom: 4px; /* Réduction de l'espace */
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.8);
     pointer-events: none;
 }
@@ -120,7 +121,7 @@
 .accompaniments {
     padding: 30px 0;
     background-color: #EDB183;
-    margin-top: 0; /* Ajout pour supprimer la marge du haut */
+    margin-top: 0;
 }
 
 /* Ajuster l'espacement interne des éléments à la place */
@@ -138,15 +139,14 @@
 
 .accompaniment-item {
    background-color: var(--white);
-    padding: 12px; /* Réduction du padding */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Ombre plus légère */
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
     border-radius: 0;
-    margin-bottom: 0; /* Suppression de la marge du bas */
+    margin-bottom: 0;
     transform: rotate(2deg) !important;
-   
 }
 
 /* Bordure blanche à l'intérieur */
@@ -184,9 +184,41 @@
     background: white;
 }
 
+/* Services Section */
+.service-card h3::before,
+.accompaniment-item h3::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background-color: #B81329;
+    border-radius: 2px;
+    z-index: 3;
+}
+
+/* Ajustement de l'espacement pour le titre */
+.service-card h3,
+.accompaniment-item h3 {
+    font-size: 1.2rem;
+    margin: 15px 0 5px; /* Augmenter la marge supérieure pour faire de la place */
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 5px;
+}
+
+/* Supprimer l'ancien style de barre rouge */
+.service-content::before,
+.accompaniment-content::before {
+    display: none;
+}
+
+
+
 .accompaniment-item h3 {
     color: var(--primary-color);
-    margin: 3px 0 5px;
+    margin: 8px 0 5px; /* Ajustement de la marge pour l'espace avec le trait */
     font-size: 1.2rem;
     position: relative;
     padding-bottom: 5px;
@@ -292,7 +324,6 @@
     background: radial-gradient(circle, #cd7f32 40%, #8c531c 90%); /* Bronze */
 }
 
-
 /* Effet de scotch washi tape uniquement pour les accompagnements */
 .accompaniment-item::before {
     content: '';
@@ -364,6 +395,36 @@
     position: relative;
 }
 
+/* Centrage des grilles */
+.services-grid,
+.accompaniments-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.service-card,
+.accompaniment-item {
+    flex: 0 0 calc(33.333% - 30px);
+    min-width: 280px;
+    max-width: 350px;
+}
+
+@media (max-width: 992px) {
+    .service-card,
+    .accompaniment-item {
+        flex: 0 0 calc(50% - 30px);
+    }
+}
+
+@media (max-width: 576px) {
+    .service-card,
+    .accompaniment-item {
+        flex: 0 0 100%;
+    }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .accompaniments-grid {
@@ -373,12 +434,12 @@
 
     .services,
     .accompaniments {
-        padding-bottom: 0 !important; /* Supprime l'espace en bas */
+        padding-bottom: 0 !important;
     }
 
     .services-grid,
     .accompaniments-grid {
-        margin-bottom: 5 !important; /* évite marge sous la grille */
+        margin-bottom: 5 !important;
     }
     
     .accompaniment-item {
