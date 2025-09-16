@@ -28,15 +28,7 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
     });
 });
 
-// Form submission
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Merci pour votre message! Je vous répondrai très rapidement.');
-        this.reset();
-    });
-}
+
 
 // Smooth scrolling for anchor links (seulement sur la page d'accueil)
 if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {

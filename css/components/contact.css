@@ -163,6 +163,24 @@ textarea.form-control {
             border-top-color: #fff;
             animation: spin 1s ease-in-out infinite;
         }
+
+
+
+/* Styles pour masquer définitivement tout message intégré */
+.form-message {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+}
+
+/* Assurer que SweetAlert2 reste visible */
+.swal2-popup {
+    display: block !important;
+}
         
         @keyframes spin {
             to { transform: rotate(360deg); }

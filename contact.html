@@ -68,7 +68,6 @@
                         </div>
                         <button type="submit" class="btn" id="submitBtn">Envoyer le message</button>
                     </form>
-                    <div id="formMessage" class="form-message" style="display: none; margin-top: 20px; padding: 10px; border-radius: 5px;"></div>
                 </div>
             </div>
         </div>
@@ -190,64 +189,7 @@
     <script src="js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script>
-        // Initialisation d'EmailJS (remplacez USER_ID par votre User ID EmailJS)
-        (function(){
-            emailjs.init("PM9XqztJbWOXqRK0G"); // Remplacez par votre clé publique EmailJS
-        })();
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contactForm');
-            
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Validation du formulaire
-                const name = document.getElementById('name').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const message = document.getElementById('message').value.trim();
-                
-                // Afficher la modale de chargement
-                Swal.fire({
-                    title: 'Envoi en cours...',
-                    text: 'Veuillez patienter',
-                    allowOutsideClick: false,
-                    didOpen: () => {
-                        Swal.showLoading();
-                    }
-                });
-                
-                // Envoyer l'email via EmailJS
-                emailjs.sendForm('service_ycu98z2', 'template_tcjkkjk', this)
-                    .then(function() {
-                        // Fermer la modale de chargement
-                        Swal.close();
-                        
-                        // Afficher le message de succès
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Message envoyé!',
-                            text: 'Merci pour votre message! Je vous répondrai très rapidement.',
-                            confirmButtonColor: '#1E555C'
-                        });
-                        
-                        contactForm.reset();
-                    }, function(error) {
-                        console.error('Erreur:', error);
-                        
-                        // Fermer la modale de chargement
-                        Swal.close();
-                        
-                        // Afficher le message d'erreur
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Erreur',
-                            text: 'Une erreur s\'est produite lors de l\'envoi du message. Veuillez réessayer.',
-                            confirmButtonColor: '#1E555C'
-                        });
-                    });
-            });
-        });
+    <script src="js/contact.js"></script>
     </script>
 </body>
 </html>

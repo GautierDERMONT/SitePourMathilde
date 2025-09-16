@@ -149,6 +149,22 @@ header {
   touch-action: manipulation;
 }
 
+/* Solution simple - Toujours afficher la barre de défilement */
+html {
+    overflow-y: scroll;
+}
+
+/* Ou cette alternative */
+body {
+    padding-right: 0 !important;
+}
+
+/* S'assurer que le header ne bouge pas */
+header {
+    right: 0;
+    left: 0;
+}
+
 /* Désactiver le zoom sur l'input pour iOS */
 @media screen and (max-width: 768px) {
   input, select, textarea {
