@@ -9,7 +9,10 @@
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     padding: 15px 0;
+    align-items: start; /* Ajouter cette ligne */
+
 }
+
 
 .service-card {
     background-color: var(--white);
@@ -21,6 +24,8 @@
     border-radius: 0;
     margin-bottom: 0;
     transform: rotate(2deg) !important;
+    height: auto; /* Modifier */
+    min-height: auto; /* Modifier */
 }
 
 /* Bordure blanche à l'intérieur */
@@ -127,7 +132,7 @@
 /* Ajuster l'espacement interne des éléments à la place */
 .accompaniments .container {
     padding-top: 40px;
-    padding-bottom: 160px;
+    padding-bottom: 66px;
 }
 
 .accompaniments-grid {
@@ -135,6 +140,8 @@
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-top: 30px;
+    align-items: start; /* Ajouter cette ligne */
+
 }
 
 .accompaniment-item {
@@ -147,6 +154,8 @@
     border-radius: 0;
     margin-bottom: 0;
     transform: rotate(2deg) !important;
+    height: auto; /* Modifier */
+    min-height: auto; /* Modifier */
 }
 
 /* Bordure blanche à l'intérieur */

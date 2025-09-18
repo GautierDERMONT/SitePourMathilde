@@ -83,10 +83,10 @@
 
 /* Remplacer l'ancien style */
 .navigation-section .section-title h2 {
-    background-color: rgba(252, 252, 252, 0.80);
+    background-color: rgba(252, 252, 252, 0.80) !important;
     padding: 15px 30px;
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(253, 253, 253, 0.15);
+    box-shadow: 0 5px 15px rgba(253, 253, 253, 0.15)!important;
     display: inline-block;
     margin-bottom: 20px;
 }

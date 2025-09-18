@@ -12,19 +12,14 @@ if (menuToggle && navMenu) {
 // Close menu when clicking on a link
 document.querySelectorAll('.nav-menu a').forEach(link => {
     link.addEventListener('click', (e) => {
-        // Empêcher le comportement par défaut qui pourrait causer des problèmes
-        e.preventDefault();
-        
+        // Fermer le menu mobile immédiatement
         if (menuToggle && navMenu) {
             menuToggle.classList.remove('active');
             navMenu.classList.remove('active');
         }
         
-        // Navigation manuelle après un court délai
-        const targetUrl = link.getAttribute('href');
-        setTimeout(() => {
-            window.location.href = targetUrl;
-        }, 300);
+        // La navigation normale se fera via le href naturel du lien
+        // Pas besoin de setTimeout ou de prévention du comportement par défaut
     });
 });
 

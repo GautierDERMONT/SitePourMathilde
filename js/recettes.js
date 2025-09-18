@@ -42,7 +42,32 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (recette) {
                 document.getElementById('modal-title').textContent = recette.title;
-                document.getElementById('modal-category').textContent = recette.category;
+                document.getElementById('modal-category-text').textContent = recette.category;
+
+                // Définir l'icône en fonction de la catégorie
+                let categoryIcon = '';
+                switch(recette.category.toLowerCase()) {
+                    case 'petit-déjeuner':
+                        categoryIcon = 'images/croissant.png';
+                        break;
+                    case 'déjeuner':
+                        categoryIcon = 'images/petit-dejeuner.png';
+                        break;
+                    case 'dîner':
+                        categoryIcon = 'images/lune.png';
+                        break;
+                    case 'collation':
+                        categoryIcon = 'images/pomme.png';
+                        break;
+                    case 'dessert':
+                        categoryIcon = 'images/creme-glacee.png';
+                        break;
+                    default:
+                        categoryIcon = 'images/pomme.png'; // icône par défaut
+                }
+                document.getElementById('modal-category-icon').src = categoryIcon;
+                document.getElementById('modal-category-icon').alt = recette.category;
+                
                 document.getElementById('modal-image').src = recette.image;
                 document.getElementById('modal-image').alt = recette.title;
                 document.getElementById('modal-calories').textContent = recette.calories;
@@ -76,22 +101,31 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function() {
             const filterValue = this.getAttribute('data-filter');
             
+            // Réinitialiser tous les boutons
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.backgroundColor = 'transparent';
+                btn.style.color = 'var(--primary-color)';
+            });
+            
+            // Si on clique sur le filtre déjà actif (sauf "all"), on active "all"
             if (filterValue === activeFilter && filterValue !== 'all') {
                 const allButton = document.querySelector('.filter-btn[data-filter="all"]');
-                filterButtons.forEach(btn => btn.classList.remove('active'));
                 allButton.classList.add('active');
+                allButton.style.backgroundColor = 'white';
+                allButton.style.color = 'var(--primary-color)';
                 activeFilter = 'all';
                 
                 recetteCards.forEach(card => {
                     card.style.display = 'flex';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 10);
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
                 });
             } else {
-                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Pour tous les autres cas (nouvelle sélection)
                 this.classList.add('active');
+                this.style.backgroundColor = 'white';
+                this.style.color = 'var(--primary-color)';
                 activeFilter = filterValue;
                 
                 recetteCards.forEach(card => {
@@ -99,20 +133,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     if (filterValue === 'all' || filterValue === cardCategory) {
                         card.style.display = 'flex';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, 10);
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
                     } else {
+                        card.style.display = 'none';
                         card.style.opacity = '0';
                         card.style.transform = 'translateY(20px)';
-                        setTimeout(() => {
-                            card.style.display = 'none';
-                        }, 300);
                     }
                 });
             }
             
+            // Relancer l'animation des cartes visibles
             setTimeout(animateRecettes, 50);
         });
     });
@@ -298,7 +329,32 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (recette) {
                 document.getElementById('modal-title').textContent = recette.title;
-                document.getElementById('modal-category').textContent = recette.category;
+                document.getElementById('modal-category-text').textContent = recette.category;
+
+                // Définir l'icône en fonction de la catégorie
+                let categoryIcon = '';
+                switch(recette.category.toLowerCase()) {
+                    case 'petit-déjeuner':
+                        categoryIcon = 'images/croissant.png';
+                        break;
+                    case 'déjeuner':
+                        categoryIcon = 'images/petit-dejeuner.png';
+                        break;
+                    case 'dîner':
+                        categoryIcon = 'images/lune.png';
+                        break;
+                    case 'collation':
+                        categoryIcon = 'images/pomme.png';
+                        break;
+                    case 'dessert':
+                        categoryIcon = 'images/creme-glacee.png';
+                        break;
+                    default:
+                        categoryIcon = 'images/pomme.png'; // icône par défaut
+                }
+                document.getElementById('modal-category-icon').src = categoryIcon;
+                document.getElementById('modal-category-icon').alt = recette.category;
+                
                 document.getElementById('modal-image').src = recette.image;
                 document.getElementById('modal-image').alt = recette.title;
                 document.getElementById('modal-calories').textContent = recette.calories;

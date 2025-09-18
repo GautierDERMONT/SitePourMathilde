@@ -144,12 +144,18 @@ img {
     
 }
 
+
+/* Pour le titre sans soulignement */
+.section-title h2.no-underline::after {
+    display: none;
+}
+
 .btn:hover::after {
     transform: translateX(5px);
 }
 
 .section {
-    padding: 150px 0;
+    padding: 150px 0 66px 0; /* haut 150px, droite 0, bas 100px, gauche 0 */
     background-color:#F9EBE7;
 }
 
@@ -164,11 +170,15 @@ section.accompaniments.section {
 }
 
 .section-title h2 {
-    font-size: 2.5rem;
     color: var(--dark-color);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     position: relative;
     display: inline-block;
+    padding: 0px 20px;
+    background-color: #FDF7F3 !important; /* Fond blanc forcé */
+    border-radius: 6px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    /* SUPPRIMER les propriétés de gradient textuel qui causent confusion */
 }
 
 .hero-bg-slide, .navigation-bg-slide {
@@ -188,22 +198,35 @@ section.accompaniments.section {
 .section-title h2::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -25px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background-color:#EDB183;
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+    transition: width 0.3s ease;
 }
 
 .section-title h2.no-underline::after {
-    display: none;
+    display: none !important;
+}
+
+
+
+/* Style spécifique pour les titres SANS soulignement */
+.section-title h2.no-underline {
+    background: none;
+    -webkit-text-fill-color: initial;
+    text-shadow: none;
 }
 
 .section-title p {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     max-width: 700px;
-    margin: 0 auto;
+    margin: 25px auto 0;
+    color: #666;
+    font-weight: 400;
 }
 
 /* Bouton de retour en haut avec progression - VERSION AMÉLIORÉE */
@@ -291,6 +314,8 @@ section.accompaniments.section {
 .back-to-top:hover .progress-icon svg {
     transform: translateY(-2px);
 }
+
+
 
 
 

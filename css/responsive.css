@@ -30,19 +30,7 @@
         font-size: 3rem;
     }
     
-    /* Responsive pour la section tarifs */
-    .pricing-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 25px;
-    }
-    
-    .pricing-card {
-        padding: 30px 25px;
-    }
-    
-    .price {
-        font-size: 2.2rem;
-    }
+ 
 }
 
 @media (max-width: 768px) {
@@ -88,42 +76,7 @@
         order: 2;
     }
     
-    /* Responsive pour la section tarifs */
-    .pricing-grid {
-        grid-template-columns: 1fr;
-        max-width: 400px;
-        margin: 0 auto;
-    }
     
-    .pricing-card {
-        padding: 25px 20px;
-    }
-    
-    .pricing-card h3 {
-        font-size: 1.6rem;
-    }
-    
-    .price {
-        font-size: 2rem;
-    }
-    
-    .pricing-features li {
-        padding: 10px 0;
-        justify-content: flex-start;
-        padding-left: 30px;
-    }
-    
-    .price-tag {
-        padding: 6px 15px 6px 25px;
-        
-    }
-    
-    .price-tag::before {
-        top: 12px;
-        left: 10px;
-        width: 4px;
-        height: 58%;
-    }
 }
 
 /* Correction spécifique pour le bouton dans la section about */
@@ -239,40 +192,9 @@
     }
     
     .section-title h2 {
-        font-size: 2rem;
+        font-size: 1rem;
     }
     
-    .service-card, .pricing-card {
-        padding: 20px;
-    }
-    
-    /* Responsive pour la section tarifs */
-    .pricing-card {
-        padding: 20px 15px;
-    }
-    
-    .pricing-card h3 {
-        font-size: 1.4rem;
-    }
-    
-    .price {
-        font-size: 1.8rem;
-    }
-    
-    .pricing-features li {
-        font-size: 0.9rem;
-        padding-left: 25px;
-    }
-    
-    .pricing-features li::before,
-    .pricing-features li::after {
-        width: 16px;
-        height: 16px;
-    }
-    
-    .price-tag .price {
-        font-size: 1.7rem;
-    }
 }
 
 @media (max-width: 768px) {
@@ -355,7 +277,7 @@
 
 @media (max-width: 576px) {
     h1 {
-        font-size: 1.9rem !important;
+        font-size: 2.3rem !important;
     }
     
     h2 {

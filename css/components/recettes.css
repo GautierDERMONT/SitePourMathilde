@@ -1,5 +1,5 @@
 .recettes-section {
-    padding: 150px 0;
+    padding: 150px 0 20px 0; /* haut 150px, droite 0, bas 100px, gauche 0 */
     background-color: #F9EBE7;
 }
 
@@ -9,6 +9,45 @@
     flex-wrap: wrap;
     gap: 15px;
     margin-bottom: 50px;
+}
+
+/* Styles pour les icônes des boutons de filtre */
+.filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px 10px 15px;
+}
+
+.filter-icon {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    transition: var(--transition);
+}
+
+/* Ajustements pour les écrans mobiles */
+@media (max-width: 768px) {
+    .filter-btn {
+        padding: 8px 15px 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .filter-icon {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-btn {
+        padding: 7px 12px 7px 10px;
+    }
+    
+    .filter-icon {
+        width: 22px;
+        height: 22px;
+    }
 }
 
 .filter-btn {
@@ -22,10 +61,26 @@
     font-weight: 500;
 }
 
+/* Styles pour les icônes de catégorie dans les cartes */
+.recette-category .category-icon {
+    object-fit: contain;
+}
+
+/* Ajustements responsifs */
+@media (max-width: 768px) {
+    .recette-category .category-icon {
+        
+    }
+    
+    .modal-category .category-icon {
+        width: 24px;
+        height: 24px;
+    }
+}
+
 .filter-btn:hover,
 .filter-btn.active {
-    background-color: var(--primary-color);
-    color: var(--white);
+    background-color: white;
 }
 
 .recettes-grid {
@@ -78,12 +133,40 @@
     position: absolute;
     top: 15px;
     right: 15px;
-    background-color: var(--primary-color);
-    color: var(--white);
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
+    width: 40px;
+    height: 40px;
+    background-color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    padding: 5px;
+}
+
+/* Styles responsives */
+@media (max-width: 768px) {
+    .recette-category {
+        width: 36px;
+        height: 36px;
+        top: 12px;
+        right: 12px;
+    }
+    
+    .category-icon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .modal-category {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .modal-category .category-icon {
+        width: 26px;
+        height: 26px;
+    }
 }
 
 .recette-content {
@@ -94,9 +177,6 @@
     flex-grow: 1;
 }
 
-
-
-
 .recette-content p {
     color: var(--text-color);
     line-height: 1.6;
@@ -104,8 +184,6 @@
     position: relative;
     min-height: 72px;
 }
-
-
 
 .recette-content h3 {
     font-size: 1.4rem;
@@ -346,8 +424,6 @@
         flex-direction: row;
         gap: 15px;
         padding: 10px 15px 10px 25px;
-     
-
     }
     
     .recette-time,
@@ -399,9 +475,7 @@
     border-radius: 15px;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
     animation: modalFadeIn 0.3s;
-
 }
-
 
 @keyframes modalFadeIn {
     from {opacity: 0; transform: translateY(-50px);}
@@ -410,41 +484,96 @@
 
 
 
-.close-modal {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    font-size: 35px;
-    font-weight: bold;
-    color: var(--primary-color);
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.close-modal:hover {
-    color: #B81329;
-}
-
 .modal-header {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     margin-bottom: 25px;
     padding-bottom: 15px;
-    border-bottom: 2px solid var(--light-color);
+    position: relative;
+}
+
+.modal-header::after {
+    content: "";
+    display: block;
+    width: 70%; /* ajuste la longueur du trait */
+    height: 2px;
+    background: #B81329;
+    position: absolute;
+    bottom: 0;
+    left: 0; /* ou left: 50%; transform: translateX(-50%); pour centrer */
+}
+
+
+.modal-title-container {
+    flex: 1;
+    padding-right: 30px;
 }
 
 .modal-header h3 {
     font-size: 1.8rem !important;
     color: var(--dark-color);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    line-height: 1.3;
+    background-color: var(--light-color);
+    border-radius: 8px;
+    padding: 8px 15px;
 }
 
 .modal-category {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: var(--white);
-    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--light-color);
+    padding: 8px 15px;
     border-radius: 20px;
-    font-size: 0.9rem;
+    width: fit-content;
+}
+
+.modal-category .category-icon {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+}
+
+#modal-category-text {
+    font-size: 0.95rem;
     font-weight: 500;
+    color: var(--dark-color);
+}
+
+/* Croix de fermeture - PLUS GROSSE ET EN HAUT À DROITE */
+.close-modal {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--primary-color);
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+}
+
+.close-modal:hover {
+    color: #B81329;
+    transform: scale(1.1);
+}
+
+/* Ajustement de l'espace pour le titre */
+.modal-title-container {
+    flex: 1;
+    padding-right: 50px; /* Plus d'espace pour la croix */
+}
+
+/* Ajustement du padding du header */
+.modal-header {
+    padding-top: 10px;
 }
 
 .modal-body {
@@ -478,15 +607,55 @@
     grid-column: 1 / -1;
 }
 
-.nutrition-info h4,
+
+
+
+.nutrition-info h4 {
+    font-size: 1.3rem;
+    color: var(--dark-color);
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    position: relative; /* nécessaire pour positionner ::after */
+}
+
+.nutrition-info h4::after {
+    content: "";
+    display: block;
+    width: 50%; /* ajuste la longueur */
+    height: 2px;
+    background: #EDB183;
+    position: absolute;
+    bottom: 0;
+    left: 0; /* ou left: 50%; transform: translateX(-50%) pour centrer */
+}
+
+
+
+/* Même logique pour les autres */
 .ingredients-section h4,
 .instructions-section h4 {
     font-size: 1.3rem;
     color: var(--dark-color);
     margin-bottom: 15px;
     padding-bottom: 8px;
-    border-bottom: 1px solid var(--light-color);
+    position: relative;
 }
+
+.ingredients-section h4::after,
+.instructions-section h4::after {
+    content: "";
+    display: block;
+    width: 30%; /* ajuste la longueur */
+    height: 2px;
+    background: #FADAB9;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+
+
+
 
 .nutrition-grid {
     display: grid;
@@ -546,8 +715,37 @@
         padding: 20px;
     }
     
+    .modal-header {
+        flex-direction: column;
+       
+    }
+    
+    .modal-title-container {
+        padding-right: 0;
+        order: 2;
+    }
+    
+    .close-modal {
+        align-self: flex-end;
+        order: 1;
+       
+    }
+    
     .modal-header h3 {
         font-size: 1.5rem !important;
+    }
+    
+    .modal-category {
+        padding: 6px 12px;
+    }
+    
+    .modal-category .category-icon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    #modal-category-text {
+        font-size: 0.9rem;
     }
     
     .modal-image {

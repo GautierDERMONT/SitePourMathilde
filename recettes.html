@@ -37,9 +37,12 @@
         <div class="recette-modal" id="recette-modal">
             <div class="modal-content">
                 <span class="close-modal">&times;</span>
-                <div class="modal-header">
+               <div class="modal-header">
                     <h3 id="modal-title"></h3>
-                    <div class="modal-category" id="modal-category"></div>
+                    <div class="modal-category">
+                        <img src="" alt="" id="modal-category-icon" class="category-icon">
+                        <span id="modal-category-text"></span>
+                    </div>
                 </div>
                 <div class="modal-body">
                     <div class="modal-image">
@@ -92,22 +95,40 @@
             </div>
 
             <!-- Filtres de catégories -->
-            <div class="recettes-filters">
-                <button class="filter-btn active" data-filter="all" style="display: none;"></button>
-                <button class="filter-btn" data-filter="petit-dejeuner">Petit-déjeuner</button>
-                <button class="filter-btn" data-filter="dejeuner">Déjeuner</button>
-                <button class="filter-btn" data-filter="diner">Dîner</button>
-                <button class="filter-btn" data-filter="collation">Collations</button>
-                <button class="filter-btn" data-filter="dessert">Desserts</button>
-            </div>
+                <!-- Remplacer la section des filtres avec ce code -->
+                <div class="recettes-filters">
+                    <button class="filter-btn active" data-filter="all" style="display: none;"></button>
+                    <button class="filter-btn" data-filter="petit-dejeuner">
+                        <img src="images/croissant.png" loading="lazy" alt="Petit-déjeuner" class="filter-icon">
+                        Petit-déjeuner
+                    </button>
+                    <button class="filter-btn" data-filter="dejeuner">
+                        <img src="images/petit-dejeuner.png" loading="lazy" alt="Déjeuner" class="filter-icon">
+                        Déjeuner
+                    </button>
+                    <button class="filter-btn" data-filter="diner">
+                        <img src="images/lune.png" loading="lazy" alt="Dîner" class="filter-icon">
+                        Dîner
+                    </button>
+                    <button class="filter-btn" data-filter="collation">
+                        <img src="images/pomme.png" loading="lazy" alt="Collations" class="filter-icon">
+                        Collations
+                    </button>
+                    <button class="filter-btn" data-filter="dessert">
+                        <img src="images/creme-glacee.png" loading="lazy" alt="Desserts" class="filter-icon">
+                        Desserts
+                    </button>
+                </div>
 
             <!-- Grille de recettes -->
             <div class="recettes-grid">
                 <!-- Recette 1 -->
                 <article class="recette-card" data-category="petit-dejeuner">
                     <div class="recette-image">
-                        <img src="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'&gt;&lt;rect width='400' height='300' fill='%23F9EBE7'/&gt;&lt;text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%23333'&gt;Bowl petit-déjeuner&lt;/text&gt;&lt;/svg&gt;" alt="Bowl petit-déjeuner">
-                        <div class="recette-category">Petit-déjeuner</div>
+                    <img src="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'&gt;&lt;rect width='400' height='300' fill='%23F9EBE7'/&gt;&lt;text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%23333'&gt;Bowl petit-déjeuner&lt;/text&gt;&lt;/svg&gt;" alt="Bowl petit-déjeuner">
+                    <div class="recette-category">
+                    <img src="images/croissant.png" loading="lazy" alt="Petit-déjeuner" class="category-icon">
+                    </div>
                     </div>
                     <div class="recette-content">
                         <h3>Bowl petit-déjeuner énergétique</h3>
@@ -123,7 +144,9 @@
                 <article class="recette-card" data-category="dejeuner">
                     <div class="recette-image">
                         <img src="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'&gt;&lt;rect width='400' height='300' fill='%23F9EBE7'/&gt;&lt;text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%23333'&gt;Salade complète&lt;/text&gt;&lt;/svg&gt;" alt="Salade complète">
-                        <div class="recette-category">Déjeuner</div>
+                        <div class="recette-category">
+                        <img src="images/petit-dejeuner.png" loading="lazy" alt="Déjeuner" class="filter-icon">
+                    </div>
                     </div>
                     <div class="recette-content">
                         <h3>Salade complète aux légumes de saison</h3>
@@ -139,7 +162,9 @@
                 <article class="recette-card" data-category="diner">
                     <div class="recette-image">
                         <img src="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'&gt;&lt;rect width='400' height='300' fill='%23F9EBE7'/&gt;&lt;text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%23333'&gt;Curry végétarien&lt;/text&gt;&lt;/svg&gt;" alt="Curry végétarien">
-                        <div class="recette-category">Dîner</div>
+                        <div class="recette-category">
+                        <img src="images/lune.png" loading="lazy" alt="Dîner" class="filter-icon">
+                    </div>
                     </div>
                     <div class="recette-content">
                         <h3>Curry de légumes et pois chiches</h3>
@@ -155,7 +180,9 @@
                 <article class="recette-card" data-category="collation">
                     <div class="recette-image">
                         <img src="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'&gt;&lt;rect width='400' height='300' fill='%23F9EBE7'/&gt;&lt;text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%23333'&gt;Energy balls&lt;/text&gt;&lt;/svg&gt;" alt="Energy balls">
-                        <div class="recette-category">Collation</div>
+                        <div class="recette-category">
+                        <img src="images/pomme.png" loading="lazy" alt="Collations" class="filter-icon">
+                    </div>
                     </div>
                     <div class="recette-content">
                         <h3>Energy balls aux fruits secs</h3>
@@ -171,7 +198,9 @@
                 <article class="recette-card" data-category="dessert">
                     <div class="recette-image">
                         <img src="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'&gt;&lt;rect width='400' height='300' fill='%23F9EBE7'/&gt;&lt;text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%23333'&gt;Mousse chocolat&lt;/text&gt;&lt;/svg&gt;" alt="Mousse au chocolat">
-                        <div class="recette-category">Dessert</div>
+                        <div class="recette-category">
+                        <img src="images/creme-glacee.png" loading="lazy" alt="Desserts" class="filter-icon">
+                    </div>
                     </div>
                     <div class="recette-content">
                         <h3>Mousse au chocolat allégée</h3>
@@ -187,7 +216,9 @@
                 <article class="recette-card" data-category="dejeuner">
                     <div class="recette-image">
                         <img src="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'&gt;&lt;rect width='400' height='300' fill='%23F9EBE7'/&gt;&lt;text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%23333'&gt;Wrap healthy&lt;/text&gt;&lt;/svg&gt;" alt="Wrap healthy">
-                        <div class="recette-category">Déjeuner</div>
+                        <div class="recette-category">
+                        <img src="images/petit-dejeuner.png" loading="lazy" alt="Déjeuner" class="filter-icon">
+                    </div>
                     </div>
                     <div class="recette-content">
                         <h3>Wraps légers aux crudités</h3>
@@ -316,8 +347,16 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Mathilde JOYEUX - Tous droits réservés</p>
-            </div>
+                    
+                        <div class="legal-links">
+                            <a href="#" data-modal="modal-mentions">Mentions légales</a>
+                            <span>|</span>
+                            <a href="#" data-modal="modal-policy">Politique de confidentialité</a>
+                            <span>|</span>
+                            <a href="#" data-modal="modal-credits">Crédits</a>
+                        </div>
+                        <p>&copy; 2025 Mathilde JOYEUX - Tous droits réservés</p>
+                    </div>
         </div>
     </footer>
 
