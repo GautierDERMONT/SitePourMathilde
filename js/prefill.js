@@ -1,15 +1,24 @@
 // prefill.js - Gestion du préremplissage du formulaire de contact
 document.addEventListener('DOMContentLoaded', function() {
     // Vérifier si nous sommes sur la page de contact
-    if (window.location.pathname.includes('contact.html')) {
+    // Méthode plus robuste pour détecter la page contact
+    const isContactPage = window.location.pathname.includes('contact.html') || 
+                         document.querySelector('body.contact') !== null ||
+                         document.querySelector('.contact-form') !== null;
+    
+    if (isContactPage) {
         const urlParams = new URLSearchParams(window.location.search);
         const offerType = urlParams.get('offer');
         
         if (offerType) {
             // Attendre que le formulaire soit chargé
-            setTimeout(function() {
-                prefillForm(offerType);
-            }, 500);
+            const checkForm = setInterval(function() {
+                const messageField = document.getElementById('message');
+                if (messageField) {
+                    clearInterval(checkForm);
+                    prefillForm(offerType);
+                }
+            }, 100);
         }
     }
 });
@@ -19,13 +28,16 @@ function prefillForm(offerType) {
     if (!messageField) return;
     
     let offerText = '';
+    let offerName = '';
     
     switch(offerType) {
         case 'bilan':
             offerText = "Je souhaite prendre rendez-vous pour un Bilan Nutritionnel (60€).\n\n";
+            offerName = 'Bilan Nutritionnel';
             break;
         case 'suivi':
             offerText = "Je souhaite prendre rendez-vous pour un Suivi Nutritionnel (40€).\n\n";
+            offerName = 'Suivi Nutritionnel';
             break;
         default:
             return;
@@ -48,10 +60,10 @@ function prefillForm(offerType) {
     }
     
     // Afficher une notification discrète
-    showPreFillNotification(offerType);
+    showPreFillNotification(offerName);
 }
 
-function showPreFillNotification(offerType) {
+function showPreFillNotification(offerName) {
     // Créer une notification toast discrète
     const toast = document.createElement('div');
     toast.style.cssText = `
@@ -65,15 +77,15 @@ function showPreFillNotification(offerType) {
         box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         z-index: 10000;
         font-size: 14px;
-        transition: opacity 0.3s ease;
+        transition: all 0.3s ease;
         opacity: 0;
         transform: translateX(100px);
     `;
     
-    const offerName = offerType === 'bilan' ? 'Bilan Nutritionnel' : 'Suivi Nutritionnel';
     toast.textContent = `Formulaire prérempli pour ${offerName}`;
+    toast.id = 'prefill-toast';
     
     document.body.appendChild(toast);
     
-    
+   
 }
