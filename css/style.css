@@ -68,6 +68,7 @@ body {
     background-color: var(--white);
 }
 
+
 a {
     text-decoration: none;
     color: inherit;
@@ -155,9 +156,14 @@ img {
 }
 
 .section {
-    padding: 150px 0 66px 0; /* haut 150px, droite 0, bas 100px, gauche 0 */
-    background-color:#F9EBE7;
+    padding: 150px 0 66px 0;
+    background-color: #F9EBE7;
+    position: relative;
+    overflow: hidden;
 }
+
+
+
 
 section.accompaniments.section {
     padding: 0 !important;
@@ -315,12 +321,187 @@ section.accompaniments.section {
     transform: translateY(-2px);
 }
 
+/* Styles pour la bannière de cookies */
+.cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    display: none;
+    max-width: 1000px;
+    margin: 0 auto;
+}
 
+.cookie-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    
+}
 
+.cookie-icon {
+    flex-shrink: 0;
+}
 
+.cookie-icon svg {
+    width: 32px;
+    height: 32px;
+}
 
+.cookie-text {
+    flex: 1;
+    min-width: 250px;
+}
 
+.cookie-text h3 {
+    margin-bottom: 5px;
+    font-size: 1.3rem;
+}
 
+.cookie-text p {
+    margin: 0;
+    opacity: 0.9;
+}
 
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
 
+.cookie-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: var(--transition);
+}
 
+.cookie-btn.accept{
+    border: 1px solid white;
+}
+
+.cookie-btn.refuse {
+    background-color: transparent;
+    
+}
+
+.cookie-btn.refuse:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Message pour carte bloquée */
+.map-blocked-message {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    margin: 20px 0;
+    border: 2px dashed #e0e0e0;
+}
+
+.map-message-content {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.map-icon svg {
+    width: 60px;
+    height: 60px;
+    color: var(--primary-color);
+    opacity: 0.7;
+    margin-bottom: 15px;
+}
+
+.map-blocked-message h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.map-blocked-message p {
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.cookie-enable-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.cookie-enable-btn:hover {
+    background-color: #3C8189;
+}
+
+/* Icône flottante pour les préférences cookies */
+.cookie-float-icon {
+    position: fixed;
+    bottom: 25px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    transition: var(--transition);
+    display: none;
+}
+
+.cookie-float-icon:hover {
+    transform: scale(1.1);
+    background-color: #3C8189;
+}
+
+.cookie-float-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Style pour l'iframe bloquée */
+.map-container.blocked iframe {
+    display: none;
+}
+
+.map-container:not(.blocked) #map-blocked {
+    display: none;
+}
+
+.map-container.blocked #map-blocked {
+    display: block;
+}
+
+/* Media query pour les écrans mobiles */
+@media (max-width: 768px) {
+    .cookie-content {
+        text-align: center; /* Centre le texte */
+    }
+    
+   .cookie-buttons {
+         width: auto; /* laisse la largeur du contenu */
+        margin-left: auto; /* pousse l’élément à droite */
+
+        }
+            
+    
+}

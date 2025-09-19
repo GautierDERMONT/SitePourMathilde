@@ -129,6 +129,10 @@
     margin-top: 0;
 }
 
+.accompaniments .section-title h2{
+    background-color: white !important;
+}
+
 /* Ajuster l'espacement interne des éléments à la place */
 .accompaniments .container {
     padding-top: 40px;
