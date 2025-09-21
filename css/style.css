@@ -181,7 +181,7 @@ section.accompaniments.section {
     position: relative;
     display: inline-block;
     padding: 0px 20px;
-    background-color: #FDF7F3 !important; /* Fond blanc forcé */
+    background-color: white !important; /* Fond blanc forcé */
     border-radius: 6px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     /* SUPPRIMER les propriétés de gradient textuel qui causent confusion */
@@ -405,7 +405,6 @@ section.accompaniments.section {
     padding: 40px 20px;
     background-color: #f9f9f9;
     border-radius: 12px;
-    margin: 20px 0;
     border: 2px dashed #e0e0e0;
 }
 
@@ -505,3 +504,4 @@ section.accompaniments.section {
             
     
 }
+

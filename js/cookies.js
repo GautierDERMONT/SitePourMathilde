@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Fonction pour charger l'iframe (uniquement sur les pages avec carte)
+        // Remplacer la fonction loadMapIframe
     function loadMapIframe() {
         if (mapIframe) {
             mapContainer.classList.remove('blocked');
@@ -123,9 +123,29 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // Recharger la source pour s'assurer qu'elle s'affiche
-            const iframeSrc = mapIframe.src;
+            // Stocker la source originale si ce n'est pas déjà fait
+            if (!mapIframe.dataset.src) {
+                mapIframe.dataset.src = mapIframe.src;
+            }
+            mapIframe.src = mapIframe.dataset.src;
+        }
+    }
+
+    // Remplacer la fonction blockMapIframe
+    function blockMapIframe() {
+        if (mapContainer) {
+            mapContainer.classList.add('blocked');
+        }
+        if (mapIframe) {
+            // Sauvegarder la source avant de la vider
+            if (!mapIframe.dataset.src) {
+                mapIframe.dataset.src = mapIframe.src;
+            }
             mapIframe.src = '';
-            mapIframe.src = iframeSrc;
+            mapIframe.style.display = 'none';
+        }
+        if (mapBlockedMessage) {
+            mapBlockedMessage.style.display = 'block';
         }
     }
 

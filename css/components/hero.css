@@ -15,7 +15,6 @@
     box-shadow: 0 5px 15px rgba(253, 253, 253, 0.15);
     margin-bottom: 50px;
     transform: translateY(10px); /* descend de 20px */
-
 }
 
 /* Hero background carousel */
@@ -36,13 +35,21 @@
     height: 100%;
     opacity: 0;
     transition: opacity 1.5s ease;
-    background-size: cover;
-    background-position: center;
+    object-fit: cover; /* Changé pour les balises img */
+    object-position: center; /* Changé pour les balises img */
     animation: zoomOut 15s linear infinite;
 }
 
 .hero-bg-slide.active {
     opacity: 1;
+}
+
+/* Style pour les images en cours de chargement */
+.hero-bg-slide:not([src]) {
+    background-color: #f0f0f0;
+    background-image: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
 }
 
 @keyframes zoomOut {
@@ -52,6 +59,11 @@
     100% {
         transform: scale(1);
     }
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
 }
 
 .hero-content {
@@ -68,8 +80,6 @@
     max-width: 600px; 
 }
 
-
-
 .hero-text h1 {
     font-size: 2.5rem;
     color: var(--dark-color);
@@ -77,14 +87,10 @@
     line-height: 1.2;
 }
 
-
-
 .hero-text p {
     font-size: 1.2rem;
     margin-bottom: 30px;
 }
-
-
 
 /* Styles pour les carrés d'arrière-plan */
 .hero-image {
@@ -108,14 +114,12 @@
     background-color: #B81329;
     transform: rotate(2.5deg);
     transition: transform 0.5s ease;
-
 }
 
 .hero-image::after {
     background-color: #EDB183;
     transform: rotate(5deg);
     transition: transform 0.5s ease;
-
 }
 
 .hero-image:hover::before {
@@ -168,4 +172,63 @@
     z-index: 1;
     font-style: italic; 
     text-align: left !important;
+}
+
+/* Media Queries pour la responsivité */
+@media (max-width: 992px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-text {
+        max-width: 100%;
+        margin-bottom: 40px;
+    }
+    
+    .hero-image {
+        text-align: center;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 120px;
+        padding-bottom: 60px;
+    }
+    
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-text p {
+        font-size: 1.1rem;
+    }
+    
+    .quote-box {
+        padding: 20px 25px 20px 35px;
+    }
+    
+    .quote-box p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-text h1 {
+        font-size: 1.6rem;
+    }
+    
+    .quote-box {
+        padding: 15px 20px 15px 30px;
+    }
+    
+    .quote-box::before {
+        left: 8px;
+        width: 4px;
+    }
 }

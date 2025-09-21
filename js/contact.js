@@ -5,10 +5,17 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!contactForm) return;
     
     // Initialisation d'EmailJS
-    emailjs.init("PM9XqztJbWOXqRK0G");
+    emailjs.init("vkBvpfM1lMN-iC0kR");
     
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
+        
+        const submitBtn = document.getElementById('submitBtn');
+        const originalText = submitBtn.textContent;
+        
+        // Désactiver le bouton pour éviter les doubles clics
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Envoi en cours...';
         
         // Masquer tout message précédent
         const existingMessages = document.querySelectorAll('.form-message');
@@ -25,25 +32,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Envoyer l'email via EmailJS
-        emailjs.sendForm('service_ycu98z2', 'template_tcjkkjk', this)
-            .then(function() {
+        emailjs.sendForm('service_zs48k1a', 'template_fm831la', this)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
                 Swal.close();
                 Swal.fire({
                     icon: 'success',
                     title: 'Message envoyé!',
-                    text: 'Merci pour votre message! Je vous répondrai très rapidement.',
+                    html: 'Merci pour votre message! Je vous répondrais dans les plus bref délais',
                     confirmButtonColor: '#1E555C'
                 });
                 contactForm.reset();
+                
             }, function(error) {
-                console.error('Erreur:', error);
+                console.error('Erreur EmailJS:', error);
                 Swal.close();
                 Swal.fire({
                     icon: 'error',
-                    title: 'Erreur',
-                    text: 'Une erreur s\'est produite lors de l\'envoi du message. Veuillez réessayer.',
+                    title: 'Erreur technique',
+                    html: `Une erreur s'est produite (${error.status}).<br>Veuillez m'envoyer directement un email à <strong>mathildejoyeuxdiet@outlook.fr</strong>`,
                     confirmButtonColor: '#1E555C'
                 });
+            })
+            .finally(() => {
+                // Réactiver le bouton
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
             });
     });
 });
