@@ -10,9 +10,7 @@
     gap: 30px;
     padding: 15px 0;
     align-items: start; /* Ajouter cette ligne */
-
 }
-
 
 .service-card {
     background-color: var(--white);
@@ -26,6 +24,9 @@
     transform: rotate(2deg) !important;
     height: auto; /* Modifier */
     min-height: auto; /* Modifier */
+    /* Optimisation pour le texte */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Bordure blanche à l'intérieur */
@@ -47,12 +48,22 @@
     position: relative;
     border: 1px solid #f0f0f0;
     margin-bottom: 5px;
+    /* Correction du rendu d'image */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
 
 .service-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* Préserver la qualité d'image pendant les transformations */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .service-content {
@@ -60,8 +71,11 @@
     text-align: left;
     position: relative;
     background: white;
+    /* Amélioration du rendu du texte */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
-
 
 .service-card h3 {
     font-size: 1.2rem;
@@ -145,7 +159,6 @@
     gap: 30px;
     margin-top: 30px;
     align-items: start; /* Ajouter cette ligne */
-
 }
 
 .accompaniment-item {
@@ -160,6 +173,9 @@
     transform: rotate(2deg) !important;
     height: auto; /* Modifier */
     min-height: auto; /* Modifier */
+    /* Optimisation pour le texte */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Bordure blanche à l'intérieur */
@@ -182,12 +198,22 @@
     position: relative;
     border: 1px solid #f0f0f0;
     margin-bottom: 5px;
+    /* Correction du rendu d'image */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
 
 .accompaniment-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* Préserver la qualité d'image pendant les transformations */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .accompaniment-content {
@@ -195,6 +221,10 @@
     text-align: left;
     position: relative;
     background: white;
+    /* Amélioration du rendu du texte */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 /* Services Section */
@@ -226,8 +256,6 @@
 .accompaniment-content::before {
     display: none;
 }
-
-
 
 .accompaniment-item h3 {
     color: var(--primary-color);
@@ -457,5 +485,37 @@
     
     .accompaniment-item {
         padding: 20px;
+    }
+}
+
+/* Amélioration du rendu des traits rouges et des éléments transformés */
+.service-card h3::before,
+.accompaniment-item h3::before {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Pour les écrans haute résolution (PC) */
+@media (min-width: 769px) {
+    .service-card,
+    .accompaniment-item {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    .service-card h3::before,
+    .accompaniment-item h3::before {
+        /* Légère augmentation de l'épaisseur pour PC */
+        height: 4px;
+        /* Application d'un flou très subtil pour lisser les bords */
+        filter: blur(0.6px);
+    }
+    
+    /* Amélioration du texte sur PC */
+    .service-content,
+    .accompaniment-content {
+        -webkit-font-smoothing: subpixel-antialiased;
     }
 }

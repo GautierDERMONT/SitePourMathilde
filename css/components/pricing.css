@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: white;
+    background: #FDF7F3;
     border-radius: 80px;
     padding: 40px;
     margin: 0 auto 40px; /* Centrer la carte */

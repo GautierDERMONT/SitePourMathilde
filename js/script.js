@@ -277,6 +277,8 @@ function lazyLoadBackgroundImages() {
     }
 }
 
+
+
 // Appeler la fonction au chargement du DOM
 document.addEventListener('DOMContentLoaded', lazyLoadBackgroundImages);
 
@@ -380,3 +382,4 @@ function initBackToTopButton() {
 
 // Initialiser le bouton au chargement de la page
 document.addEventListener('DOMContentLoaded', initBackToTopButton);
+
