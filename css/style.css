@@ -192,14 +192,7 @@ section.accompaniments.section {
     will-change: opacity; /* Optimisation des performances */
 }
 
-/* Optimisation des images de fond */
-.hero-bg-slide, .navigation-bg-slide {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-}
+  
 
 .section-title h2::after {
     content: '';
