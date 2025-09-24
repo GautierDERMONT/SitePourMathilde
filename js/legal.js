@@ -58,4 +58,25 @@ document.addEventListener('DOMContentLoaded', function() {
             closeModals();
         }
     });
+
+        // Ouvrir la modale des mentions légales
+    const mentionsLink = document.querySelector('a[data-modal="modal-mentions"]');
+    if (mentionsLink) {
+        mentionsLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('modal-mentions');
+        });
+    }
+
+    // Gérer le lien vers la politique de confidentialité dans le modal des mentions légales
+    document.addEventListener('DOMContentLoaded', function() {
+        const policyLinkInModal = document.querySelector('.policy-link');
+        if (policyLinkInModal) {
+            policyLinkInModal.addEventListener('click', function(e) {
+                e.preventDefault();
+                closeModals();
+                openModal('modal-policy');
+            });
+        }
+    });
 });

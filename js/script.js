@@ -23,8 +23,6 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
     });
 });
 
-
-
 // Smooth scrolling for anchor links (seulement sur la page d'accueil)
 if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -59,22 +57,20 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Animation on scroll - EXCLURE les éléments déjà visibles à l'écran sur les pages spécifiques
+// Animation on scroll - UNIFORMISÉ POUR TOUTES LES PAGES
 function animateOnScroll() {
-    const elements = document.querySelectorAll('.service-card, .pricing-card, .about-content, .contact-container, .timeline-item');
-    
-    // Vérifier si nous sommes sur une page où on veut désactiver les animations initiales
-    const isTargetPage = window.location.pathname.includes('recettes') || 
-                         window.location.pathname.includes('tarifs') || 
-                         window.location.pathname.includes('contact');
+    const elements = document.querySelectorAll('.service-card, .pricing-card, .about-content, .contact-container, .timeline-item, .accompaniment-item, .recette-card, .offer-card');
     
     elements.forEach(element => {
         const elementPosition = element.getBoundingClientRect().top;
         const screenPosition = window.innerHeight / 1.3;
         
         if (elementPosition < screenPosition) {
+            // Element entre dans la vue
             element.style.opacity = 1;
             element.style.transform = 'translateY(0)';
+            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            
             if (element.classList.contains('timeline-item')) {
                 element.classList.add('visible');
             }
@@ -82,37 +78,48 @@ function animateOnScroll() {
     });
 }
 
-// Initialize elements for animation - EXCLURE les éléments déjà visibles sur les pages spécifiques
-document.querySelectorAll('.service-card, .pricing-card, .about-content, .contact-container, .timeline-item').forEach(element => {
-    // Vérifier si nous sommes sur une page cible
-    const isTargetPage = window.location.pathname.includes('recettes') || 
-                         window.location.pathname.includes('tarifs') || 
-                         window.location.pathname.includes('contact');
+// Initialiser les éléments pour l'animation - VERSION AMÉLIORÉE
+function initScrollAnimations() {
+    const elements = document.querySelectorAll('.service-card, .pricing-card, .about-content, .contact-container, .timeline-item, .accompaniment-item, .recette-card, .offer-card');
     
-    if (isTargetPage) {
-        // Sur les pages cibles, vérifier si l'élément est déjà visible
+    elements.forEach(element => {
+        // Vérifier si l'élément est déjà visible au chargement
         const elementPosition = element.getBoundingClientRect().top;
         const screenPosition = window.innerHeight;
         
         if (elementPosition > screenPosition) {
             // Élément hors de la vue initiale - initialiser l'animation
             element.style.opacity = 0;
-            element.style.transform = 'translateY(20px)';
+            element.style.transform = 'translateY(30px)';
             element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
         } else {
-            // Élément déjà visible - pas d'animation
+            // Élément déjà visible - pas d'animation initiale
             element.style.opacity = 1;
             element.style.transform = 'translateY(0)';
-            element.style.transition = 'none';
+            
+            // Pour les éléments timeline, ajouter la classe visible si nécessaire
+            if (element.classList.contains('timeline-item')) {
+                element.classList.add('visible');
+            }
         }
-    } else {
-        // Sur les autres pages, garder l'animation normale
-        element.style.opacity = 0;
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    }
+    });
+}
+
+// Écouter les événements de défilement
+window.addEventListener('scroll', animateOnScroll);
+
+// Initialiser au chargement de la page
+document.addEventListener('DOMContentLoaded', function() {
+    initScrollAnimations();
+    // Vérifier une première fois au chargement
+    setTimeout(animateOnScroll, 100);
 });
 
+// Réinitialiser les animations lors du redimensionnement
+window.addEventListener('resize', function() {
+    setTimeout(initScrollAnimations, 100);
+    setTimeout(animateOnScroll, 150);
+});
 
 // Hero background carousel functionality - VERSION CORRIGÉE
 function initHeroCarousel() {
@@ -153,11 +160,6 @@ function initHeroCarousel() {
     // Changer de slide toutes les 5 secondes
     setInterval(showNextSlide, 5000);
 }
-
-
-
-
-
 
 // Navigation background carousel functionality - VERSION CORRIGÉE
 function initNavigationCarousel() {
@@ -277,12 +279,8 @@ function lazyLoadBackgroundImages() {
     }
 }
 
-
-
 // Appeler la fonction au chargement du DOM
 document.addEventListener('DOMContentLoaded', lazyLoadBackgroundImages);
-
-
 
 // Initialiser les deux carrousels au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
@@ -297,7 +295,6 @@ document.addEventListener('DOMContentLoaded', initHeroCarousel);
 window.addEventListener('scroll', animateOnScroll);
 // Initial check on page load
 window.addEventListener('load', animateOnScroll);
-
 
 // Bouton de retour en haut avec progression - VERSION ULTRA RAPIDE
 function initBackToTopButton() {
@@ -382,4 +379,3 @@ function initBackToTopButton() {
 
 // Initialiser le bouton au chargement de la page
 document.addEventListener('DOMContentLoaded', initBackToTopButton);
-

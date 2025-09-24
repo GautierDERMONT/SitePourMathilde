@@ -105,6 +105,11 @@ img {
     gap: 8px;
 }
 
+.hero .btn{
+ box-shadow: 0 4px 12px rgba(255, 255, 255, 0.6); /* ombre blanche */
+
+}
+
 
 
 .btn:hover {
@@ -175,6 +180,8 @@ section.accompaniments.section {
     margin-bottom: 50px;
 }
 
+
+
 .section-title h2 {
     color: var(--dark-color);
     margin-bottom: 20px;
@@ -191,6 +198,8 @@ section.accompaniments.section {
     transition: opacity 1.5s ease !important;
     will-change: opacity; /* Optimisation des performances */
 }
+
+
 
   
 

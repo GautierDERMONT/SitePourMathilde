@@ -126,6 +126,41 @@ textarea.form-control {
     display: inline-block;
 }
 
+/* Styles pour la modale de consentement */
+.swal2-popup .swal2-html-container {
+text-align: center !important;
+
+}
+
+.swal2-title {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    margin-bottom: 10px !important;
+}
+/* Réduire l'espace entre le titre et la liste */
+.swal2-popup .swal2-html-container div:first-child {
+    margin-top: 0 !important;
+}
+
+.swal2-popup ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.swal2-popup li {
+    margin-bottom: 5px;
+}
+
+/* Style pour le lien de la politique de confidentialité dans la modale */
+.swal2-popup a {
+    color: #1E555C;
+    text-decoration: underline;
+}
+
+.swal2-popup a:hover {
+    color: #16444a;
+}
+
 .doctolib-logo {
     width: 150px;
     height: auto;

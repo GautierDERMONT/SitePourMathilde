@@ -16,9 +16,11 @@
     border-radius: 8px;
     overflow: hidden;
     box-shadow: var(--shadow);
-    transition: all 0.3s ease; /* Transition pour toutes les propriétés */
+    transition: all 0.3s ease;
     height: 100%;
-    transform: scale(1); /* Échelle normale */
+    transform: scale(1);
+    /* Ajout de la bordure */
+    border: 4px solid  #FADAB9;
 }
 
 .simple-nav-image {
@@ -26,18 +28,25 @@
     width: 100%;
     height: 150px;
     overflow: hidden;
+       /* Amélioration supplémentaire */
+    transform: translateZ(0); /* Déplacer ici pour le hardware acceleration */
+    backface-visibility: hidden;
 }
 
 .simple-nav-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    image-rendering: auto;
+    filter: blur(0); /* Force l'anti-crénelage */
+    -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .simple-nav-card:hover {
     transform: scale(1.05); /* Agrandissement de 5% au survol */
     z-index: 10; /* S'assurer que la carte agrandie est au-dessus des autres */
+    border-color:#EDB183
+;
 }
 
 /* Ajuster l'image pour qu'elle s'adapte à la carte agrandie */
@@ -51,7 +60,7 @@
     left: 0;
     width: 100%;
     padding: 12px;
-    background-color:#1E555C;
+    background-color: rgba(30, 85, 92, 0.85); /* couleur avec transparence */
     color: white;
     text-align: center;
     font-weight: 600;
@@ -60,7 +69,7 @@
 }
 
 .simple-nav-card:hover .simple-nav-title {
-    background-color: #3C8189; /* Nouvelle couleur au survol */
+    background-color: #1E555C; /* Nouvelle couleur au survol */
 }
 
 .simple-nav-image img {
@@ -100,6 +109,7 @@
     width: 100%;
     height: 100%;
     z-index: 0;
+    
 }
 
 .navigation-bg-slide {
@@ -113,10 +123,11 @@
     object-fit: cover; /* Changé pour les balises img */
     object-position: center; /* Changé pour les balises img */
     animation: zoomOut 15s linear infinite;
+   
 }
 
 .navigation-bg-slide.active {
-    opacity: 0.2; /* Opacité réduite pour ne pas interférer avec le contenu */
+    opacity: 1; /* Opacité réduite pour ne pas interférer avec le contenu */
 }
 
 
