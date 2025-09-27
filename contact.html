@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Mathilde JOYEUX</title>
-    <meta name="description" content="Prendre rendez-vous avec Mathilde JOYEUX, diététicienne à Saint-Ouen-l'Aumône. Contact par formulaire ou via Doctolib.">
+    <meta name="description" content="Prendre rendez-vous avec Mathilde JOYEUX, diététicienne à Saint-Ouen-l'Aumône (Val-d’Oise, 95). Contact par formulaire ou via Doctolib.">
     <link rel="icon" type="image/x-icon" href="images/icon.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/components/preview.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="preload" as="image" href="images/slide1.1.avif" type="image/avif">
+
 </head>
 <body>
     <!-- Header -->
@@ -103,20 +105,20 @@
             <div class="navigation-grid simple-grid">
                     <a href="index.html" class="simple-nav-card">
                             <div class="simple-nav-image">
-                        <img src="images/moi.webp" loading="lazy" alt="Qui je suis">
+                        <img src="images/moi.webp" loading="lazy" alt="À propos de moi">
                                 <div class="simple-nav-title">Qui je suis</div>
                             </div>
                     </a>
                 <a href="prestations.html" class="simple-nav-card">
                     <div class="simple-nav-image">
-                        <img src="images/prestations.webp" loading="lazy" alt="Offres et tarifs">
+                        <img src="images/prestations.webp" loading="lazy" alt="Mes services & accompagnements">
                         <div class="simple-nav-title">Ce que je propose</div>
                     </div>
                 </a>
                 
                 <a href="recettes.html" class="simple-nav-card">
                     <div class="simple-nav-image">
-                        <img src="images/recettes.webp" loading="lazy" alt="Offres et tarifs">
+                        <img src="images/recettes.webp" loading="lazy" alt="Recettes uniques">
                         <div class="simple-nav-title">Saveurs à découvrir</div>
                     </div>
                 </a>
@@ -124,7 +126,7 @@
                 
                 <a href="tarifs.html" class="simple-nav-card">
                     <div class="simple-nav-image">
-                        <img src="images/tarifs.webp" loading="lazy" alt="Offres et tarifs">
+                        <img src="images/tarifs.webp" loading="lazy" alt="Formules et prix">
                         <div class="simple-nav-title">Offres et tarifs</div>
                     </div>
                 </a>
@@ -236,6 +238,262 @@
             <path d="M12,3A9,9 0 0,0 3,12A9,9 0 0,0 12,21A9,9 0 0,0 21,12C21,11.5 20.96,11 20.87,10.5C20.6,10 20,10 20,10H18V9C18,8 17,8 17,8H15V7C15,6 14,6 14,6H13V4C13,3 12,3 12,3M9.5,6A1.5,1.5 0 0,1 11,7.5A1.5,1.5 0 0,1 9.5,9A1.5,1.5 0 0,1 8,7.5A1.5,1.5 0 0,1 9.5,6M6.5,10A1.5,1.5 0 0,1 8,11.5A1.5,1.5 0 0,1 6.5,13A1.5,1.5 0 0,1 5,11.5A1.5,1.5 0 0,1 6.5,10M11.5,11A1.5,1.5 0 0,1 13,12.5A1.5,1.5 0 0,1 11.5,14A1.5,1.5 0 0,1 10,12.5A1.5,1.5 0 0,1 11.5,11M16.5,13A1.5,1.5 0 0,1 18,14.5A1.5,1.5 0 0,1 16.5,16H16.5A1.5,1.5 0 0,1 15,14.5H15A1.5,1.5 0 0,1 16.5,13M11,16A1.5,1.5 0 0,1 12.5,17.5A1.5,1.5 0 0,1 11,19A1.5,1.5 0 0,1 9.5,17.5A1.5,1.5 0 0,1 11,16Z"/>
         </svg>
     </div>
+
+           <!-- Modale pour les mentions légales -->
+        <div id="modal-mentions" class="modal-credits">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Mentions Légales</h3>
+                    <span class="modal-close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="credits-content">
+                        <div class="credit-item">
+                            <h4>Directrice de la publication</h4>
+                            <p><strong>Mathilde JOYEUX</strong></p>
+                            <h4>Éditeur du site</h4>
+                            <p><strong>Mathilde JOYEUX</strong></p>
+                            <p>Diététicienne Nutritionniste</p>
+                            <p>2 Rue Saint-Simon, 95310 Saint-Ouen-l'Aumône</p>
+                            <p>Email: mathildejoyeuxdiet@outlook.fr</p>
+                            <p>Téléphone: </p>
+                            <p>SIRET: 92123018100015  </p>
+                            <p>RPPS: 10007312217 </p>
+                            <p>ADELI: 959504127</p>
+                            
+                        </div>
+
+                            <div class="credit-item">
+                            <h4>Hébergement</h4>
+                            <p>Ce site est hébergé par Netlify.</p>
+                            <p>Adresse : 610 22nd Street, Suite 315, San Francisco, CA 94107, États-Unis</p>
+                            <p>Téléphone : +1 844-899-7312</p>
+                            </div>
+
+                            <div class="credit-item">
+                            <h4>Propriété intellectuelle</h4>
+                            <p>Le logo, les portraits publiés sur ce site sont la propriété exclusive de Mathilde JOYEUX et sont protégés par le droit d’auteur.</p>
+                            <p>La reproduction ou utilisation de ces contenus, même partielle, est interdite sans accord préalable.</p>
+                            <p>Ce site utilise également des images libres de droits (voir <strong>Crédits</strong>).</p>
+                            </div>
+
+                        <div class="credit-item">
+                            <h4>Responsabilité</h4>
+                            <p>Les informations contenues sur ce site sont aussi précises que possible et le site est périodiquement remis à jour, mais peut toutefois contenir des inexactitudes, des omissions ou des lacunes.</p>
+                            <p>L'éditeur du site ne saurait être tenu responsable :</p>
+                            <ul>
+                                <li>De tout dommage direct ou indirect résultant de l'utilisation du site</li>
+                                <li>D'une interruption du site, d'un bug</li>
+                                <li>D'une inexactitude ou d'une omission portant sur des informations disponibles sur le site</li>
+                                <li>De tout dommage résultant d'une intrusion frauduleuse d'un tiers ayant entraîné une modification des informations mises à disposition sur le site</li>
+                            </ul>
+                        </div>
+
+                        <div class="credit-item">
+                            <h4>Liens hypertextes</h4>
+                            <p>Ce site contient des liens hypertextes vers d'autres sites web. L'éditeur n'a pas la possibilité de vérifier le contenu des sites ainsi visités, et n'assumera en conséquence aucune responsabilité de ce fait.</p>
+                        </div>
+
+                        <div class="credit-item">
+                            <h4>Droit applicable</h4>
+                            <p>Les présentes mentions légales sont régies par le droit français. En cas de litige, les tribunaux français seront seuls compétents.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Modale pour les crédits -->
+    <div id="modal-credits" class="modal-credits">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Crédits</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="credits-content">
+                    <div class="credit-item">
+                        <h4>Développeur du site</h4>
+                        <p><strong>DERMONT Gautier</strong></p>
+                        <p>Email: gautier.dermont95@gmail.com</p>
+                        <p>Téléphone: 07 69 43 35 28</p>
+                        <p>LinkedIn: <a href="https://www.linkedin.com/in/gautier-dermont-developpeur-informatique/" target="_blank"> <u>Visiter le profil</u></a></p>
+                    </div>
+                    
+                    <div class="credit-item">
+                        <h4>Images libres de droits</h4>
+                        <p><em>Certaines images utilisées sur ce site sont sous licence libre de droits</em></p>
+                    </div>
+                    
+                    <div class="credit-item">
+                        <h4>Page d'accueil</h4>
+                        <p><strong>Section principale (arrière-plan)</strong></p>
+                        <ul>
+                            <li>Image 1: Photo par Lily Banse sur Unsplash</li>
+                            <li>Image 2: Photo par Jane T D. sur Pexels</li>
+                            <li>Image 3: Photo par Freepik sur Freepik</li>
+                        </ul>
+                        
+                        <p><strong>Section navigation (arrière-plan)</strong></p>
+                        <ul>
+                            <li>Image 1: Photo par Brooke Lark sur Unsplash</li>
+                            <li>Image 2: Photo par Freepik sur Freepik</li>
+                            <li>Image 3: Photo par Devin Rajaram sur Unsplash</li>
+                        </ul>
+                        
+                        <p><strong>Cartes de navigation</strong></p>
+                        <ul>
+                            <li>Qui je suis: Photo par pch.vector sur Freepik</li>
+                            <li>Ce que je propose: Photo par Rawpixel.com sur Freepik</li>
+                            <li>Saveurs à découvrir: Photo par Ho Hyou sur Unsplash</li>
+                            <li>Offres et tarifs: Photo par Tara Winstead sur Pexels</li>
+                            <li>Prendre rendez-vous: Photo par Towfiqu barbhuiya sur Unsplash</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="credit-item">
+                        <h4>Page Prestations</h4>
+                        <p><strong>Section services</strong></p>
+                        <ul>
+                            <li>Bilan Nutritionnel: Photo par Freepik sur Freepik</li>
+                            <li>Suivi personnalisé: Photo par Freepik sur Freepik</li>
+                            <li>Atelier thérapeutique: Photo par Freepik sur Freepik</li>
+                        </ul>
+                        
+                        <p><strong>Section accompagnements</strong></p>
+                        <ul>
+                            <li>Rééquilibrage alimentaire: Photo par Freepik sur Freepik</li>
+                            <li>Femme enceinte et allaitante: Photo par gpointstudio sur Freepik</li>
+                            <li>Surpoids et obésité: Photo par vectorjuice sur Freepik</li>
+                            <li>Diabète: Photo par Freepik sur Freepik</li>
+                            <li>Pathologies cardiovasculaires: Photo par Freepik sur Freepik</li>
+                            <li>Dénutrition: Photo par Thought Catalog sur Unsplash</li>
+                            <li>Adaptation de texture (IDDSI): Photo par pvproductions sur Freepik</li>
+                            <li>Pathologies digestives: Photo par Freepik sur Freepik</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- <div class="credit-item">
+                        <h4>Page Recettes</h4>
+                        <p><strong>Icônes de catégories</strong></p>
+                        <ul>
+                            <li>Petit-déjeuner: Photo par Freepik sur Flaticon</li>
+                            <li>Déjeuner: Photo par Freepik sur Flaticon</li>
+                            <li>Dîner: Photo par IwoStudio sur Flaticon</li>
+                            <li>Collations: Photo par Freepik sur Flaticon</li>
+                            <li>Desserts: Photo par Freepik sur Flaticon</li>
+                        </ul>
+                    </div> -->
+                    
+                    <div class="credit-item">
+                        <h4>Page Tarifs</h4>
+                        <ul>
+                            <li>Bilan Nutritionnel: Photo par Freepik sur Freepik</li>
+                            <li>Suivi Personnalisé: Photo par Freepik sur Freepik</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modale pour la Politique de Confidentialité -->
+    <div id="modal-policy" class="modal-credits">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Politique de Confidentialité</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="credits-content">
+
+                    <div class="credit-item">
+                            <h4>Responsable du traitement</h4>
+                            <p>Mathilde JOYEUX est responsable du traitement des données collectées.</p>
+                            <p>Pour toute question relative à vos données personnelles, vous pouvez contacter : mathildejoyeuxdiet@outlook.fr</p>
+                        </div>
+                    <div class="credit-item">
+                        <h4>Collecte des données</h4>
+                        <p>Les seules données personnelles collectées sont celles que vous nous communiquez volontairement via le formulaire de contact : nom, prénom, email et numéro de téléphone.</p>
+                    </div>
+
+                    <div class="credit-item">
+                        <h4>Utilisation des données</h4>
+                        <p>Vos données sont utilisées exclusivement pour :</p>
+                        <ul>
+                            <li>Répondre à vos demandes de renseignements</li>
+                            <li>Prendre rendez-vous</li>
+                            <li>Vous recontacter concernant votre demande</li>
+                        </ul>
+                    </div>
+
+                    <div class="credit-item">
+                        <h4>Base légale du traitement</h4>
+                        <p>Le traitement de vos données est nécessaire à l'exécution des services que vous avez demandés (prise de rendez-vous et suivi nutritionnel), conformément à l'article 6.1.b du RGPD.</p>
+                    </div>
+
+                    <div class="credit-item">
+                        <h4>Durée de conservation</h4>
+                        <p>Vos données personnelles sont conservées pendant une durée nécessaire à la relation client</p>
+                    </div>
+
+                    <div class="credit-item">
+                        <h4>Destinataires et traitement des données du formulaire</h4>
+
+                        <p>Vos données personnelles saisies via le formulaire de contact (nom, prénom, email, téléphone, message) sont envoyées directement par email à mathildejoyeuxdiet@outlook.fr
+ et traitées temporairement par EmailJS, service d’envoi d’emails.</p>
+                        <p>Les informations suivantes peuvent être collectées par EmailJS pour permettre le traitement et l’envoi du message :</p>
+                        <ul>
+                            <li>Les données que vous avez saisies (nom, email, téléphone, message)</li>
+                            <li>Des données techniques : système d’exploitation, navigateur et version, pays d’origine, page référente, adresse IP anonymisée.</li>
+                        </ul>
+                        <p>Ces données sont strictement confidentielles, utilisées uniquement pour répondre à vos demandes, prendre rendez-vous ou vous recontacter. Elles ne sont pas stockées sur le site et sont conservées temporairement par EmailJS selon la durée nécessaire pour le traitement.</p>
+                        </p>EmailJS s’engage à respecter le RGPD et fournit un accord de traitement des données (DPA) pour assurer la protection de vos informations.
+                    </div>
+
+                    <div class="credit-item">
+                        <h4>Cookies</h4>
+                        <p>Ce site utilise des cookies uniquement pour :</p>
+                        <ul>
+                            <li>Afficher la carte Google Maps sur la page Contact</li>
+                        </ul>
+                        <p>Vous pouvez contrôler vos préférences à tout moment via notre bannière cookies.</p>
+                    </div>
+
+                    <div class="credit-item">
+                        <h4>Transferts de données hors UE</h4>
+                        <p>
+                            Pour afficher notre localisation sur la carte, nous utilisons Google Maps via un iframe. 
+                            Les données personnelles collectées par Google (ex. adresse IP, type de navigateur) peuvent 
+                            être transférées aux États-Unis dans le cadre du Data Privacy Framework. 
+                            Pour plus d’informations, vous pouvez consulter la 
+                            <a href="https://policies.google.com/privacy?hl=fr" target="_blank" rel="noopener">politique de confidentialité de Google</a>.
+                        </p>
+                        <p>
+                            Lorsque vous utilisez notre formulaire de contact, vos données personnelles (nom, email, message, etc.) 
+                            sont transmises à EmailJS pour nous permettre de répondre à vos messages. 
+                            EmailJS s’engage à respecter le RGPD et fournit un accord de traitement des données pour assurer 
+                            la protection de vos informations.
+                        </p>
+                    </div>
+                   
+
+                    <div class="credit-item">
+                        <h4>Vos droits</h4>
+                        <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et d'effacement de vos données.</p>
+                        <p>Pour exercer ces droits, contactez-nous à : mathildejoyeuxdiet@outlook.fr</p>
+                    </div>
+
+                    <div class="credit-item">
+                        <h4>Droit de réclamation</h4>
+                        <p>Si vous estimez que vos droits n'ont pas été respectés, vous avez le droit d'introduire une réclamation auprès de la CNIL : <a href="https://www.cnil.fr" target="_blank">www.cnil.fr</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/legal.js"></script>
 
 
     <script src="js/legal.js"></script>

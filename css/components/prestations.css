@@ -9,7 +9,7 @@
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     padding: 15px 0;
-    align-items: start; /* Ajouter cette ligne */
+    align-items: start;
 }
 
 .service-card {
@@ -22,11 +22,11 @@
     border-radius: 0;
     margin-bottom: 0;
     transform: rotate(2deg) !important;
-    height: auto; /* Modifier */
-    min-height: auto; /* Modifier */
-    /* Optimisation pour le texte */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    height: auto;
+    min-height: auto;
+    /* SUPPRIMER les propriétés qui causent le flou */
+    /* -webkit-font-smoothing: antialiased; */
+    /* -moz-osx-font-smoothing: grayscale; */
 }
 
 /* Bordure blanche à l'intérieur */
@@ -42,13 +42,14 @@
     pointer-events: none;
 }
 
+/* Optimisation des images SEULEMENT - pas de texte */
 .service-image {
     height: 160px;
     overflow: hidden;
     position: relative;
     border: 1px solid #f0f0f0;
     margin-bottom: 5px;
-    /* Correction du rendu d'image */
+    /* Garder seulement pour les images */
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
     image-rendering: -webkit-optimize-contrast;
@@ -59,30 +60,44 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Préserver la qualité d'image pendant les transformations */
+    /* Garder seulement pour les images */
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    transition: transform 0.3s ease;
+    display: block;
 }
 
+/* État chargé des images */
+.service-image img.loaded {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* CONTENU TEXTUEL - SUPPRIMER les propriétés qui causent le flou */
 .service-content {
     padding: 15px 0px 8px;
     text-align: left;
     position: relative;
     background: white;
-    /* Amélioration du rendu du texte */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+    /* SUPPRIMER les propriétés problématiques */
+    /* -webkit-font-smoothing: antialiased; */
+    /* -moz-osx-font-smoothing: grayscale; */
+    /* text-rendering: optimizeLegibility; */
 }
 
 .service-card h3 {
     font-size: 1.2rem;
-    margin: 8px 0 5px; /* Ajustement de la marge pour l'espace avec le trait */
+    margin: 8px 0 5px;
     color: var(--primary-color);
     position: relative;
     padding-bottom: 5px;
+    /* Ajouter pour un texte net */
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+    text-rendering: auto;
 }
 
 .service-card h3::after {
@@ -122,9 +137,13 @@
     margin-top: 5px;
     margin-bottom: 3px;
     font-size: 0.9rem;
+    /* Texte net */
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+    text-rendering: auto;
 }
 
-/* Légère ombre portée pour donner l'impression que le cadre est décollé */
+/* Légère ombre portée */
 .service-card::after {
     content: '';
     position: absolute;
@@ -136,7 +155,7 @@
     pointer-events: none;
 }
 
-/* Accompaniments Section - Style modifié pour ressembler aux service-card */
+/* Accompaniments Section */
 .accompaniments {
     padding: 30px 0;
     background-color: #EDB183;
@@ -147,7 +166,6 @@
     background-color: white !important;
 }
 
-/* Ajuster l'espacement interne des éléments à la place */
 .accompaniments .container {
     padding-top: 40px;
     padding-bottom: 66px;
@@ -158,7 +176,7 @@
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-top: 30px;
-    align-items: start; /* Ajouter cette ligne */
+    align-items: start;
 }
 
 .accompaniment-item {
@@ -171,11 +189,11 @@
     border-radius: 0;
     margin-bottom: 0;
     transform: rotate(2deg) !important;
-    height: auto; /* Modifier */
-    min-height: auto; /* Modifier */
-    /* Optimisation pour le texte */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    height: auto;
+    min-height: auto;
+    /* SUPPRIMER les propriétés qui causent le flou */
+    /* -webkit-font-smoothing: antialiased; */
+    /* -moz-osx-font-smoothing: grayscale; */
 }
 
 /* Bordure blanche à l'intérieur */
@@ -191,14 +209,13 @@
     pointer-events: none;
 }
 
-/* Image d'accompagnement */
+/* Image d'accompagnement optimisée - images seulement */
 .accompaniment-image {
     height: 160px;
     overflow: hidden;
     position: relative;
     border: 1px solid #f0f0f0;
     margin-bottom: 5px;
-    /* Correction du rendu d'image */
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
     image-rendering: -webkit-optimize-contrast;
@@ -209,22 +226,31 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Préserver la qualité d'image pendant les transformations */
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    transition: transform 0.3s ease;
+    display: block;
 }
 
+/* État chargé des images */
+.accompaniment-image img.loaded {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* CONTENU TEXTUEL - texte net */
 .accompaniment-content {
     padding: 10px 8px 8px;
     text-align: left;
     position: relative;
     background: white;
-    /* Amélioration du rendu du texte */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+    /* SUPPRIMER les propriétés problématiques */
+    /* -webkit-font-smoothing: antialiased; */
+    /* -moz-osx-font-smoothing: grayscale; */
+    /* text-rendering: optimizeLegibility; */
 }
 
 /* Services Section */
@@ -241,17 +267,19 @@
     z-index: 3;
 }
 
-/* Ajustement de l'espacement pour le titre */
 .service-card h3,
 .accompaniment-item h3 {
     font-size: 1.2rem;
-    margin: 15px 0 5px; /* Augmenter la marge supérieure pour faire de la place */
+    margin: 15px 0 5px;
     color: var(--primary-color);
     position: relative;
     padding-bottom: 5px;
+    /* Texte net */
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+    text-rendering: auto;
 }
 
-/* Supprimer l'ancien style de barre rouge */
 .service-content::before,
 .accompaniment-content::before {
     display: none;
@@ -259,10 +287,14 @@
 
 .accompaniment-item h3 {
     color: var(--primary-color);
-    margin: 8px 0 5px; /* Ajustement de la marge pour l'espace avec le trait */
+    margin: 8px 0 5px;
     font-size: 1.2rem;
     position: relative;
     padding-bottom: 5px;
+    /* Texte net */
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+    text-rendering: auto;
 }
 
 .accompaniment-item p {
@@ -271,9 +303,12 @@
     margin-top: 5px;
     margin-bottom: 3px;
     font-size: 0.9rem;
+    /* Texte net */
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+    text-rendering: auto;
 }
 
-/* Légère ombre portée pour donner l'impression que le cadre est décollé */
 .accompaniment-item::after {
     content: '';
     position: absolute;
@@ -285,7 +320,7 @@
     pointer-events: none;
 }
 
-/* Variations d'angle pour un effet plus naturel comme les service-card */
+/* Variations d'angle */
 .accompaniment-item:nth-child(2n) {
     transform: rotate(-1deg) !important;
 }
@@ -320,12 +355,10 @@
     z-index: 10;
 }
 
-/* Position de base pour les punaises */
 .service-card {
     position: relative;
 }
 
-/* Tête de la punaise */
 .service-card::before {
     content: '';
     position: absolute;
@@ -338,7 +371,6 @@
     z-index: 12;
 }
 
-/* Tige métallique (toujours gris brillant) */
 .service-card::after {
     content: '';
     position: absolute;
@@ -354,15 +386,15 @@
 
 /* Variations de couleur pour la tête */
 .service-card:nth-child(3n+1)::before {
-    background: radial-gradient(circle, #ffd700 40%, #b8860b 90%); /* Or */
+    background: radial-gradient(circle, #ffd700 40%, #b8860b 90%);
 }
 
 .service-card:nth-child(3n+2)::before {
-    background: radial-gradient(circle, #c0c0c0 40%, #808080 90%); /* Argent */
+    background: radial-gradient(circle, #c0c0c0 40%, #808080 90%);
 }
 
 .service-card:nth-child(3n+3)::before {
-    background: radial-gradient(circle, #cd7f32 40%, #8c531c 90%); /* Bronze */
+    background: radial-gradient(circle, #cd7f32 40%, #8c531c 90%);
 }
 
 /* Effet de scotch washi tape uniquement pour les accompagnements */
@@ -391,15 +423,15 @@
 
 /* Variations de couleur pour le scotch */
 .accompaniment-item:nth-child(3n+1)::before {
-    background-color: rgba(237, 177, 131, 0.7); /* Couleur corail */
+    background-color: rgba(237, 177, 131, 0.7);
 }
 
 .accompaniment-item:nth-child(3n+2)::before {
-    background-color: rgba(255, 240, 200, 0.7); /* Couleur crème */
+    background-color: rgba(255, 240, 200, 0.7);
 }
 
 .accompaniment-item:nth-child(3n+3)::before {
-    background-color: rgba(200, 230, 255, 0.7); /* Couleur bleu clair */
+    background-color: rgba(200, 230, 255, 0.7);
 }
 
 /* Effet d'ombre sous le scotch */
@@ -416,12 +448,10 @@
     filter: blur(1px);
 }
 
-/* Ajustement pour les bords du scotch qui dépassent */
 .accompaniment-item {
     overflow: visible;
 }
 
-/* Ajustement de la bordure blanche existante pour qu'elle ne soit pas cachée par le scotch */
 .accompaniment-item > .accompaniment-content {
     z-index: 2;
     position: relative;
@@ -452,22 +482,27 @@
     max-width: 350px;
 }
 
-@media (max-width: 992px) {
-    .service-card,
-    .accompaniment-item {
-        flex: 0 0 calc(50% - 30px);
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-@media (max-width: 576px) {
-    .service-card,
-    .accompaniment-item {
-        flex: 0 0 100%;
-    }
-}
-
-/* Responsive adjustments */
+/* Éviter les scintillements sur mobile */
 @media (max-width: 768px) {
+    .service-image img,
+    .accompaniment-image img {
+        -webkit-perspective: 1000;
+        -webkit-backface-visibility: hidden;
+        -webkit-transform: translate3d(0,0,0);
+    }
+    
     .accompaniments-grid {
         grid-template-columns: 1fr;
         gap: 50px;
@@ -486,36 +521,32 @@
     .accompaniment-item {
         padding: 20px;
     }
+    
+    .service-card,
+    .accompaniment-item {
+        flex: 0 0 calc(50% - 30px);
+    }
 }
 
-/* Amélioration du rendu des traits rouges et des éléments transformés */
+@media (max-width: 576px) {
+    .service-card,
+    .accompaniment-item {
+        flex: 0 0 100%;
+    }
+}
+
+/* Amélioration du rendu des traits rouges */
 .service-card h3::before,
 .accompaniment-item h3::before {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
 }
 
 /* Pour les écrans haute résolution (PC) */
 @media (min-width: 769px) {
-    .service-card,
-    .accompaniment-item {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
-    
     .service-card h3::before,
     .accompaniment-item h3::before {
-        /* Légère augmentation de l'épaisseur pour PC */
         height: 4px;
-        /* Application d'un flou très subtil pour lisser les bords */
         filter: blur(0.6px);
-    }
-    
-    /* Amélioration du texte sur PC */
-    .service-content,
-    .accompaniment-content {
-        -webkit-font-smoothing: subpixel-antialiased;
     }
 }

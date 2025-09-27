@@ -28,18 +28,16 @@
     width: 100%;
     height: 150px;
     overflow: hidden;
-       /* Amélioration supplémentaire */
-    transform: translateZ(0); /* Déplacer ici pour le hardware acceleration */
-    backface-visibility: hidden;
 }
 
 .simple-nav-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    image-rendering: auto;
-    filter: blur(0); /* Force l'anti-crénelage */
-    -webkit-font-smoothing: subpixel-antialiased;
+    /* OPTIMISATION SIMPLIFIÉE */
+    transition: transform 0.3s ease;
+    /* Éviter les transformations problématiques */
+    will-change: transform;
 }
 
 .simple-nav-card:hover {

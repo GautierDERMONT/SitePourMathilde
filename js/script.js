@@ -296,6 +296,72 @@ window.addEventListener('scroll', animateOnScroll);
 // Initial check on page load
 window.addEventListener('load', animateOnScroll);
 
+
+// Optimisation spécifique pour les images des cartes - CORRIGÉ
+function optimizeCardImages() {
+    const cards = document.querySelectorAll('.service-card, .accompaniment-item');
+    
+    cards.forEach(card => {
+        // Appliquer l'accélération matérielle seulement aux conteneurs
+        card.style.transform = 'translateZ(0)';
+        card.style.willChange = 'transform';
+        
+        const img = card.querySelector('img');
+        if (img) {
+            if (img.complete) {
+                img.classList.add('loaded');
+            } else {
+                img.addEventListener('load', function() {
+                    this.classList.add('loaded');
+                });
+                img.addEventListener('error', function() {
+                    this.style.opacity = '1';
+                });
+            }
+        }
+        
+        // S'assurer que le texte reste net
+        const content = card.querySelector('.service-content, .accompaniment-content');
+        if (content) {
+            content.style.transform = 'translateZ(0)';
+            content.style.webkitFontSmoothing = 'auto';
+            content.style.mozOsxFontSmoothing = 'auto';
+            content.style.textRendering = 'auto';
+        }
+    });
+}
+
+// FONCTION SPÉCIFIQUE POUR LES IMAGES DE NAVIGATION
+function optimizeNavigationImages() {
+    const navImages = document.querySelectorAll('.simple-nav-image img');
+    
+    // Préchargement intelligent
+    navImages.forEach((img, index) => {
+        // Donner la priorité aux images visibles
+        if (index < 4) { // Premières images
+            img.loading = 'eager';
+        } else {
+            img.loading = 'lazy';
+        }
+        
+        // S'assurer que les images sont bien chargées
+        if (!img.complete) {
+            img.onload = function() {
+                this.style.opacity = 1;
+            };
+            img.style.opacity = 0;
+        }
+    });
+}
+
+// Appeler cette fonction après le chargement de la page
+document.addEventListener('DOMContentLoaded', function() {
+    optimizeNavigationImages();
+    
+    // Re-optimiser après un délai pour les images retardataires
+    setTimeout(optimizeNavigationImages, 1000);
+});
+
 // Bouton de retour en haut avec progression - VERSION ULTRA RAPIDE
 function initBackToTopButton() {
     // Créer l'élément du bouton
@@ -350,6 +416,8 @@ function initBackToTopButton() {
         
         ticking = false;
     }
+
+    
     
     // Gestionnaire de défilement optimisé
     window.addEventListener('scroll', () => {
