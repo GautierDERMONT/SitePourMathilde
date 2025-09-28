@@ -10,16 +10,16 @@
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/components/preview.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <link rel="preload" as="image" href="images/slide1.avif" type="image/avif">
-    <link rel="preload" as="image" href="images/slide1.1.avif" type="image/avif">
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
     
+    
 </head>
-<body>
+<body class="home-page">
+    
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <a href="index.html" class="logo"><img src="images/LogoMat.png" alt="Mathilde JOYEUX Diététicienne"></a>
+            <a href="index.html" class="logo"><img src="images/LogoMat.png" loading="lazy" alt="Mathilde JOYEUX Diététicienne"></a>
             <div class="menu-toggle">
                 <svg width="40" height="40" viewBox="0 0 100 100">
                     <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
@@ -39,11 +39,7 @@
 
     <!-- Hero Section -->
         <section class="hero">
-                <div class="hero-bg-carousel">
-                    <img class="hero-bg-slide active" src="images/slide1.avif" alt="Photo principale" fetchpriority="high">
-                    <img class="hero-bg-slide" src="images/slide2.avif" alt="Deuxième visuel" loading="lazy">
-                    <img class="hero-bg-slide" src="images/slide3.avif" alt="Troisième visuel" loading="lazy">
-                </div>
+               
             <div class="container hero-content">
                 <div class="hero-text">
                     <div class="hero-box">
@@ -59,7 +55,7 @@
                 </div>
                 <div class="hero-image">
     
-                    <img src="images/portrait.jpg" loading="lazy" alt="Mathilde JOYEUX - Diététicienne Nutritionniste">
+                    <img src="images/mathilde.avif" loading="lazy" width="360" height="360" alt="Mathilde JOYEUX - Diététicienne Nutritionniste">
                 </div>
             </div>
         </section>
@@ -73,7 +69,7 @@
             </div>
             <div class="about-content">
                 <div class="about-image">
-                    <img src="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='500' height='400' viewBox='0 0 500 400'&gt;&lt;rect width='500' height='400' fill='%23FF9800' opacity='0.2'/&gt;&lt;text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='%23333'&gt;Photo professionnelle&lt;/text&gt;&lt;/svg&gt;" alt="À propos">
+                        <img src="images/Cabinet.avif" loading="lazy" alt="Cabinet">
                 </div>
                 <div class="about-text">
                     <h3 class="special-title"><u>Diététicienne Nutritionniste</u></h3>
@@ -99,7 +95,7 @@
                     <div class="timeline-date">2022</div>
                     <div class="timeline-content">
                         <h3>BTS Diététique</h3>
-                        <p>Obtention du diplôme de diététicienne</p>
+                        <p>Obtention du diplôme de Diététicienne-nutritionniste</p>
                     </div>
                 </div>
 
@@ -115,23 +111,26 @@
                     <div class="timeline-date"> 2023 - 2025 </div>
                     <div class="timeline-content">
                         <h3>Diététicienne Nutritionniste</h3>
-                        <p>AP-HP – Accompagnement nutritionnel et suivi thérapeutique</p>
+                        <p>AP-HP – Prises en charge, suivis et ateliers thérapeuthiques</p>
                     </div>
                 </div>
                 
             </div>
 
         </div>
+
+         <div class="about-image mobile-image">
+            <img src="images/Cabinet.avif" loading="lazy" alt="Cabinet">
+        </div>
+        
+        <div class="mobile-appointment-btn">
+            <a href="contact.html" class="btn">Prendre rendez-vous</a>
+        </div>
     </section>
 
     <!-- Navigation Section -->
     <section class="navigation-section home-navigation">
 
-        <div class="navigation-bg-carousel">
-            <img class="navigation-bg-slide active" src="images/slide1.1.avif" alt="" loading="lazy">
-            <img class="navigation-bg-slide" src="images/slide1.2.avif" alt="" loading="lazy">
-            <img class="navigation-bg-slide" src="images/slide1.3.avif" alt="" loading="lazy">
-    </div>
         <div class="container">
             <div class="section-title">
             <h2 class="no-underline">Explorez mon univers</h2>

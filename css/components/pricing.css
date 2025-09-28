@@ -124,6 +124,7 @@
 /* Responsive pour mobile */
 @media (max-width: 768px) {
     .offer-card {
+        text-align: center;
         flex-direction: column;
         border-radius: 30px;
         padding: 25px;

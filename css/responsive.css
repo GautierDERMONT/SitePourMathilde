@@ -306,10 +306,7 @@
         left: -10px;
     }
     
-    .timeline-date {
-        margin-left: 30px;
-        margin-bottom: 10px;
-    }
+    
 }
 
 /* Responsive pour la timeline */
@@ -345,12 +342,7 @@
         transform: none;
     }
     
-    .timeline-date {
-        margin-left: 10px;
-        margin-bottom: 10px;
-        position: static;
-        display: inline-block;
-    }
+   
     
     .timeline-content {
         margin-top: 10px;

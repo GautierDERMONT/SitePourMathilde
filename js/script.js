@@ -121,85 +121,9 @@ window.addEventListener('resize', function() {
     setTimeout(animateOnScroll, 150);
 });
 
-// Hero background carousel functionality - VERSION CORRIGÉE
-function initHeroCarousel() {
-    const heroSection = document.querySelector('.hero');
-    if (!heroSection) return;
-    
-    const slides = document.querySelectorAll('.hero-bg-slide');
-    if (slides.length === 0) return;
-    
-    let currentSlide = 0;
-    
-    // Initialiser toutes les slides comme invisibles sauf la première
-    slides.forEach((slide, index) => {
-        if (index !== 0) {
-            slide.style.opacity = 0;
-            slide.classList.remove('active');
-        } else {
-            slide.style.opacity = 1;
-            slide.classList.add('active');
-        }
-    });
-    
-    function showNextSlide() {
-        // Masquer la slide actuelle avec transition
-        slides[currentSlide].style.opacity = 0;
-        slides[currentSlide].classList.remove('active');
-        
-        // Passer à la slide suivante
-        currentSlide = (currentSlide + 1) % slides.length;
-        
-        // Afficher la nouvelle slide avec transition
-        setTimeout(() => {
-            slides[currentSlide].style.opacity = 1;
-            slides[currentSlide].classList.add('active');
-        }, 50); // Petit délai pour permettre la transition
-    }
-    
-    // Changer de slide toutes les 5 secondes
-    setInterval(showNextSlide, 5000);
-}
 
-// Navigation background carousel functionality - VERSION CORRIGÉE
-function initNavigationCarousel() {
-    const navigationSection = document.querySelector('.navigation-section');
-    if (!navigationSection) return;
-    
-    const slides = document.querySelectorAll('.navigation-bg-slide');
-    if (slides.length === 0) return;
-    
-    let currentSlide = 0;
-    
-    // Initialiser toutes les slides comme invisibles sauf la première
-    slides.forEach((slide, index) => {
-        if (index !== 0) {
-            slide.style.opacity = 0;
-            slide.classList.remove('active');
-        } else {
-            slide.style.opacity = 1;
-            slide.classList.add('active');
-        }
-    });
-    
-    function showNextSlide() {
-        // Masquer la slide actuelle avec transition
-        slides[currentSlide].style.opacity = 0;
-        slides[currentSlide].classList.remove('active');
-        
-        // Passer à la slide suivante
-        currentSlide = (currentSlide + 1) % slides.length;
-        
-        // Afficher la nouvelle slide avec transition
-        setTimeout(() => {
-            slides[currentSlide].style.opacity = 1;
-            slides[currentSlide].classList.add('active');
-        }, 50);
-    }
-    
-    // Changer de slide toutes les 5 secondes
-    setInterval(showNextSlide, 5000);
-}
+
+
 
 // Lazy loading amélioré pour toutes les images
 function initLazyLoading() {
@@ -279,17 +203,16 @@ function lazyLoadBackgroundImages() {
     }
 }
 
+
+
+
+
 // Appeler la fonction au chargement du DOM
 document.addEventListener('DOMContentLoaded', lazyLoadBackgroundImages);
 
-// Initialiser les deux carrousels au chargement de la page
-document.addEventListener('DOMContentLoaded', function() {
-    initHeroCarousel();
-    initNavigationCarousel();
-});
 
-// Initialiser le carrousel au chargement de la page
-document.addEventListener('DOMContentLoaded', initHeroCarousel);
+
+
 
 // Listen for scroll events
 window.addEventListener('scroll', animateOnScroll);
@@ -363,6 +286,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Bouton de retour en haut avec progression - VERSION ULTRA RAPIDE
+// Bouton de retour en haut avec progression - VERSION CORRIGÉE
 function initBackToTopButton() {
     // Créer l'élément du bouton
     const backToTopButton = document.createElement('div');
@@ -391,13 +315,30 @@ function initBackToTopButton() {
     const progressFill = backToTopButton.querySelector('.progress-fill');
     
     // Variables pour optimisation
-    let docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    let docHeight = 0;
     let ticking = false;
     
-    // Recalculer la hauteur du document lors du redimensionnement
-    window.addEventListener('resize', () => {
-        docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    });
+    // Fonction pour calculer la hauteur du document
+    function calculateDocHeight() {
+        docHeight = Math.max(
+            document.body.scrollHeight, 
+            document.documentElement.scrollHeight,
+            document.body.offsetHeight, 
+            document.documentElement.offsetHeight,
+            document.body.clientHeight, 
+            document.documentElement.clientHeight
+        ) - window.innerHeight;
+        
+        // S'assurer que docHeight est au moins 1 pour éviter la division par zéro
+        docHeight = Math.max(docHeight, 1);
+    }
+    
+    // Calculer la hauteur initiale
+    calculateDocHeight();
+    
+    // Recalculer la hauteur du document lors du redimensionnement et du chargement complet
+    window.addEventListener('resize', calculateDocHeight);
+    window.addEventListener('load', calculateDocHeight);
     
     // Fonction ultra-optimisée pour mettre à jour le bouton
     function updateBackToTopButton() {
@@ -410,26 +351,30 @@ function initBackToTopButton() {
             backToTopButton.classList.remove('visible');
         }
         
-        // Mise à jour de la barre de progression (calcul simplifié)
-        const scrollProgress = (scrollTop / docHeight) * 100;
+        // Mise à jour de la barre de progression avec limite à 100%
+        let scrollProgress = (scrollTop / docHeight) * 100;
+        scrollProgress = Math.min(scrollProgress, 100); // Ne pas dépasser 100%
+        
         progressFill.style.strokeDashoffset = 100 - scrollProgress;
         
         ticking = false;
     }
-
-    
     
     // Gestionnaire de défilement optimisé
     window.addEventListener('scroll', () => {
         if (!ticking) {
-            // Utilisation directe sans requestAnimationFrame pour plus de réactivité
+            // Recalculer occasionnellement la hauteur (toutes les 50 scrolls environ)
+            if (window.scrollY % 500 === 0) {
+                calculateDocHeight();
+            }
+            
             updateBackToTopButton();
             ticking = true;
             
             // Réinitialiser après un court délai
             setTimeout(() => {
                 ticking = false;
-            }, 20); // Limiter à 50 appels par seconde maximum
+            }, 20);
         }
     }, { passive: true });
     
@@ -443,6 +388,14 @@ function initBackToTopButton() {
     
     // Initialiser l'état du bouton
     updateBackToTopButton();
+    
+    // Recalculer après le chargement complet de la page
+    window.addEventListener('load', function() {
+        setTimeout(() => {
+            calculateDocHeight();
+            updateBackToTopButton();
+        }, 500);
+    });
 }
 
 // Initialiser le bouton au chargement de la page

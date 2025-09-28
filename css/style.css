@@ -162,7 +162,7 @@ img {
 
 .section {
     padding: 150px 0 66px 0;
-    background-color: #F9EBE7;
+    background-color: #F2DCCF;
     position: relative;
     overflow: hidden;
 }
@@ -194,14 +194,16 @@ section.accompaniments.section {
     /* SUPPRIMER les propriétés de gradient textuel qui causent confusion */
 }
 
-.hero-bg-slide, .navigation-bg-slide {
-    transition: opacity 1.5s ease !important;
-    will-change: opacity; /* Optimisation des performances */
+
+.separator {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: 2px;
+  transition: width 0.3s ease;
+  margin: 0 auto 30px; /* 20px en bas, ajustable selon ton besoin */
 }
 
-
-
-  
 
 .section-title h2::after {
     content: '';
@@ -279,6 +281,7 @@ section.accompaniments.section {
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 /* Cercle de progression (autour du bouton) */
@@ -494,15 +497,40 @@ section.accompaniments.section {
 
 /* Media query pour les écrans mobiles */
 @media (max-width: 768px) {
-    .cookie-content {
-        text-align: center; /* Centre le texte */
+     .back-to-top {
+        right: 20px;
+        bottom: 30px;
+        width: 44px;
+        height: 44px;
     }
     
-   .cookie-buttons {
-         width: auto; /* laisse la largeur du contenu */
-        margin-left: auto; /* pousse l’élément à droite */
+    .progress-ring {
+        top: -2px;
+        left: -2px;
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+    }
+    
 
-        }
+    .progress-ring circle {
+        stroke-width: 3;
+        
+    }
+
+    
+    .progress-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .cookie-content {
+        text-align: center;
+    }
+    
+    .cookie-buttons {
+        width: auto;
+        margin-left: auto;
+    }
             
     
 }

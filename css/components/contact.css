@@ -223,37 +223,39 @@ text-align: center !important;
             to { transform: rotate(360deg); }
         }
 
-/* Responsive pour la section contact */
-@media (max-width: 768px) {
-    .contact-container {
-        flex-direction: column-reverse; /* Inverse l'ordre pour mettre le formulaire en dernier */
-    }
-    
-    .contact-info {
-        order: 2; /* Met le formulaire en deuxième position (en bas) */
-    }
-    
-    .contact-form {
-        order: 1; /* Met les infos contact en première position (en haut) */
-        margin-bottom: 30px;
-    }
-}
 
 /* Responsive pour la section contact */
 @media (max-width: 992px) {
     .contact-container {
-        flex-direction: column-reverse; /* Inverse l'ordre pour mettre le formulaire en dernier */
+        flex-direction: column; /* Remet l'ordre normal */
+        display: flex;
     }
     
     .contact-info {
-        order: 1; /* Met les infos contact en première position */
-        margin-bottom: 30px;
+        order: 1; /* Infos contact en premier */
     }
     
     .contact-form {
-        order: 2; /* Met le formulaire en deuxième position */
+        order: 3; /* Formulaire EN DERNIER */
+        margin-top: 30px;
     }
 }
+
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column; /* Ordre normal */
+    }
+    
+    .contact-info {
+        order: 1; /* Doctolib et map en haut */
+    }
+    
+    .contact-form {
+        order: 3; /* Formulaire TOUT EN BAS */
+        margin-top: 30px;
+    }
+}
+
 
 @media (max-width: 576px) {
     .doctolib-widget, .contact-form {
@@ -275,5 +277,7 @@ text-align: center !important;
         width: 100%;
         justify-content: center;
     }
+
+    
 }
 

@@ -39,6 +39,14 @@ function prefillForm(offerType) {
             offerText = "Je souhaite prendre rendez-vous pour un Suivi Nutritionnel (40€).\n\n";
             offerName = 'Suivi Nutritionnel';
             break;
+        case 'bilan-couple':
+            offerText = "Je souhaite prendre rendez-vous pour un Bilan Nutritionnel en Couple (110€).\n\n";
+            offerName = 'Bilan Nutritionnel en Couple';
+            break;
+        case 'suivi-couple':
+            offerText = "Je souhaite prendre rendez-vous pour un Suivi Nutritionnel en Couple (70€).\n\n";
+            offerName = 'Suivi Nutritionnel en Couple';
+            break;
         default:
             return;
     }
@@ -82,10 +90,21 @@ function showPreFillNotification(offerName) {
         transform: translateX(100px);
     `;
     
-    toast.textContent = `Formulaire prérempli pour ${offerName}`;
-    toast.id = 'prefill-toast';
+
+    // Animation d'entrée
+    setTimeout(() => {
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateX(0)';
+    }, 100);
     
-    document.body.appendChild(toast);
-    
-   
+    // Animation de sortie après 3 secondes
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(100px)';
+        setTimeout(() => {
+            if (toast.parentNode) {
+                toast.parentNode.removeChild(toast);
+            }
+        }, 300);
+    }, 3000);
 }
