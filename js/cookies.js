@@ -7,10 +7,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const enableCookiesBtn = document.getElementById('enable-cookies');
     const cookieFloatIcon = document.getElementById('cookie-float');
     const mapContainer = document.querySelector('.map-container');
-    const mapIframe = document.querySelector('.map-container iframe');
     
     // Vérifier si nous sommes sur une page avec carte
     const hasMap = mapContainer !== null;
+
+    // URL complète de Google Maps (identique à celle dans le HTML)
+    const mapEmbedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4328.363391409548!2d2.137616895562259!3d49.05707190536313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e65fa3fd5b9315%3A0xec949c3ba0e21300!2s2%20Rue%20Saint-Simon%2C%2095310%20Saint-Ouen-l'Aum%C3%B4ne!5e0!3m2!1sfr!2sfr!4v1757937472157!5m2!1sfr!2sfr`;
 
     // Vérifier si l'utilisateur a déjà fait un choix
     const cookiesAccepted = localStorage.getItem('cookiesAccepted');
@@ -35,7 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (hasMap) {
             blockMapIframe();
         }
-        cookieFloatIcon.style.display = 'flex';
+        if (cookieFloatIcon) {
+            cookieFloatIcon.style.display = 'flex';
+        }
     }
 
     // Gestionnaire d'événements pour accepter les cookies
@@ -62,16 +66,24 @@ document.addEventListener('DOMContentLoaded', function() {
     // Gestionnaire pour l'icône flottante
     if (cookieFloatIcon) {
         cookieFloatIcon.addEventListener('click', function() {
-            cookieBanner.style.display = 'block';
-            cookieFloatIcon.style.display = 'none';
+            if (cookieBanner) {
+                cookieBanner.style.display = 'block';
+            }
+            if (cookieFloatIcon) {
+                cookieFloatIcon.style.display = 'none';
+            }
         });
     }
 
     // Fonction pour accepter les cookies
     function acceptCookies() {
         localStorage.setItem('cookiesAccepted', 'true');
-        cookieBanner.style.display = 'none';
-        cookieFloatIcon.style.display = 'none';
+        if (cookieBanner) {
+            cookieBanner.style.display = 'none';
+        }
+        if (cookieFloatIcon) {
+            cookieFloatIcon.style.display = 'none';
+        }
         
         // Charger la carte si elle existe
         if (hasMap) {
@@ -93,8 +105,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fonction pour refuser les cookies
     function refuseCookies() {
         localStorage.setItem('cookiesAccepted', 'false');
-        cookieBanner.style.display = 'none';
-        cookieFloatIcon.style.display = 'flex';
+        if (cookieBanner) {
+            cookieBanner.style.display = 'none';
+        }
+        if (cookieFloatIcon) {
+            cookieFloatIcon.style.display = 'flex';
+        }
         
         // Bloquer la carte si elle existe
         if (hasMap) {
@@ -113,50 +129,59 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-        // Remplacer la fonction loadMapIframe
+    // Fonction pour charger l'iframe de la carte (seulement après acceptation)
     function loadMapIframe() {
-        if (mapIframe) {
+        if (mapContainer) {
             mapContainer.classList.remove('blocked');
-            mapIframe.style.display = 'block';
+            
+            // Vérifier si l'iframe existe déjà
+            let existingIframe = mapContainer.querySelector('iframe');
+            
+            // Si l'iframe n'existe pas, la créer
+            if (!existingIframe) {
+                const newIframe = document.createElement('iframe');
+                newIframe.src = mapEmbedUrl;
+                newIframe.width = '600';
+                newIframe.height = '450';
+                newIframe.style.border = '0';
+                newIframe.allowFullscreen = true;
+                newIframe.loading = 'lazy';
+                newIframe.referrerPolicy = 'no-referrer-when-downgrade';
+                newIframe.title = "Localisation du cabinet de Mathilde JOYEUX";
+                
+                // Insérer l'iframe avant le message bloqué
+                if (mapBlockedMessage) {
+                    mapContainer.insertBefore(newIframe, mapBlockedMessage);
+                } else {
+                    mapContainer.appendChild(newIframe);
+                }
+            } else {
+                // Si l'iframe existe déjà, simplement l'afficher
+                existingIframe.style.display = 'block';
+                // Recharger la source au cas où
+                existingIframe.src = mapEmbedUrl;
+            }
+            
+            // Cacher le message bloqué
             if (mapBlockedMessage) {
                 mapBlockedMessage.style.display = 'none';
             }
+        }
+    }
+
+    // Fonction pour bloquer l'iframe (supprime complètement l'iframe pour éviter les cookies)
+    function blockMapIframe() {
+        if (mapContainer) {
+            mapContainer.classList.add('blocked');
             
-            // Recharger la source pour s'assurer qu'elle s'affiche
-            // Stocker la source originale si ce n'est pas déjà fait
-            if (!mapIframe.dataset.src) {
-                mapIframe.dataset.src = mapIframe.src;
+            // Supprimer complètement l'iframe existante pour éviter tout dépôt de cookie
+            const existingIframe = mapContainer.querySelector('iframe');
+            if (existingIframe) {
+                existingIframe.remove();
             }
-            mapIframe.src = mapIframe.dataset.src;
         }
-    }
-
-    // Remplacer la fonction blockMapIframe
-    function blockMapIframe() {
-        if (mapContainer) {
-            mapContainer.classList.add('blocked');
-        }
-        if (mapIframe) {
-            // Sauvegarder la source avant de la vider
-            if (!mapIframe.dataset.src) {
-                mapIframe.dataset.src = mapIframe.src;
-            }
-            mapIframe.src = '';
-            mapIframe.style.display = 'none';
-        }
-        if (mapBlockedMessage) {
-            mapBlockedMessage.style.display = 'block';
-        }
-    }
-
-    // Fonction pour bloquer l'iframe (uniquement sur les pages avec carte)
-    function blockMapIframe() {
-        if (mapContainer) {
-            mapContainer.classList.add('blocked');
-        }
-        if (mapIframe) {
-            mapIframe.style.display = 'none';
-        }
+        
+        // Afficher le message bloqué
         if (mapBlockedMessage) {
             mapBlockedMessage.style.display = 'block';
         }

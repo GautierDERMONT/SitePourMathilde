@@ -48,22 +48,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 let categoryIcon = '';
                 switch(recette.category.toLowerCase()) {
                     case 'petit-déjeuner':
-                        categoryIcon = 'images/croissant.png';
+                        categoryIcon = 'images/oeuf.png';
                         break;
                     case 'déjeuner':
-                        categoryIcon = 'images/petit-dejeuner.png';
+                        categoryIcon = 'images/dejeuner.png';
                         break;
                     case 'dîner':
                         categoryIcon = 'images/lune.png';
                         break;
                     case 'collation':
-                        categoryIcon = 'images/pomme.png';
+                        categoryIcon = 'images/snack.png';
                         break;
                     case 'dessert':
-                        categoryIcon = 'images/creme-glacee.png';
+                        categoryIcon = 'images/dessert.png';
                         break;
                     default:
-                        categoryIcon = 'images/pomme.png'; // icône par défaut
+                        categoryIcon = 'images/dejeuner.png'; // icône par défaut
                 }
                 document.getElementById('modal-category-icon').src = categoryIcon;
                 document.getElementById('modal-category-icon').alt = recette.category;
@@ -335,22 +335,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 let categoryIcon = '';
                 switch(recette.category.toLowerCase()) {
                     case 'petit-déjeuner':
-                        categoryIcon = 'images/croissant.png';
+                        categoryIcon = 'images/oeuf.png';
                         break;
                     case 'déjeuner':
-                        categoryIcon = 'images/petit-dejeuner.png';
+                        categoryIcon = 'images/dejeuner.png';
                         break;
                     case 'dîner':
                         categoryIcon = 'images/lune.png';
                         break;
                     case 'collation':
-                        categoryIcon = 'images/pomme.png';
+                        categoryIcon = 'images/snack.png';
                         break;
                     case 'dessert':
-                        categoryIcon = 'images/creme-glacee.png';
+                        categoryIcon = 'images/dessert.png';
                         break;
                     default:
-                        categoryIcon = 'images/pomme.png'; // icône par défaut
+                        categoryIcon = 'images/dejeuner.png'; // icône par défaut
                 }
                 document.getElementById('modal-category-icon').src = categoryIcon;
                 document.getElementById('modal-category-icon').alt = recette.category;

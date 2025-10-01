@@ -16,6 +16,7 @@
     font-size: 1.8rem;
     color: var(--dark-color);
     margin-bottom: 20px;
+    font-family: serif;
 }
 
 .contact-details {
@@ -98,6 +99,7 @@ textarea.form-control {
     margin: 0 auto; /* Centre le bouton */
     display: inline-flex;
     justify-content: center;
+    font-weight: 600;
 }
 
 /* Widget Doctolib */
@@ -262,10 +264,7 @@ text-align: center !important;
         padding: 20px;
     }
     
-    .contact-details li {
-        flex-direction: column;
-        text-align: center;
-    }
+    
     
     .contact-details i {
         margin-right: 0;

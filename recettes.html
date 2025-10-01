@@ -19,7 +19,7 @@
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <a href="index.html" class="logo"><img src="images/LogoMat.png" alt="Mathilde JOYEUX Diététicienne"></a>
+            <a href="index.html" class="logo"><img src="images/LogoMat.webp" loading="lazy" alt="Mathilde JOYEUX Diététicienne"></a>
             <div class="menu-toggle">
                 <svg width="40" height="40" viewBox="0 0 100 100">
                     <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
@@ -94,16 +94,41 @@
     <section class="recettes-section section">
         <div class="container">
             <div class="section-title">
-                <h2>Mes recettes santé</h2>
+                <h2>Mes recettes</h2>
                 <p>Des plats simples, nutritifs et délicieux pour toutes les occasions</p>
             </div>
+
+
+            
+        <div class="recettes-filters">
+            <button class="filter-btn active" data-filter="all" style="display: none;"></button>
+            <button class="filter-btn" data-filter="petit-dejeuner">
+                <img src="images/oeuf.png" loading="lazy" alt="Petit-déjeuner" class="filter-icon">
+                Petit-déjeuner
+            </button>
+            <button class="filter-btn" data-filter="dejeuner">
+                <img src="images/dejeuner.png" loading="lazy" alt="Déjeuner" class="filter-icon">
+                Déjeuner
+            </button>
+            <button class="filter-btn" data-filter="diner">
+                <img src="images/lune.png" loading="lazy" alt="Dîner" class="filter-icon">
+                Dîner
+            </button>
+            <button class="filter-btn" data-filter="collation">
+                <img src="images/snack.png" loading="lazy" alt="Collations" class="filter-icon">
+                Collations
+            </button>
+            <button class="filter-btn" data-filter="dessert">
+                <img src="images/dessert.png" loading="lazy" alt="Desserts" class="filter-icon">
+                Desserts
+            </button>
+        </div>
+
                 </br>
                 </br>
                 </br>
                 </br>
-                </br>
-                </br>
-                </br>
+              
                 <center><h1>A venir très prochainement !</h1></center>
                 </br>
                 </br>
@@ -113,36 +138,9 @@
                 </br>
                 </br>
                 </br>
-                </br>
-                </br>
-                </br>
-                </br>
+               
             
              
-                <!-- <div class="recettes-filters">
-                    <button class="filter-btn active" data-filter="all" style="display: none;"></button>
-                    <button class="filter-btn" data-filter="petit-dejeuner">
-                        <img src="images/croissant.png" loading="lazy" alt="Petit-déjeuner" class="filter-icon">
-                        Petit-déjeuner
-                    </button>
-                    <button class="filter-btn" data-filter="dejeuner">
-                        <img src="images/petit-dejeuner.png" loading="lazy" alt="Déjeuner" class="filter-icon">
-                        Déjeuner
-                    </button>
-                    <button class="filter-btn" data-filter="diner">
-                        <img src="images/lune.png" loading="lazy" alt="Dîner" class="filter-icon">
-                        Dîner
-                    </button>
-                    <button class="filter-btn" data-filter="collation">
-                        <img src="images/pomme.png" loading="lazy" alt="Collations" class="filter-icon">
-                        Collations
-                    </button>
-                    <button class="filter-btn" data-filter="dessert">
-                        <img src="images/creme-glacee.png" loading="lazy" alt="Desserts" class="filter-icon">
-                        Desserts
-                    </button>
-                </div> -->
-
            
             <!-- <div class="recettes-grid">
                
@@ -150,7 +148,7 @@
                     <div class="recette-image">
                     <img src="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'&gt;&lt;rect width='400' height='300' fill='%23F9EBE7'/&gt;&lt;text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%23333'&gt;Bowl petit-déjeuner&lt;/text&gt;&lt;/svg&gt;" alt="Bowl petit-déjeuner">
                     <div class="recette-category">
-                    <img src="images/croissant.png" loading="lazy" alt="Petit-déjeuner" class="category-icon">
+                    <img src="images/oeuf.png" loading="lazy" alt="Petit-déjeuner" class="category-icon">
                     </div>
                     </div>
                     <div class="recette-content">
@@ -168,7 +166,7 @@
                     <div class="recette-image">
                         <img src="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'&gt;&lt;rect width='400' height='300' fill='%23F9EBE7'/&gt;&lt;text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%23333'&gt;Salade complète&lt;/text&gt;&lt;/svg&gt;" alt="Salade complète">
                         <div class="recette-category">
-                        <img src="images/petit-dejeuner.png" loading="lazy" alt="Déjeuner" class="filter-icon">
+                        <img src="images/dejeuner.png" loading="lazy" alt="Déjeuner" class="filter-icon">
                     </div>
                     </div>
                     <div class="recette-content">
@@ -204,7 +202,7 @@
                     <div class="recette-image">
                         <img src="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'&gt;&lt;rect width='400' height='300' fill='%23F9EBE7'/&gt;&lt;text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%23333'&gt;Energy balls&lt;/text&gt;&lt;/svg&gt;" alt="Energy balls">
                         <div class="recette-category">
-                        <img src="images/pomme.png" loading="lazy" alt="Collations" class="filter-icon">
+                        <img src="images/snack.png" loading="lazy" alt="Collations" class="filter-icon">
                     </div>
                     </div>
                     <div class="recette-content">
@@ -222,7 +220,7 @@
                     <div class="recette-image">
                         <img src="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'&gt;&lt;rect width='400' height='300' fill='%23F9EBE7'/&gt;&lt;text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%23333'&gt;Mousse chocolat&lt;/text&gt;&lt;/svg&gt;" alt="Mousse au chocolat">
                         <div class="recette-category">
-                        <img src="images/creme-glacee.png" loading="lazy" alt="Desserts" class="filter-icon">
+                        <img src="images/dessert.png" loading="lazy" alt="Desserts" class="filter-icon">
                     </div>
                     </div>
                     <div class="recette-content">
@@ -240,7 +238,7 @@
                     <div class="recette-image">
                         <img src="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'&gt;&lt;rect width='400' height='300' fill='%23F9EBE7'/&gt;&lt;text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%23333'&gt;Wrap healthy&lt;/text&gt;&lt;/svg&gt;" alt="Wrap healthy">
                         <div class="recette-category">
-                        <img src="images/petit-dejeuner.png" loading="lazy" alt="Déjeuner" class="filter-icon">
+                        <img src="images/dejeuner.png" loading="lazy" alt="Déjeuner" class="filter-icon">
                     </div>
                     </div>
                     <div class="recette-content">
@@ -264,27 +262,24 @@
 
        
         <div class="container">
-            <div class="section-title">
-            <h2 class="no-underline">Explorez mon univers</h2>
-            </div>
             <div class="navigation-grid simple-grid">
                      <a href="index.html" class="simple-nav-card">
                             <div class="simple-nav-image">
                                 <img src="images/moi.webp" loading="lazy" alt="À propos de moi" >
-                                <div class="simple-nav-title">Qui je suis</div>
+                                <div class="simple-nav-title">Pour mieux me connaître</div>
                             </div>
                         </a>
                 <a href="prestations.html" class="simple-nav-card">
                     <div class="simple-nav-image">
                         <img src="images/prestations.webp" loading="lazy" alt="Mes services & accompagnements">
-                        <div class="simple-nav-title">Ce que je propose</div>
+                        <div class="simple-nav-title">Prestations</div>
                     </div>
                 </a>
     
                 <a href="tarifs.html" class="simple-nav-card">
                     <div class="simple-nav-image">
                         <img src="images/tarifs.webp" loading="lazy" alt="Formules et prix">
-                        <div class="simple-nav-title">Offres et tarifs</div>
+                        <div class="simple-nav-title">Tarifs</div>
                     </div>
                 </a>
                 
@@ -300,7 +295,7 @@
 
 
     <!-- Footer -->
-       <footer>
+    <footer>
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col">
@@ -314,12 +309,22 @@
                             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                         </svg></i>2 Rue Saint-Simon, 95310 Saint-Ouen-l'Aumône</li>
                     </ul>
-                     <div class="doctolib-footer-logo">
+                      <div class="doctolib-footer-logo">
                             <a href="https://www.doctolib.fr/" target="_blank">
                             <img src="images/Doctolib.webp"loading="lazy" alt="Doctolib" class="doctolib-logo">
                             </a>
                         </div>
                 </div>
+
+                  <div class="footer-col">
+                    <h4>Horaires</h4>
+                    <ul>
+                        <li>Lundi-Vendredi: 9h-19h</li>
+                        <li>Samedi: 10h-16h</li>
+                        <li>Dimanche: Fermé</li>
+                    </ul>
+                </div>
+                
                 <div class="footer-col">
                     <h4>Liens rapides</h4>
                     <ul>
@@ -330,14 +335,7 @@
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h4>Horaires</h4>
-                    <ul>
-                        <li>Lundi-Vendredi: 9h-19h</li>
-                        <li>Samedi: 10h-16h</li>
-                        <li>Dimanche: Fermé</li>
-                    </ul>
-                </div>
+              
                 <div class="footer-col">
                     <h4>Réseaux sociaux</h4>
                     <div class="social-links">
@@ -364,17 +362,17 @@
                     </div>
                 </div>
             </div>
-            <div class="copyright">
-                    
-                        <div class="legal-links">
-                            <a href="#" data-modal="modal-mentions">Mentions légales</a>
-                            <span>|</span>
-                            <a href="#" data-modal="modal-policy">Politique de confidentialité</a>
-                            <span>|</span>
-                            <a href="#" data-modal="modal-credits">Crédits</a>
-                        </div>
-                        <p>&copy; 2025 Mathilde JOYEUX - Tous droits réservés</p>
-                    </div>
+    <!-- Remplacer le bloc copyright existant par : -->
+        <div class="copyright">
+           
+            <div class="legal-links">
+                <a href="#" data-modal="modal-mentions">Mentions légales</a>
+                <span>|</span>
+                <a href="#" data-modal="modal-policy">Politique de confidentialité</a>
+                <span>|</span>
+                <a href="#" data-modal="modal-credits">Crédits</a>
+            </div>
+             <p>&copy; 2025 Mathilde JOYEUX - Tous droits réservés</p>
         </div>
     </footer>
 
@@ -388,7 +386,7 @@
             </div>
             <div class="cookie-text">
                 <h3>Gestion des cookies</h3>
-                <p>Nous utilisons des cookies pour améliorer votre expérience. L'affichage de la carte Google Maps sur la page <strong>CONTACT</strong> nécessite votre consentement.</p>
+                <p>Nous utilisons des cookies pour améliorer votre expérience. L'affichage de la carte Google Maps sur la page <strong>CONTACT</strong>, nécessite votre consentement pour afficher la localisation de notre cabinet.</p>
             </div>
             <div class="cookie-buttons">
                 <button id="accept-cookies" class="btn cookie-btn accept">Accepter les cookies</button>
@@ -404,7 +402,7 @@
         </svg>
     </div>
 
-           <!-- Modale pour les mentions légales -->
+              <!-- Modale pour les mentions légales -->
         <div id="modal-mentions" class="modal-credits">
             <div class="modal-content">
                 <div class="modal-header">
@@ -437,7 +435,7 @@
 
                             <div class="credit-item">
                             <h4>Propriété intellectuelle</h4>
-                            <p>Le logo, les portraits publiés sur ce site sont la propriété exclusive de Mathilde JOYEUX et sont protégés par le droit d’auteur.</p>
+                            <p>Le logo, le portrait, le cabinet ainsi que le schéma IDDSI (dans la page Prestation, section Accompagnement) publiés sur ce site sont la propriété exclusive de Mathilde JOYEUX et sont protégés par le droit d’auteur.</p>
                             <p>La reproduction ou utilisation de ces contenus, même partielle, est interdite sans accord préalable.</p>
                             <p>Ce site utilise également des images libres de droits (voir <strong>Crédits</strong>).</p>
                             </div>
@@ -491,27 +489,13 @@
                     </div>
                     
                     <div class="credit-item">
-                        <h4>Page d'accueil</h4>
-                        <p><strong>Section principale (arrière-plan)</strong></p>
-                        <ul>
-                            <li>Image 1: Photo par Lily Banse sur Unsplash</li>
-                            <li>Image 2: Photo par Jane T D. sur Pexels</li>
-                            <li>Image 3: Photo par Freepik sur Freepik</li>
-                        </ul>
-                        
-                        <p><strong>Section navigation (arrière-plan)</strong></p>
-                        <ul>
-                            <li>Image 1: Photo par Brooke Lark sur Unsplash</li>
-                            <li>Image 2: Photo par Freepik sur Freepik</li>
-                            <li>Image 3: Photo par Devin Rajaram sur Unsplash</li>
-                        </ul>
-                        
+                        <h4>Bas de page</h4>
                         <p><strong>Cartes de navigation</strong></p>
                         <ul>
-                            <li>Qui je suis: Photo par pch.vector sur Freepik</li>
-                            <li>Ce que je propose: Photo par Rawpixel.com sur Freepik</li>
-                            <li>Saveurs à découvrir: Photo par Ho Hyou sur Unsplash</li>
-                            <li>Offres et tarifs: Photo par Tara Winstead sur Pexels</li>
+                            <li>Pour mieux me connaître: Photo par Riajul Islam Munshi sur Freepik</li>
+                            <li>Prestations: Photo par Freepik sur Freepik</li>
+                            <li>Saveurs à découvrir: Photo par Freepik sur Freepik</li>
+                            <li>Tarifs: Photo par Tara Winstead sur Pexels</li>
                             <li>Prendre rendez-vous: Photo par Towfiqu barbhuiya sur Unsplash</li>
                         </ul>
                     </div>
@@ -522,7 +506,7 @@
                         <ul>
                             <li>Bilan Nutritionnel: Photo par Freepik sur Freepik</li>
                             <li>Suivi personnalisé: Photo par Freepik sur Freepik</li>
-                            <li>Atelier thérapeutique: Photo par Freepik sur Freepik</li>
+                            <li>Atelier nutritionnel : Photo par rawpixel.com sur Freepik (modifiée avec l’aide de ChatGPT)</li>
                         </ul>
                         
                         <p><strong>Section accompagnements</strong></p>
@@ -533,30 +517,23 @@
                             <li>Diabète: Photo par Freepik sur Freepik</li>
                             <li>Pathologies cardiovasculaires: Photo par Freepik sur Freepik</li>
                             <li>Dénutrition: Photo par Thought Catalog sur Unsplash</li>
-                            <li>Adaptation de texture (IDDSI): Photo par pvproductions sur Freepik</li>
                             <li>Pathologies digestives: Photo par Freepik sur Freepik</li>
                         </ul>
                     </div>
                     
-                    <!-- <div class="credit-item">
+                    <div class="credit-item">
                         <h4>Page Recettes</h4>
                         <p><strong>Icônes de catégories</strong></p>
                         <ul>
                             <li>Petit-déjeuner: Photo par Freepik sur Flaticon</li>
                             <li>Déjeuner: Photo par Freepik sur Flaticon</li>
-                            <li>Dîner: Photo par IwoStudio sur Flaticon</li>
-                            <li>Collations: Photo par Freepik sur Flaticon</li>
-                            <li>Desserts: Photo par Freepik sur Flaticon</li>
-                        </ul>
-                    </div> -->
-                    
-                    <div class="credit-item">
-                        <h4>Page Tarifs</h4>
-                        <ul>
-                            <li>Bilan Nutritionnel: Photo par Freepik sur Freepik</li>
-                            <li>Suivi Personnalisé: Photo par Freepik sur Freepik</li>
+                            <li>Dîner: Photo par Freepik sur Flaticon</li>
+                            <li>Collations: Photo par lapiyee  sur Flaticon</li>
+                            <li>Desserts: Photo par Vitaly Gorbachev sur Flaticon</li>
                         </ul>
                     </div>
+                    
+                   
                 </div>
             </div>
         </div>
@@ -600,7 +577,7 @@
 
                     <div class="credit-item">
                         <h4>Durée de conservation</h4>
-                        <p>Vos données personnelles sont conservées pendant une durée nécessaire à la relation client</p>
+                        <p>Vos données sont conservées pendant la durée nécessaire au traitement de votre demande et au suivi de la relation, puis supprimées au maximum 12 mois après le dernier contact.</p>
                     </div>
 
                     <div class="credit-item">
@@ -617,15 +594,19 @@
                         </p>EmailJS s’engage à respecter le RGPD et fournit un accord de traitement des données (DPA) pour assurer la protection de vos informations.
                     </div>
 
-                    <div class="credit-item">
-                        <h4>Cookies</h4>
-                        <p>Ce site utilise des cookies uniquement pour :</p>
-                        <ul>
-                            <li>Afficher la carte Google Maps sur la page Contact</li>
-                        </ul>
-                        <p>Vous pouvez contrôler vos préférences à tout moment via notre bannière cookies.</p>
-                    </div>
-
+                            <div class="credit-item">
+                            <h4>Cookies</h4>
+                                <p>Ce site utilise des cookies uniquement dans le cadre de l’affichage de la carte Google Maps sur la page Contact.</p>
+                                <p>
+                                    L’intégration de Google Maps peut entraîner le dépôt de cookies par Google. 
+                                    Ces cookies peuvent collecter des informations techniques (adresse IP, type de navigateur, appareil utilisé) 
+                                    et être utilisés à des fins de fonctionnement, de mesure d’audience, de personnalisation et éventuellement de publicité.
+                                </p>
+                                <p>
+                                    Aucun autre cookie n’est utilisé par notre site. 
+                                    Vous pouvez accepter ou refuser le dépôt de ces cookies à tout moment via notre bannière de gestion des cookies.
+                                </p>
+                        </div>
                     <div class="credit-item">
                         <h4>Transferts de données hors UE</h4>
                         <p>
@@ -658,6 +639,7 @@
             </div>
         </div>
     </div>
+
     <script src="js/legal.js"></script>
 
 

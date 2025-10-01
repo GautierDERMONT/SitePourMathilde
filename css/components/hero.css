@@ -9,6 +9,7 @@
 }
 
 .hero-box {
+    
     background-color: rgba(252, 252, 252);
     padding: 0px 20px;
     border-radius: 8px;
@@ -18,6 +19,7 @@
 }
 
 .hero-content {
+
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -129,13 +131,14 @@
     .hero-content {
         flex-direction: column;
         text-align: center;
+        
     }
     
     .hero-text {
         max-width: 100%;
         margin-bottom: 30px;
         order: 1; /* Texte en DEUXIÈME */
-        margin-top: 15px;
+        margin-top: 60px;
     }
     
     .hero-image {
@@ -151,14 +154,34 @@
 }
 
 @media (max-width: 768px) {
+
+    .back-to-top:active {
+        background-color: var(--primary-color) !important;
+        transform: translateY(0) !important;
+    }
+    
+    .back-to-top.visible:active {
+        background-color: #3C8189 !important;
+        transform: translateY(-3px) !important;
+    }
+    
+    /* S'assurer que l'état normal est rétabli après l'interaction */
+    .back-to-top {
+        transition: opacity 0.3s, transform 0.3s, visibility 0.3s, background-color 0.3s !important;
+    }
     .hero {
         padding-top: 120px;
         padding-bottom: 40px;
     }
+
+    .hero-box {
+        margin-top: 30px; /* Ajoute un espace de 30px au-dessus du hero-box sur mobile */
+    }
     
     .hero-image {
-        margin-top: 35px; /* MARGE EN HAUT */
-        margin-bottom: 25px;
+        max-width: 280px; /* Réduit la taille de l'image et de ses décorations */
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .hero-text {
@@ -180,6 +203,10 @@
     .hero {
         padding-top: 100px;
         padding-bottom: 30px;
+    }
+
+    .hero-box {
+        margin-top: 25px; /* Un peu moins d'espace sur les très petits écrans */
     }
     
     .hero-image {

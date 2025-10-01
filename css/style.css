@@ -103,6 +103,7 @@ img {
     cursor: pointer;
     transition: var(--transition);
     gap: 8px;
+    font-weight: 600;
 }
 
 .hero .btn{
@@ -128,6 +129,7 @@ img {
     background-position: center;
     transition: var(--transition);
     display: inline-block;
+    
 }
 
 /* Positionnement du bouton en bas centré du formulaire */
@@ -147,6 +149,7 @@ img {
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    font-weight: 600;
     
 }
 
@@ -195,14 +198,6 @@ section.accompaniments.section {
 }
 
 
-.separator {
-  width: 100px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-  border-radius: 2px;
-  transition: width 0.3s ease;
-  margin: 0 auto 30px; /* 20px en bas, ajustable selon ton besoin */
-}
 
 
 .section-title h2::after {
@@ -394,6 +389,10 @@ section.accompaniments.section {
     border: 1px solid white;
 }
 
+.cookie-btn.accept:hover{
+    border: 1px solid #EDB183;
+}
+
 .cookie-btn.refuse {
     background-color: transparent;
     
@@ -534,4 +533,3 @@ section.accompaniments.section {
             
     
 }
-
