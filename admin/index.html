@@ -5,12 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager - Mathilde JOYEUX</title>
   <link rel="icon" type="image/x-icon" href="/images/icon.png">
-
-  <!-- Netlify Identity Widget -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
-  <!-- Decap CMS from CDN with error handling -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  
   <style>
     .loading {
       display: flex;
@@ -18,63 +13,97 @@
       align-items: center;
       height: 100vh;
       font-family: Arial, sans-serif;
+      flex-direction: column;
     }
     .error {
       color: red;
       text-align: center;
       padding: 20px;
     }
+    .success {
+      color: green;
+    }
   </style>
 </head>
 <body>
   <div id="app-loading" class="loading">
-    <div>Chargement de l'interface d'administration...</div>
-  </div>
-  
-  <div id="app-error" class="loading error" style="display: none;">
-    <div>
-      <h3>Erreur de chargement</h3>
-      <p>L'interface d'administration n'a pas pu se charger.</p>
-      <p>Veuillez rafraîchir la page ou vérifier votre connexion.</p>
-    </div>
+    <h2>Chargement de l'interface d'administration...</h2>
+    <p>Veuillez patienter</p>
   </div>
 
   <script>
-    // Attendre que tout soit chargé
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        if (typeof window.CMS !== 'undefined') {
-          try {
-            window.CMS.init();
-            console.log('✅ Decap CMS initialisé avec succès');
-            document.getElementById('app-loading').style.display = 'none';
-            
-            // Netlify Identity
-            if (window.netlifyIdentity) {
-              window.netlifyIdentity.on("init", user => {
-                console.log('Netlify Identity initialisé', user);
-                if (!user) {
-                  window.netlifyIdentity.on("login", () => {
-                    document.location.href = "/admin/";
-                  });
-                }
-              });
-            }
-          } catch (error) {
-            console.error('❌ Erreur lors de l\'initialisation:', error);
-            showError();
-          }
-        } else {
-          console.error('❌ Decap CMS non détecté');
-          showError();
-        }
-      }, 1000);
-    });
-
-    function showError() {
-      document.getElementById('app-loading').style.display = 'none';
-      document.getElementById('app-error').style.display = 'flex';
+    // Chargement séquentiel pour éviter les conflits
+    function loadScript(src, callback) {
+      const script = document.createElement('script');
+      script.src = src;
+      script.onload = callback;
+      script.onerror = function() {
+        console.error('Erreur de chargement: ' + src);
+        showError('Impossible de charger ' + src);
+      };
+      document.head.appendChild(script);
     }
+
+    function showError(message) {
+      const loading = document.getElementById('app-loading');
+      loading.innerHTML = `
+        <div class="error">
+          <h3>Erreur de chargement</h3>
+          <p>${message}</p>
+          <p>Veuillez rafraîchir la page ou vérifier votre connexion.</p>
+          <button onclick="window.location.reload()">Réessayer</button>
+        </div>
+      `;
+    }
+
+    function showSuccess() {
+      const loading = document.getElementById('app-loading');
+      loading.innerHTML = `
+        <div class="success">
+          <h3>Interface d'administration chargée</h3>
+          <p>Redirection en cours...</p>
+        </div>
+      `;
+    }
+
+    // Chargement séquentiel
+    loadScript('https://identity.netlify.com/v1/netlify-identity-widget.js', function() {
+      console.log('Netlify Identity chargé');
+      
+      // Initialiser Netlify Identity
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", function(user) {
+          console.log('Netlify Identity initialisé', user);
+          
+          // Maintenant charger Decap CMS
+          loadScript('https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js', function() {
+            console.log('Decap CMS chargé');
+            
+            // Attendre un peu pour l'initialisation
+            setTimeout(function() {
+              if (typeof window.CMS !== 'undefined') {
+                try {
+                  window.CMS.init();
+                  console.log('✅ Decap CMS initialisé avec succès');
+                  showSuccess();
+                } catch (error) {
+                  console.error('Erreur CMS.init():', error);
+                  showError('Erreur lors de l\'initialisation: ' + error.message);
+                }
+              } else {
+                console.error('CMS non défini');
+                showError('Decap CMS non disponible');
+              }
+            }, 1000);
+          });
+        });
+        
+        // Démarrer Netlify Identity
+        window.netlifyIdentity.init();
+      } else {
+        showError('Netlify Identity non disponible');
+      }
+    });
   </script>
 </body>
 </html>
