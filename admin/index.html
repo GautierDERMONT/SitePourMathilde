@@ -9,28 +9,18 @@
   <!-- Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-  <!-- Decap CMS -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <!-- Decap CMS local -->
+  <script src="/js/decap-cms.js"></script>
 </head>
 <body>
   <script>
-    // Initialisation plus simple et robuste
+    // Attendre que le DOM soit complètement chargé
     document.addEventListener('DOMContentLoaded', function() {
-      if (window.CMS) {
+      if (typeof CMS !== 'undefined') {
         CMS.init();
-        
-        // Configuration Netlify Identity
-        if (window.netlifyIdentity) {
-          window.netlifyIdentity.on("init", user => {
-            if (!user) {
-              window.netlifyIdentity.on("login", () => {
-                document.location.href = "/admin/";
-              });
-            }
-          });
-        }
+        console.log('Decap CMS initialisé avec succès');
       } else {
-        console.error("Decap CMS n'est pas chargé correctement.");
+        console.error('Decap CMS non chargé');
       }
     });
   </script>
