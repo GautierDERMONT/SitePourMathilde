@@ -2,9 +2,8 @@ backend:
   name: git-gateway
   branch: main
 
-# CORRECTION : Supprimez le sous-dossier "uploads"
-media_folder: "images"  # juste "images" au lieu de "images/uploads"
-public_folder: "/images"  # juste "/images" au lieu de "/images/uploads"
+media_folder: "images"
+public_folder: "/images"
 
 collections:
   - name: "recettes"
@@ -33,3 +32,8 @@ collections:
         widget: "list"
         fields:
           - { label: "Étape", name: "step", widget: "text" }
+
+# Configuration du site
+site_url: https://mathildejoyeux.netlify.app
+display_url: https://mathildejoyeux.netlify.app
+locale: "fr"

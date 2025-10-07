@@ -4,19 +4,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager - Mathilde JOYEUX</title>
+  <link rel="icon" type="image/x-icon" href="/images/icon.png">
   
   <!-- Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   
-  <!-- Decap CMS (anciennement Netlify CMS) -->
+  <!-- Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </head>
 <body>
-  <!-- Ajouter un élément racine pour le CMS -->
-  <div id="nc-root"></div>
-  
   <script>
-    // Initialisation simplifiée
+    // Initialisation du CMS
+    CMS.init();
+    
+    // Configuration Netlify Identity
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
         if (!user) {
