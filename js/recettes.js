@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const recetteCards = document.querySelectorAll('.recette-card');
     let activeFilter = 'all';
 
+
     function animateRecettes() {
         recetteCards.forEach(card => {
             if (card.style.display !== 'none') {
