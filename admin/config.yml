@@ -11,6 +11,8 @@ collections:
     folder: "content/recettes"
     create: true
     slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
     fields:
       - { label: "Titre", name: "title", widget: "string" }
       - { label: "Catégorie", name: "category", widget: "select", options: ["petit-dejeuner", "dejeuner", "diner", "collation", "dessert"] }
@@ -25,15 +27,12 @@ collections:
       - label: "Ingrédients"
         name: "ingredients"
         widget: "list"
-        fields:
-          - { label: "Ingrédient", name: "item", widget: "string" }
+        field: { label: "Ingrédient", name: "item", widget: "string" }
       - label: "Instructions"
         name: "instructions"
         widget: "list"
-        fields:
-          - { label: "Étape", name: "step", widget: "text" }
+        field: { label: "Étape", name: "step", widget: "text" }
 
-# Configuration du site
-site_url: https://mathildejoyeux.netlify.app
-display_url: https://mathildejoyeux.netlify.app
+site_url: "https://mathildejoyeux.netlify.app"
+display_url: "https://mathildejoyeux.netlify.app"
 locale: "fr"

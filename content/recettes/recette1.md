@@ -1,0 +1,27 @@
+---
+title: "Bowl petit-déjeuner énergétique"
+category: "petit-dejeuner"
+description: "Un délicieux bowl d’énergie pour bien commencer la journée."
+image: "/images/bowl-petit-dejeuner.jpg"
+time: "10 min"
+difficulty: "Facile"
+calories: "350 kcal"
+protein: "12 g"
+carbs: "55 g"
+fat: "8 g"
+ingredients:
+  - "40g de flocons d'avoine"
+  - "150ml de lait d'amande"
+  - "1 banane"
+  - "1 cuillère à soupe de graines de chia"
+  - "1 cuillère à café de miel"
+  - "50g de fruits rouges frais"
+  - "10g de noix concassées"
+instructions:
+  - "Mélanger les flocons d'avoine avec le lait d'amande dans un bol."
+  - "Ajouter les graines de chia et bien remuer."
+  - "Laisser reposer 10 minutes au réfrigérateur."
+  - "Peler et couper la banane en rondelles."
+  - "Ajouter la banane, les fruits rouges et les noix sur le mélange d'avoine."
+  - "Arroser de miel et servir frais."
+---
