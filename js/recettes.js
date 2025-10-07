@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const recette = recettesData[recetteId];
             
             if (recette) {
-                document.getElementById('modal-title').textContent = recette.title;
-                document.getElementById('modal-category-text').textContent = recette.category;
+                document.getElementById('recette-modal-title').textContent = recette.title;
+                document.getElementById('recette-modal-category-text').textContent = recette.category;
 
                 // Définir l'icône en fonction de la catégorie
                 let categoryIcon = '';
@@ -65,17 +65,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     default:
                         categoryIcon = 'images/dejeuner.png'; // icône par défaut
                 }
-                document.getElementById('modal-category-icon').src = categoryIcon;
-                document.getElementById('modal-category-icon').alt = recette.category;
+                document.getElementById('recette-modal-category-icon').src = categoryIcon;
+                document.getElementById('recette-modal-category-icon').alt = recette.category;
                 
-                document.getElementById('modal-image').src = recette.image;
-                document.getElementById('modal-image').alt = recette.title;
-                document.getElementById('modal-calories').textContent = recette.calories;
-                document.getElementById('modal-protein').textContent = recette.protein;
-                document.getElementById('modal-carbs').textContent = recette.carbs;
-                document.getElementById('modal-fat').textContent = recette.fat;
+                document.getElementById('recette-modal-image').src = recette.image;
+                document.getElementById('recette-modal-image').alt = recette.title;
+                document.getElementById('recette-modal-calories').textContent = recette.calories;
+                document.getElementById('recette-modal-protein').textContent = recette.protein;
+                document.getElementById('recette-modal-carbs').textContent = recette.carbs;
+                document.getElementById('recette-modal-fat').textContent = recette.fat;
                 
-                const ingredientsList = document.getElementById('modal-ingredients');
+                const ingredientsList = document.getElementById('recette-modal-ingredients');
                 ingredientsList.innerHTML = '';
                 recette.ingredients.forEach(ingredient => {
                     const li = document.createElement('li');
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     ingredientsList.appendChild(li);
                 });
                 
-                const instructionsList = document.getElementById('modal-instructions');
+                const instructionsList = document.getElementById('recette-modal-instructions');
                 instructionsList.innerHTML = '';
                 recette.instructions.forEach(instruction => {
                     const li = document.createElement('li');
@@ -328,8 +328,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const recette = recettesData[recetteId];
             
             if (recette) {
-                document.getElementById('modal-title').textContent = recette.title;
-                document.getElementById('modal-category-text').textContent = recette.category;
+                document.getElementById('recette-modal-title').textContent = recette.title;
+                document.getElementById('recette-modal-category-text').textContent = recette.category;
 
                 // Définir l'icône en fonction de la catégorie
                 let categoryIcon = '';
@@ -352,17 +352,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     default:
                         categoryIcon = 'images/dejeuner.png'; // icône par défaut
                 }
-                document.getElementById('modal-category-icon').src = categoryIcon;
-                document.getElementById('modal-category-icon').alt = recette.category;
+                document.getElementById('recette-modal-category-icon').src = categoryIcon;
+                document.getElementById('recette-modal-category-icon').alt = recette.category;
                 
-                document.getElementById('modal-image').src = recette.image;
-                document.getElementById('modal-image').alt = recette.title;
-                document.getElementById('modal-calories').textContent = recette.calories;
-                document.getElementById('modal-protein').textContent = recette.protein;
-                document.getElementById('modal-carbs').textContent = recette.carbs;
-                document.getElementById('modal-fat').textContent = recette.fat;
+                document.getElementById('recette-modal-image').src = recette.image;
+                document.getElementById('recette-modal-image').alt = recette.title;
+                document.getElementById('recette-modal-calories').textContent = recette.calories;
+                document.getElementById('recette-modal-protein').textContent = recette.protein;
+                document.getElementById('recette-modal-carbs').textContent = recette.carbs;
+                document.getElementById('recette-modal-fat').textContent = recette.fat;
                 
-                const ingredientsList = document.getElementById('modal-ingredients');
+                const ingredientsList = document.getElementById('recette-modal-ingredients');
                 ingredientsList.innerHTML = '';
                 recette.ingredients.forEach(ingredient => {
                     const li = document.createElement('li');
@@ -370,7 +370,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     ingredientsList.appendChild(li);
                 });
                 
-                const instructionsList = document.getElementById('modal-instructions');
+                const instructionsList = document.getElementById('recette-modal-instructions');
                 instructionsList.innerHTML = '';
                 recette.instructions.forEach(instruction => {
                     const li = document.createElement('li');

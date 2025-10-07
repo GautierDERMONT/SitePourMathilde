@@ -419,6 +419,8 @@ section.accompaniments.section {
     transform: none;
 }
 
+
+
 /* Message pour carte bloquée */
 .map-blocked-message {
     display: none;
