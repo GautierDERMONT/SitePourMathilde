@@ -701,73 +701,166 @@
 
 /* Responsive */
 @media (max-width: 992px) {
-    .modal-details {
+    .recette-modal-details {
         grid-template-columns: 1fr;
         gap: 25px;
-    }
-}
-
-@media (max-width: 768px) {
-    .modal-content {
-        width: 95%;
-        margin: 30px auto;
-        padding: 20px;
-    }
-    
-    .modal-header {
-        flex-direction: column;
-       
-    }
-    
-    .modal-title-container {
-        padding-right: 0;
-        order: 2;
-    }
-    
-    .close-modal {
-        align-self: flex-end;
-        order: 1;
-       
-    }
-    
-    .modal-header h3 {
-        font-size: 1.5rem !important;
-    }
-    
-    .modal-category {
-        padding: 6px 12px;
-    }
-    
-    .modal-category .category-icon {
-        width: 24px;
-        height: 24px;
-    }
-    
-    #modal-category-text {
-        font-size: 0.9rem;
-    }
-    
-    .modal-image {
-        height: 200px;
     }
     
     .nutrition-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+}
+
+/* Tablettes petites et grands mobiles */
+@media (max-width: 768px) {
+    .recette-modal-content {
+        width: 95%;
+        margin: 30px auto;
+        padding: 20px;
+    }
     
-    .modal-details {
-        grid-template-columns: 1fr;
-        gap: 20px;
+    .recette-modal-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .recette-modal-title-container {
+        padding-right: 0;
+        order: 2;
+    }
+    
+    .close-modal {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        order: 1;
+        align-self: flex-end;
+    }
+    
+    .recette-modal-header h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .recette-modal-category {
+        padding: 6px 12px;
+    }
+    
+    .recette-modal-category .category-icon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    #recette-modal-category-text {
+        font-size: 0.9rem;
+    }
+    
+    .recette-modal-image {
+        height: 200px;
+    }
+    
+    .nutrition-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .nutrition-item {
+        padding: 12px;
+    }
+    
+    .nutrition-value {
+        font-size: 1.2rem;
     }
 }
 
-@media (max-width: 480px) {
-    .modal-details {
-        gap: 15px;
+
+/* Mobiles moyens */
+@media (max-width: 576px) {
+    .recette-modal-content {
+        padding: 15px;
+        margin: 20px auto;
+    }
+    
+    .recette-modal-header h3 {
+        font-size: 1.3rem !important;
+        padding: 6px 12px;
+    }
+    
+    .recette-modal-image {
+        height: 180px;
+    }
+    
+    .nutrition-info h4,
+    .ingredients-section h4,
+    .instructions-section h4 {
+        font-size: 1.2rem;
     }
     
     .ingredients-section ul,
     .instructions-section ol {
         padding-left: 15px;
+    }
+}
+
+/* Petits mobiles */
+@media (max-width: 480px) {
+    .recette-modal-content {
+        width: 98%;
+        padding: 12px;
+        margin: 15px auto;
+    }
+    
+    .recette-modal-details {
+        gap: 15px;
+    }
+    
+    .nutrition-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    
+    .nutrition-item {
+        padding: 10px;
+    }
+    
+    .nutrition-value {
+        font-size: 1.1rem;
+    }
+    
+    .nutrition-label {
+        font-size: 0.8rem;
+    }
+    
+    .close-modal {
+        font-size: 35px;
+        width: 35px;
+        height: 35px;
+        top: 5px;
+        right: 5px;
+    }
+}
+
+/* Très petits écrans */
+@media (max-width: 360px) {
+    .recette-modal-content {
+        padding: 10px;
+    }
+    
+    .recette-modal-header h3 {
+        font-size: 1.2rem !important;
+    }
+    
+    .recette-modal-image {
+        height: 150px;
+    }
+    
+    .nutrition-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .ingredients-section li,
+    .instructions-section li {
+        font-size: 0.9rem;
+        margin-bottom: 6px;
     }
 }
