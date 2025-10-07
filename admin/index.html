@@ -9,20 +9,72 @@
   <!-- Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-  <!-- Decap CMS local -->
-  <script src="/js/decap-cms.js"></script>
+  <!-- Decap CMS from CDN with error handling -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <style>
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+    .error {
+      color: red;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
 </head>
 <body>
+  <div id="app-loading" class="loading">
+    <div>Chargement de l'interface d'administration...</div>
+  </div>
+  
+  <div id="app-error" class="loading error" style="display: none;">
+    <div>
+      <h3>Erreur de chargement</h3>
+      <p>L'interface d'administration n'a pas pu se charger.</p>
+      <p>Veuillez rafraîchir la page ou vérifier votre connexion.</p>
+    </div>
+  </div>
+
   <script>
-    // Attendre que le DOM soit complètement chargé
-    document.addEventListener('DOMContentLoaded', function() {
-      if (typeof CMS !== 'undefined') {
-        CMS.init();
-        console.log('Decap CMS initialisé avec succès');
-      } else {
-        console.error('Decap CMS non chargé');
-      }
+    // Attendre que tout soit chargé
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        if (typeof window.CMS !== 'undefined') {
+          try {
+            window.CMS.init();
+            console.log('✅ Decap CMS initialisé avec succès');
+            document.getElementById('app-loading').style.display = 'none';
+            
+            // Netlify Identity
+            if (window.netlifyIdentity) {
+              window.netlifyIdentity.on("init", user => {
+                console.log('Netlify Identity initialisé', user);
+                if (!user) {
+                  window.netlifyIdentity.on("login", () => {
+                    document.location.href = "/admin/";
+                  });
+                }
+              });
+            }
+          } catch (error) {
+            console.error('❌ Erreur lors de l\'initialisation:', error);
+            showError();
+          }
+        } else {
+          console.error('❌ Decap CMS non détecté');
+          showError();
+        }
+      }, 1000);
     });
+
+    function showError() {
+      document.getElementById('app-loading').style.display = 'none';
+      document.getElementById('app-error').style.display = 'flex';
+    }
   </script>
 </body>
 </html>
