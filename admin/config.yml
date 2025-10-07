@@ -1,10 +1,10 @@
-# admin/config.yml
 backend:
   name: git-gateway
-  branch: main # ou "master" selon votre branche par défaut
+  branch: main
 
-media_folder: "images/uploads" # Dossier pour les images uploadées
-public_folder: "/images/uploads"
+# CORRECTION : Supprimez le sous-dossier "uploads"
+media_folder: "images"  # juste "images" au lieu de "images/uploads"
+public_folder: "/images"  # juste "/images" au lieu de "/images/uploads"
 
 collections:
   - name: "recettes"
@@ -23,15 +23,13 @@ collections:
       - { label: "Protéines", name: "protein", widget: "string" }
       - { label: "Glucides", name: "carbs", widget: "string" }
       - { label: "Lipides", name: "fat", widget: "string" }
-      - { label: "Ingrédients", name: "ingredients", widget: "list", field: { label: "Ingrédient", name: "item", widget: "string" } }
-      - { label: "Instructions", name: "instructions", widget: "list", field: { label: "Étape", name: "step", widget: "text" } }
-
-  - name: "pages"
-    label: "Pages"
-    files:
-      - label: "À propos"
-        name: "about"
-        file: "content/about.md"
+      - label: "Ingrédients"
+        name: "ingredients"
+        widget: "list"
         fields:
-          - { label: "Titre", name: "title", widget: "string" }
-          - { label: "Contenu", name: "body", widget: "markdown" }
+          - { label: "Ingrédient", name: "item", widget: "string" }
+      - label: "Instructions"
+        name: "instructions"
+        widget: "list"
+        fields:
+          - { label: "Étape", name: "step", widget: "text" }
