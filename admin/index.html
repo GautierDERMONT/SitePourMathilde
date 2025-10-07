@@ -8,24 +8,15 @@
   <!-- Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   
-  <!-- Netlify CMS -->
-  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-  
-  <style>
-    /* Styles basiques pour la page d'admin */
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background: #f5f5f5;
-    }
-  </style>
+  <!-- Decap CMS (anciennement Netlify CMS) -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </head>
 <body>
-  <!-- Le CMS sera chargé ici automatiquement -->
+  <!-- Ajouter un élément racine pour le CMS -->
+  <div id="nc-root"></div>
   
   <script>
-    // Redirection après authentification
+    // Initialisation simplifiée
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
         if (!user) {
