@@ -5,96 +5,78 @@
 }
 
 .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    padding: 15px 0;
-    align-items: start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    align-items:center; /* Changé de stretch à flex-start */
+    padding-bottom: 40px; 
+    
 }
 
 .service-card {
     background-color: var(--white);
-    padding: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 30px 25px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.4s ease;
     position: relative;
-    overflow: hidden;
-    border-radius: 0;
+    overflow: visible;
+    border-radius: 25px;
     margin-bottom: 0;
-    transform: rotate(2deg) !important;
-    height: auto;
-    min-height: auto;
-    /* SUPPRIMER les propriétés qui causent le flou */
-    /* -webkit-font-smoothing: antialiased; */
-    /* -moz-osx-font-smoothing: grayscale; */
+    height: auto; /* La hauteur s'adapte au contenu */
+    min-height: auto; /* Supprimé la hauteur minimale fixe */
+    flex: 0 0 calc(33.333% - 40px);
+    min-width: 300px;
+    max-width: 380px;
+    border-left: 4px solid #B81329;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: transform 0.3s ease ! important;
 }
 
-/* Bordure blanche à l'intérieur */
-.service-card::before {
+.service-card:hover {
+    transform: translateY(-5px) !important; 
+}
+
+/* Service content pour les SERVICES */
+.service-card .service-content {
+    padding: 0;
+    position: relative;
+    background: white;
+    text-align: center;
+    flex: 0 1 auto; /* Permet au contenu de définir la hauteur */
+    height: auto;
+}
+
+/* Nouveau trait positionné APRÈS le titre h3 - MODIFIÉ */
+.service-card h3::after {
     content: '';
     position: absolute;
-    top: 8px;
-    left: 8px;
-    right: 8px;
-    bottom: 8px;
-    border: 2px solid white;
-    z-index: 2;
-    pointer-events: none;
+    bottom: 0; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #FADAB9; 
+    border-radius: 2px;
+    z-index: 3;
 }
 
-/* Optimisation des images SEULEMENT - pas de texte */
-.service-image {
-    height: 160px;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid #f0f0f0;
-    margin-bottom: 5px;
-    /* Garder seulement pour les images */
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-}
-
-.service-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* Garder seulement pour les images */
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    transition: transform 0.3s ease;
-    display: block;
-}
-
-/* État chargé des images */
-.service-image img.loaded {
-    animation: fadeInUp 0.6s ease-out;
-}
-
-/* CONTENU TEXTUEL - SUPPRIMER les propriétés qui causent le flou */
-.service-content {
+/* Service content pour les ACCOMPAGNEMENTS */
+.accompaniment-item .service-content {
     padding: 15px 0px 8px;
     text-align: left;
     position: relative;
     background: white;
-    /* SUPPRIMER les propriétés problématiques */
-    /* -webkit-font-smoothing: antialiased; */
-    /* -moz-osx-font-smoothing: grayscale; */
-    /* text-rendering: optimizeLegibility; */
 }
 
 .service-card h3 {
-    font-size: 1.2rem;
-    margin: 8px 0 5px;
+    font-size: 1.4rem !important;
+    margin: 0px 0 5px ;
     color: var(--primary-color);
     position: relative;
-    padding-bottom: 5px;
-    /* Ajouter pour un texte net */
+    padding-bottom: 10px;
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
     text-rendering: auto;
@@ -107,17 +89,8 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 40px;
-    height: 2px;
-}
-
-/* Variations d'angle pour un effet plus naturel */
-.service-card:nth-child(2n) {
-    transform: rotate(-1deg) !important;
-}
-
-.service-card:nth-child(3n) {
-    transform: rotate(1.5deg) !important;
+    width: 60px;
+    height: 3px;
 }
 
 .service-card:nth-child(5n) {
@@ -128,32 +101,62 @@
     transform: rotate(-1.5deg)!important;
 }
 
-.service-card:hover h3::after {
-    width: 60px;
-}
-
-.service-card p {
-    color: var(--text-color);
-    line-height: 1.4;
-    margin-top: 5px;
-    margin-bottom: 3px;
-    font-size: 0.9rem;
-    /* Texte net */
+.service-card ul {
+    color: var(--primary-color);
+    line-height: 1.6;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 1rem;
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
     text-rendering: auto;
+    text-align: left;
+    padding-left: 1.5rem;
+    list-style-type: disc; 
+
 }
 
-/* Légère ombre portée */
-.service-card::after {
-    content: '';
+.service-card li {
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+    text-rendering: auto;
+    text-align: left;
+}
+
+/* Pour les sous-listes */
+.service-card ul ul {
+    padding-left: 1rem;
+    margin-top: 5px;
+}
+
+.service-card ul ul li {
+    margin-bottom: 5px;
+}
+
+
+/* Listes avec tirets */
+.service-card .dash-list {
+    list-style-type: none;
+    padding-left: 1.7rem;
+}
+
+.service-card .dash-list li {
+    position: relative;
+    padding-left: 1rem;
+    margin-bottom: 8px;
+}
+
+
+.service-card .dash-list li::before {
+    content: "-";
     position: absolute;
-    top: 4px;
-    left: 4px;
-    right: 4px;
-    bottom: 4px;
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.8);
-    pointer-events: none;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
 }
 
 /* Accompaniments Section */
@@ -173,8 +176,9 @@
 }
 
 .accompaniments-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 30px;
     margin-top: 30px;
     align-items: start;
@@ -186,18 +190,20 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: all 0.4s ease;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     border-radius: 0;
     margin-bottom: 0;
     transform: rotate(2deg) !important;
-    height: auto;
-    min-height: auto;
-    /* SUPPRIMER les propriétés qui causent le flou */
-    /* -webkit-font-smoothing: antialiased; */
-    /* -moz-osx-font-smoothing: grayscale; */
+    height: auto; /* Hauteur automatique */
+    min-height: auto; /* Supprimé la hauteur minimale fixe */
+    flex: 0 0 calc(33.333% - 30px);
+    min-width: 280px;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Bordure blanche à l'intérieur */
+/* Bordure blanche à l'intérieur - ACCOMPAGNEMENTS */
 .accompaniment-item::before {
     content: '';
     position: absolute;
@@ -221,6 +227,7 @@
     -webkit-transform: translateZ(0);
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
+    flex-shrink: 0; /* Empêche l'image de rétrécir */
 }
 
 .accompaniment-image img {
@@ -242,20 +249,19 @@
     animation: fadeInUp 0.6s ease-out;
 }
 
-/* CONTENU TEXTUEL - texte net */
+/* CONTENU TEXTUEL - ACCOMPAGNEMENTS */
 .accompaniment-content {
     padding: 10px 8px 8px;
     text-align: left;
     position: relative;
     background: white;
-    /* SUPPRIMER les propriétés problématiques */
-    /* -webkit-font-smoothing: antialiased; */
-    /* -moz-osx-font-smoothing: grayscale; */
-    /* text-rendering: optimizeLegibility; */
+    flex: 1; /* Permet au contenu de s'étendre */
+    display: flex;
+    flex-direction: column;
 }
 
 /* Services Section */
-.service-card h3::before,
+/* Trait rouge seulement pour accompagnements */
 .accompaniment-item h3::before {
     content: '';
     position: absolute;
@@ -268,7 +274,6 @@
     z-index: 3;
 }
 
-.service-card h3,
 .accompaniment-item h3 {
     font-size: 1.2rem;
     margin: 15px 0 5px;
@@ -309,6 +314,7 @@
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
     text-rendering: auto;
+    flex: 1; /* Le texte pousse vers le bas */
 }
 
 .accompaniment-item::after {
@@ -322,7 +328,7 @@
     pointer-events: none;
 }
 
-/* Variations d'angle */
+/* Variations d'angle - ACCOMPAGNEMENTS */
 .accompaniment-item:nth-child(2n) {
     transform: rotate(-1deg) !important;
 }
@@ -339,66 +345,7 @@
     transform: rotate(-1.5deg) !important;
 }
 
-/* Punaises uniquement pour les cartes de services */
-.service-card::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20px;
-    height: 20px;
-    background: radial-gradient(circle, #d4af37 40%, #8b6914 90%);
-    border-radius: 50%;
-    box-shadow: 
-        0 2px 4px rgba(0, 0, 0, 0.3),
-        inset 2px 2px 2px rgba(255, 255, 255, 0.5),
-        inset -2px -2px 2px rgba(0, 0, 0, 0.2);
-    z-index: 10;
-}
-
-.service-card {
-    position: relative;
-}
-
-.service-card::before {
-    content: '';
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    z-index: 12;
-}
-
-.service-card::after {
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 6px;
-    height: 15px;
-    background: linear-gradient(to bottom, #c0c0c0, #f0f0f0, #c0c0c0);
-    border-radius: 2px;
-    z-index: 11;
-}
-
-/* Variations de couleur pour la tête */
-.service-card:nth-child(3n+1)::before {
-    background: radial-gradient(circle, #ffd700 40%, #b8860b 90%);
-}
-
-.service-card:nth-child(3n+2)::before {
-    background: radial-gradient(circle, #c0c0c0 40%, #808080 90%);
-}
-
-.service-card:nth-child(3n+3)::before {
-    background: radial-gradient(circle, #cd7f32 40%, #8c531c 90%);
-}
-
+/* STYLE SPÉCIFIQUE SCOTCH WASHI POUR ACCOMPAGNEMENTS */
 /* Effet de scotch washi tape uniquement pour les accompagnements */
 .accompaniment-item::before {
     content: '';
@@ -459,30 +406,23 @@
     position: relative;
 }
 
-.service-card {
-    overflow: visible;
-}
-
 .service-card > .service-content {
     z-index: 2;
     position: relative;
 }
-
-/* Centrage des grilles */
-.services-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    padding-bottom: 0; 
-}
-
 
 .accompaniments-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
+}
+
+.service-content ul::before {
+    color: var(--primary-color);
+  list-style-type: disc; /* affiche les puces rondes */
+  padding-left: 1.5rem; /* décale un peu les puces pour l'esthétique */
+  margin-top: 0.5rem;
 }
 
 .service-card,
@@ -506,7 +446,12 @@
 
 /* Éviter les scintillements sur mobile */
 @media (max-width: 768px) {
-    .service-image img,
+    .service-card {
+        opacity: 1;
+        transform: translateY(0px);
+        transition: opacity 0.8s ease, transform 0.8s ease !important;
+    }
+    
     .accompaniment-image img {
         -webkit-perspective: 1000;
         -webkit-backface-visibility: hidden;

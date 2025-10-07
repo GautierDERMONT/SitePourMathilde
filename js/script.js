@@ -124,7 +124,6 @@ window.addEventListener('resize', function() {
 
 
 
-
 // Lazy loading amélioré pour toutes les images
 function initLazyLoading() {
     const lazyImages = document.querySelectorAll('img[loading="lazy"]');
@@ -203,15 +202,8 @@ function lazyLoadBackgroundImages() {
     }
 }
 
-
-
-
-
 // Appeler la fonction au chargement du DOM
 document.addEventListener('DOMContentLoaded', lazyLoadBackgroundImages);
-
-
-
 
 
 // Listen for scroll events

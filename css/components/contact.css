@@ -43,7 +43,6 @@
     padding: 30px; /* Espacement intérieur */
     box-shadow: var(--shadow); /* Ombre pour donner de la profondeur */
     border-top: 4px solid #B81329; /* Bordure rouge ajoutée */
-
 }
 
 .form-group {
@@ -65,6 +64,9 @@
     font-size: 1.0rem;
     background-color: #F0F0F0;
 }
+.form-control:focus {
+    outline-color: #EDB183;
+}
 
 .form-control::placeholder {
     color: #c1c1c1; /* Couleur plus claire pour le placeholder */
@@ -76,7 +78,10 @@ textarea.form-control {
     resize: vertical;
 }
 
-
+/* Assurez-vous que le message de carte bloquée a un positionnement relatif */
+.map-blocked-message {
+    position: relative;
+}
 
 .map-container {
     height: 250px;
@@ -84,6 +89,7 @@ textarea.form-control {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: var(--shadow);
+    position: relative;
 }
 
 .map-container iframe {
@@ -131,7 +137,6 @@ textarea.form-control {
 /* Styles pour la modale de consentement */
 .swal2-popup .swal2-html-container {
 text-align: center !important;
-
 }
 
 .swal2-title {
@@ -170,40 +175,37 @@ text-align: center !important;
     transition: transform 0.3s ease;
 }
 
- .form-message {
+.form-message {
     padding: 15px;
     margin: 20px 0;
     border-radius: 5px;
     display: none;
 }
 
- .form-message.success {
+.form-message.success {
    background-color: #d4edda;
     color: #155724;
     border: 1px solid #c3e6cb;
-    }
+}
 
+.btn-loading {
+    position: relative;
+    color: transparent;
+}
 
-            .btn-loading {
-            position: relative;
-            color: transparent;
-        }
-        
-        .btn-loading::after {
-            content: "";
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            top: 50%;
-            left: 50%;
-            margin: -10px 0 0 -10px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: #fff;
-            animation: spin 1s ease-in-out infinite;
-        }
-
-
+.btn-loading::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -10px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
 
 /* Styles pour masquer définitivement tout message intégré */
 .form-message {
@@ -220,11 +222,42 @@ text-align: center !important;
 .swal2-popup {
     display: block !important;
 }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
 
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Styles pour le loader de la carte */
+.map-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border-radius: 15px;
+}
+
+.loader-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+.map-loader p {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    margin: 0;
+}
 
 /* Responsive pour la section contact */
 @media (max-width: 992px) {
@@ -258,13 +291,10 @@ text-align: center !important;
     }
 }
 
-
 @media (max-width: 576px) {
     .doctolib-widget, .contact-form {
         padding: 20px;
     }
-    
-    
     
     .contact-details i {
         margin-right: 0;
@@ -276,7 +306,4 @@ text-align: center !important;
         width: 100%;
         justify-content: center;
     }
-
-    
 }
-

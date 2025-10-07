@@ -1,0 +1,37 @@
+# admin/config.yml
+backend:
+  name: git-gateway
+  branch: main # ou "master" selon votre branche par défaut
+
+media_folder: "images/uploads" # Dossier pour les images uploadées
+public_folder: "/images/uploads"
+
+collections:
+  - name: "recettes"
+    label: "Recettes"
+    folder: "content/recettes"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Catégorie", name: "category", widget: "select", options: ["petit-dejeuner", "dejeuner", "diner", "collation", "dessert"] }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Temps de préparation", name: "time", widget: "string" }
+      - { label: "Difficulté", name: "difficulty", widget: "select", options: ["Facile", "Moyen", "Difficile"] }
+      - { label: "Calories", name: "calories", widget: "string" }
+      - { label: "Protéines", name: "protein", widget: "string" }
+      - { label: "Glucides", name: "carbs", widget: "string" }
+      - { label: "Lipides", name: "fat", widget: "string" }
+      - { label: "Ingrédients", name: "ingredients", widget: "list", field: { label: "Ingrédient", name: "item", widget: "string" } }
+      - { label: "Instructions", name: "instructions", widget: "list", field: { label: "Étape", name: "step", widget: "text" } }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "À propos"
+        name: "about"
+        file: "content/about.md"
+        fields:
+          - { label: "Titre", name: "title", widget: "string" }
+          - { label: "Contenu", name: "body", widget: "markdown" }

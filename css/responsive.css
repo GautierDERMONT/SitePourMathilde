@@ -169,9 +169,7 @@
         gap: 25px;
     }
     
-    .service-image {
-        height: 180px;
-    }
+    
     
     .service-content {
         padding: 15px 0px;
@@ -181,12 +179,9 @@
 @media (max-width: 480px) {
     .services-grid {
         grid-template-columns: 1fr;
-        gap: 50px;
+        gap: 35px;
     }
     
-    .service-image {
-        height: 160px;
-    }
     
     .service-card:hover {
         transform: perspective(1000px) rotateY(3deg) rotateX(1deg);
@@ -323,7 +318,7 @@
         top: 0;
         left: 20px;
         width: 4px;
-        height: 100%;
+        height: 97%;
         transform: translateX(0);
     }
     
@@ -377,9 +372,9 @@
     }
     
     .timeline-item::before {
-        left: -16px;
-        width: 8px;
-        height: 8px;
+        left: -17px;
+        width: 10px;
+        height: 10px;
     }
     
     .timeline::before {
@@ -400,8 +395,9 @@
 @media (max-width: 480px) {
     .timeline::after {
         bottom: -8px;
-        width: 8px;
-        height: 8px;
+        width: 10px;
+        height: 10px;
+        margin-bottom: 23px;
     }
 }
 

@@ -17,6 +17,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Vérifier si l'utilisateur a déjà fait un choix
     const cookiesAccepted = localStorage.getItem('cookiesAccepted');
 
+    // S'assurer qu'aucune iframe n'existe au chargement si les cookies sont refusés
+    if (cookiesAccepted === 'false' || cookiesAccepted === null) {
+        const existingIframe = document.querySelector('.map-container iframe');
+        if (existingIframe) {
+            existingIframe.remove();
+        }
+    }
+
     if (cookiesAccepted === null) {
         // Aucun choix n'a été fait - afficher la bannière
         setTimeout(() => {
@@ -85,21 +93,18 @@ document.addEventListener('DOMContentLoaded', function() {
             cookieFloatIcon.style.display = 'none';
         }
         
+        // Supprimer l'icône "i" du message de carte bloquée
+        const infoIcon = document.querySelector('.cookie-info-icon');
+        if (infoIcon) {
+            infoIcon.remove();
+        }
+        
         // Charger la carte si elle existe
         if (hasMap) {
             loadMapIframe();
         }
         
-        // Utiliser SweetAlert2 pour confirmer
-        if (typeof Swal !== 'undefined') {
-            Swal.fire({
-                icon: 'success',
-                title: 'Cookies acceptés',
-                text: 'Les cookies ont été acceptés.',
-                timer: 2000,
-                showConfirmButton: false
-            });
-        }
+        
     }
 
     // Fonction pour refuser les cookies
@@ -117,59 +122,68 @@ document.addEventListener('DOMContentLoaded', function() {
             blockMapIframe();
         }
         
-        // Utiliser SweetAlert2 pour informer
-        if (typeof Swal !== 'undefined') {
-            Swal.fire({
-                icon: 'info',
-                title: 'Cookies refusés',
-                text: 'Vous pouvez modifier votre choix à tout moment en cliquant sur l\'icône en bas à gauche.',
-                timer: 2000,
-                showConfirmButton: false
-            });
-        }
+       
     }
 
+        // Fonction pour charger l'iframe de la carte (seulement après acceptation)
     // Fonction pour charger l'iframe de la carte (seulement après acceptation)
-    function loadMapIframe() {
-        if (mapContainer) {
-            mapContainer.classList.remove('blocked');
-            
-            // Vérifier si l'iframe existe déjà
-            let existingIframe = mapContainer.querySelector('iframe');
-            
-            // Si l'iframe n'existe pas, la créer
-            if (!existingIframe) {
-                const newIframe = document.createElement('iframe');
-                newIframe.src = mapEmbedUrl;
-                newIframe.width = '600';
-                newIframe.height = '450';
-                newIframe.style.border = '0';
-                newIframe.allowFullscreen = true;
-                newIframe.loading = 'lazy';
-                newIframe.referrerPolicy = 'no-referrer-when-downgrade';
-                newIframe.title = "Localisation du cabinet de Mathilde JOYEUX";
+        function loadMapIframe() {
+            if (mapContainer) {
+                mapContainer.classList.remove('blocked');
                 
-                // Insérer l'iframe avant le message bloqué
-                if (mapBlockedMessage) {
-                    mapContainer.insertBefore(newIframe, mapBlockedMessage);
-                } else {
-                    mapContainer.appendChild(newIframe);
+                // Afficher le loader
+                const mapLoader = document.getElementById('map-loader');
+                if (mapLoader) {
+                    mapLoader.style.display = 'flex';
                 }
-            } else {
-                // Si l'iframe existe déjà, simplement l'afficher
-                existingIframe.style.display = 'block';
-                // Recharger la source au cas où
-                existingIframe.src = mapEmbedUrl;
-            }
-            
-            // Cacher le message bloqué
-            if (mapBlockedMessage) {
-                mapBlockedMessage.style.display = 'none';
+                
+                let existingIframe = mapContainer.querySelector('iframe');
+                
+                if (!existingIframe) {
+                    const newIframe = document.createElement('iframe');
+                    newIframe.src = mapEmbedUrl;
+                    newIframe.width = '600';
+                    newIframe.height = '450';
+                    newIframe.style.border = '0';
+                    newIframe.allowFullscreen = true;
+                    newIframe.loading = 'lazy';
+                    newIframe.referrerPolicy = 'no-referrer-when-downgrade';
+                    newIframe.title = "Localisation du cabinet de Mathilde JOYEUX";
+                    
+                    // Masquer le loader une fois chargé
+                    newIframe.onload = function() {
+                        if (mapLoader) {
+                            mapLoader.style.display = 'none';
+                        }
+                    };
+                    
+                    // Gérer les erreurs de chargement
+                    newIframe.onerror = function() {
+                        if (mapLoader) {
+                            mapLoader.style.display = 'none';
+                        }
+                        console.error('Erreur lors du chargement de la carte');
+                    };
+                    
+                    if (mapBlockedMessage) {
+                        mapContainer.insertBefore(newIframe, mapBlockedMessage);
+                    } else {
+                        mapContainer.appendChild(newIframe);
+                    }
+                } else {
+                    existingIframe.style.display = 'block';
+                    if (mapLoader) {
+                        mapLoader.style.display = 'none';
+                    }
+                }
+                
+                if (mapBlockedMessage) {
+                    mapBlockedMessage.style.display = 'none';
+                }
             }
         }
-    }
 
-    // Fonction pour bloquer l'iframe (supprime complètement l'iframe pour éviter les cookies)
+        // Fonction pour bloquer l'iframe (supprime complètement l'iframe pour éviter les cookies)
     function blockMapIframe() {
         if (mapContainer) {
             mapContainer.classList.add('blocked');
@@ -178,6 +192,54 @@ document.addEventListener('DOMContentLoaded', function() {
             const existingIframe = mapContainer.querySelector('iframe');
             if (existingIframe) {
                 existingIframe.remove();
+            }
+            
+            // SUPPRIMER D'ABORD l'icône "i" existante avant d'en créer une nouvelle
+            const existingInfoIcon = mapContainer.querySelector('.cookie-info-icon');
+            if (existingInfoIcon) {
+                existingInfoIcon.remove();
+            }
+            
+            // Créer et ajouter l'icône "i" dans le message de carte bloquée
+            const infoIcon = document.createElement('div');
+            infoIcon.className = 'cookie-info-icon';
+            infoIcon.innerHTML = `
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                </svg>
+            `;
+            infoIcon.style.cssText = `
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                cursor: pointer;
+                color: var(--primary-color);
+                opacity: 0.7;
+                transition: opacity 0.3s ease;
+            `;
+            
+            infoIcon.addEventListener('mouseenter', function() {
+                this.style.opacity = '1';
+            });
+            
+            infoIcon.addEventListener('mouseleave', function() {
+                this.style.opacity = '0.7';
+            });
+            
+            infoIcon.addEventListener('click', function() {
+                // Afficher le bandeau de cookies et cacher l'icône flottante
+                if (cookieBanner) {
+                    cookieBanner.style.display = 'block';
+                }
+                if (cookieFloatIcon) {
+                    cookieFloatIcon.style.display = 'none';
+                }
+            });
+            
+            // Ajouter l'icône au message de carte bloquée
+            if (mapBlockedMessage) {
+                mapBlockedMessage.style.position = 'relative'; // Pour le positionnement absolu de l'icône
+                mapBlockedMessage.appendChild(infoIcon);
             }
         }
         

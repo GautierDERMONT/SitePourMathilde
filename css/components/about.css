@@ -55,7 +55,7 @@
     width: 100%;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-   
+    transform: translateY(-20px); 
 }
 
 .about-image::after {
@@ -69,6 +69,7 @@
     border-radius: 20px;
     z-index: 2;
     transition: all 0.3s ease;
+    transform: translateY(-20px); 
 }
 
 .about-image:hover::after {
