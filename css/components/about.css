@@ -46,6 +46,22 @@
     z-index: 1;
 }
 
+.about-section .section-title {
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.about-section .section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: -30px; /* Positionner en dessous du titre */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+}
 .about-image {
     flex: 1;
     position: relative;

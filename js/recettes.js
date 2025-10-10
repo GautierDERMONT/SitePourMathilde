@@ -3,6 +3,79 @@ document.addEventListener('DOMContentLoaded', function() {
     const recetteCards = document.querySelectorAll('.recette-card');
     let activeFilter = 'all';
 
+    function resetAllFilters() {
+        filterButtons.forEach(btn => {
+            btn.classList.remove('active');
+            btn.style.backgroundColor = 'transparent';
+            btn.style.color = 'var(--primary-color)';
+        });
+        
+        const allButton = document.querySelector('.filter-btn[data-filter="all"]');
+        allButton.classList.add('active');
+        
+        recetteCards.forEach(card => {
+            card.style.display = 'flex';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        });
+        
+        activeFilter = 'all';
+        setTimeout(animateRecettes, 50);
+    }
+
+    function applyFilter(filterValue) {
+        filterButtons.forEach(btn => {
+            btn.classList.remove('active');
+            btn.style.backgroundColor = 'transparent';
+            btn.style.color = 'var(--primary-color)';
+        });
+        
+        const clickedButton = document.querySelector(`.filter-btn[data-filter="${filterValue}"]`);
+        clickedButton.classList.add('active');
+        clickedButton.style.backgroundColor = 'white';
+        clickedButton.style.color = 'var(--primary-color)';
+        
+        activeFilter = filterValue;
+        
+        recetteCards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category');
+            
+            if (filterValue === 'all' || filterValue === cardCategory) {
+                card.style.display = 'flex';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            } else {
+                card.style.display = 'none';
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+            }
+        });
+        
+        setTimeout(animateRecettes, 50);
+    }
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const filterValue = this.getAttribute('data-filter');
+            
+            if (filterValue === activeFilter) {
+                resetAllFilters();
+            } else {
+                applyFilter(filterValue);
+            }
+        });
+    });
+
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.filter-btn') && !e.target.closest('.recettes-filters')) {
+            resetAllFilters();
+        }
+    });
+
+    document.querySelector('.recettes-filters').addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
 
     function animateRecettes() {
         recetteCards.forEach(card => {
@@ -19,16 +92,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     document.querySelectorAll('.recette-card').forEach(card => {
-            const cardPosition = card.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight;
-            
-            if (cardPosition > screenPosition) {
-                // Seulement animer les cartes hors de l'écran
-                card.style.opacity = 0;
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            }
-        });
+        const cardPosition = card.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight;
+        
+        if (cardPosition > screenPosition) {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        }
+    });
 
     setTimeout(animateRecettes, 100);
     
@@ -45,7 +117,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('recette-modal-title').textContent = recette.title;
                 document.getElementById('recette-modal-category-text').textContent = recette.category;
 
-                // Définir l'icône en fonction de la catégorie
                 let categoryIcon = '';
                 switch(recette.category.toLowerCase()) {
                     case 'petit-déjeuner':
@@ -64,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         categoryIcon = 'images/dessert.png';
                         break;
                     default:
-                        categoryIcon = 'images/dejeuner.png'; // icône par défaut
+                        categoryIcon = 'images/dejeuner.png';
                 }
                 document.getElementById('recette-modal-category-icon').src = categoryIcon;
                 document.getElementById('recette-modal-category-icon').alt = recette.category;
@@ -95,57 +166,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 modal.style.display = 'block';
                 document.body.style.overflow = 'hidden';
             }
-        });
-    });
-
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const filterValue = this.getAttribute('data-filter');
-            
-            // Réinitialiser tous les boutons
-            filterButtons.forEach(btn => {
-                btn.classList.remove('active');
-                btn.style.backgroundColor = 'transparent';
-                btn.style.color = 'var(--primary-color)';
-            });
-            
-            // Si on clique sur le filtre déjà actif (sauf "all"), on active "all"
-            if (filterValue === activeFilter && filterValue !== 'all') {
-                const allButton = document.querySelector('.filter-btn[data-filter="all"]');
-                allButton.classList.add('active');
-                allButton.style.backgroundColor = 'white';
-                allButton.style.color = 'var(--primary-color)';
-                activeFilter = 'all';
-                
-                recetteCards.forEach(card => {
-                    card.style.display = 'flex';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                });
-            } else {
-                // Pour tous les autres cas (nouvelle sélection)
-                this.classList.add('active');
-                this.style.backgroundColor = 'white';
-                this.style.color = 'var(--primary-color)';
-                activeFilter = filterValue;
-                
-                recetteCards.forEach(card => {
-                    const cardCategory = card.getAttribute('data-category');
-                    
-                    if (filterValue === 'all' || filterValue === cardCategory) {
-                        card.style.display = 'flex';
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    } else {
-                        card.style.display = 'none';
-                        card.style.opacity = '0';
-                        card.style.transform = 'translateY(20px)';
-                    }
-                });
-            }
-            
-            // Relancer l'animation des cartes visibles
-            setTimeout(animateRecettes, 50);
         });
     });
 
@@ -332,7 +352,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('recette-modal-title').textContent = recette.title;
                 document.getElementById('recette-modal-category-text').textContent = recette.category;
 
-                // Définir l'icône en fonction de la catégorie
                 let categoryIcon = '';
                 switch(recette.category.toLowerCase()) {
                     case 'petit-déjeuner':
@@ -351,7 +370,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         categoryIcon = 'images/dessert.png';
                         break;
                     default:
-                        categoryIcon = 'images/dejeuner.png'; // icône par défaut
+                        categoryIcon = 'images/dejeuner.png';
                 }
                 document.getElementById('recette-modal-category-icon').src = categoryIcon;
                 document.getElementById('recette-modal-category-icon').alt = recette.category;
