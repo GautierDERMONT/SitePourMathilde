@@ -27,6 +27,7 @@
     transform: scale(1);
     /* Ajout de la bordure */
     border: 4px solid  #FADAB9;
+    background-color: white;
 }
 
 .simple-nav-image {
