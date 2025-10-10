@@ -11,6 +11,17 @@
     margin-bottom: 50px;
 }
 
+.separator-recette {
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+    transition: width 0.3s ease;
+    margin: 30px auto 0px;
+    grid-column: 1 / -1; /* Prend toute la largeur de la grille */
+}
+
+
 /* Styles pour les icônes des boutons de filtre */
 .filter-btn {
     display: flex;
