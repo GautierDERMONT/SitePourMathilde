@@ -200,7 +200,7 @@ section.accompaniments.section {
 
 .section-title h2 {
     color: var(--dark-color);
-    margin-bottom: 20px;
+  
     position: relative;
     display: inline-block;
     padding: 0px 20px;
@@ -213,22 +213,7 @@ section.accompaniments.section {
 
 
 
-.section-title h2::after {
-    content: '';
-    position: absolute;
-    bottom: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-    border-radius: 2px;
-    transition: width 0.3s ease;
-}
 
-.section-title h2.no-underline::after {
-    display: none !important;
-}
 
 
 
