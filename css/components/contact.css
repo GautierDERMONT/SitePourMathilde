@@ -259,6 +259,148 @@ text-align: center !important;
     margin: 0;
 }
 
+/* Styles pour la modale Doctolib */
+.doctolib-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+}
+
+.doctolib-modal-content {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+.doctolib-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.doctolib-modal-close:hover {
+    background-color: #f0f0f0;
+    color: var(--dark-color);
+}
+
+
+.doctolib-modal-icon {
+    animation: pulse-attention 2s ease-in-out infinite;
+    width: auto; 
+    display: inline-block; 
+}
+
+.doctolib-modal-icon svg {
+    width: 66px;
+    height: 66px;
+    color: #ff9800; /* Couleur orange pour l'attention */
+    filter: drop-shadow(0 2px 4px rgba(255, 152, 0, 0.3));
+
+}
+
+@keyframes pulse-attention {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.doctolib-modal-header {
+    margin-bottom: 20px;
+}
+
+.doctolib-modal-header h3 {
+    color: var(--primary-color);
+    font-size: 2rem !important;
+    margin-bottom: 10px;
+    font-family: serif;
+}
+
+.doctolib-modal-body {
+    margin-bottom: 25px;
+}
+
+.doctolib-modal-body p {
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.doctolib-modal-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.doctolib-modal-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    font-family: 'Aria Text G1 Regular', sans-serif;
+    background-color: #0E7ACA;
+    color: var(--white);
+    font-size: 1rem;
+    min-width: 220px;
+}
+
+.doctolib-modal-btn:hover {
+    background-color: #2D8EE0;
+}
+
+@media (max-width: 576px) {
+    .doctolib-modal-content {
+        padding: 25px 20px;
+    }
+    
+    .doctolib-modal-buttons {
+        flex-direction: column;
+        align-items: center; /* optionnel, pour centrer les boutons */
+        gap: 10px; /* optionnel, pour espacer un peu les boutons */
+    }
+    
+    .doctolib-modal-btn {
+        width: auto; /* le bouton s'adapte à la taille du texte */
+        padding: 10px 20px; /* tu peux ajuster le padding pour un rendu équilibré */
+    }
+
+      .doctolib-modal-close {
+        top: 5px;
+        right: 5px;
+        
+    }
+}
+
 /* Responsive pour la section contact */
 @media (max-width: 992px) {
     .contact-container {
@@ -303,7 +445,7 @@ text-align: center !important;
     }
     
     .contact-form .btn {
-        width: 100%;
+
         justify-content: center;
     }
 }

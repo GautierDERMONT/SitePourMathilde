@@ -39,13 +39,13 @@ function prefillForm(offerType) {
             offerText = "Je souhaite prendre rendez-vous pour un Suivi Nutritionnel (40€).\n\n";
             offerName = 'Suivi Nutritionnel';
             break;
-        case 'bilan-couple':
-            offerText = "Je souhaite prendre rendez-vous pour un Bilan Nutritionnel en Couple (110€).\n\n";
-            offerName = 'Bilan Nutritionnel en Couple';
+        case 'bilan-duo':
+            offerText = "Je souhaite prendre rendez-vous pour un Bilan Nutritionnel en Duo (110€).\n\n";
+            offerName = 'Bilan Nutritionnel en Duo';
             break;
-        case 'suivi-couple':
-            offerText = "Je souhaite prendre rendez-vous pour un Suivi Nutritionnel en Couple (70€).\n\n";
-            offerName = 'Suivi Nutritionnel en Couple';
+        case 'suivi-duo':
+            offerText = "Je souhaite prendre rendez-vous pour un Suivi Nutritionnel en Duo (70€).\n\n";
+            offerName = 'Suivi Nutritionnel en Duo';
             break;
         default:
             return;
