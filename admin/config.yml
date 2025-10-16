@@ -67,4 +67,4 @@ collections:
         i18n: true
         field: { label: "Étape", name: "step", widget: "text" }
 
-site_url: "https://mathildejoyeux.netlify.app"
+site_url: "https://mathildejoyeuxdiet.fr"
