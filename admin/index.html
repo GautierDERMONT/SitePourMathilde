@@ -4,17 +4,32 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin - Mathilde JOYEUX</title>
-    
-    <!-- CHARGER EN PREMIER -->
-    <script src="https://unpkg.com/decap-cms@^2.0.0/dist/decap-cms.js"></script>
 </head>
 <body>
-    <!-- ELEMENT OBLIGATOIRE -->
+    <!-- Élément racine obligatoire -->
     <div id="nc-root"></div>
 
+    <!-- Script Decap CMS -->
+    <script src="https://unpkg.com/decap-cms@^2.0.0/dist/decap-cms.js"></script>
+
     <script>
-        // Configuration ULTRA SIMPLE
-        window.CMS.init();
+        // Attendre que le CMS soit chargé
+        if (typeof DecapCms !== 'undefined') {
+            DecapCms.init();
+        } else if (typeof CMS !== 'undefined') {
+            CMS.init();
+        } else {
+            // Essayer avec un timeout au cas où
+            setTimeout(function() {
+                if (window.CMS) {
+                    CMS.init();
+                } else if (window.DecapCms) {
+                    DecapCms.init();
+                } else {
+                    console.error('CMS non trouvé');
+                }
+            }, 1000);
+        }
     </script>
 </body>
 </html>
