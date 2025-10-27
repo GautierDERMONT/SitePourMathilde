@@ -1,0 +1,51 @@
+backend:
+  name: github
+  repo: GautierDERMONT/SitePourMathilde
+  branch: main
+
+media_folder: "images/recettes"
+public_folder: "/images/recettes"
+
+site_url: "https://mathildejoyeuxdiet.fr"
+
+collections:
+  - name: "recettes"
+    label: "Recettes"
+    folder: "content/recettes"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { 
+          label: "Catégorie", 
+          name: "category", 
+          widget: "select", 
+          options: [
+            { label: "Petit-déjeuner", value: "petit-dejeuner" },
+            { label: "Déjeuner", value: "dejeuner" },
+            { label: "Dîner", value: "diner" },
+            { label: "Collation", value: "collation" },
+            { label: "Dessert", value: "dessert" }
+          ]
+        }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Temps de préparation", name: "time", widget: "string" }
+      - { 
+          label: "Difficulté", 
+          name: "difficulty", 
+          widget: "select", 
+          options: ["Facile", "Moyen", "Difficile"]
+        }
+      - { label: "Calories", name: "calories", widget: "number" }
+      - { label: "Protéines", name: "protein", widget: "number" }
+      - { label: "Glucides", name: "carbs", widget: "number" }
+      - { label: "Lipides", name: "fat", widget: "number" }
+      - label: "Ingrédients"
+        name: "ingredients"
+        widget: "list"
+        field: { label: "Ingrédient", name: "item", widget: "string" }
+      - label: "Instructions"
+        name: "instructions"
+        widget: "list"
+        field: { label: "Étape", name: "step", widget: "text" }
