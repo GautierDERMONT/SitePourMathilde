@@ -2,7 +2,6 @@ backend:
   name: github
   repo: GautierDERMONT/SitePourMathilde
   branch: main
-  auth_type: implicit
 
 media_folder: "images/recettes"
 public_folder: "/images/recettes"

@@ -4,32 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin - Mathilde JOYEUX</title>
+    <!-- Netlify CMS officiel -->
+    <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js"></script>
 </head>
 <body>
-    <!-- Élément racine obligatoire -->
-    <div id="nc-root"></div>
-
-    <!-- Script Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@^2.0.0/dist/decap-cms.js"></script>
-
-    <script>
-        // Attendre que le CMS soit chargé
-        if (typeof DecapCms !== 'undefined') {
-            DecapCms.init();
-        } else if (typeof CMS !== 'undefined') {
-            CMS.init();
-        } else {
-            // Essayer avec un timeout au cas où
-            setTimeout(function() {
-                if (window.CMS) {
-                    CMS.init();
-                } else if (window.DecapCms) {
-                    DecapCms.init();
-                } else {
-                    console.error('CMS non trouvé');
-                }
-            }, 1000);
-        }
-    </script>
+    <!-- Pas besoin de script d'init, Netlify CMS se charge tout seul -->
 </body>
 </html>
