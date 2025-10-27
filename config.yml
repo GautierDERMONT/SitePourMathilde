@@ -2,12 +2,6 @@ backend:
   name: github
   repo: GautierDERMONT/SitePourMathilde
   branch: main
-  commit_messages:
-    create: 'Create {{collection}} "{{slug}}"'
-    update: 'Update {{collection}} "{{slug}}"'
-    delete: 'Delete {{collection}} "{{slug}}"'
-    uploadMedia: 'Upload "{{path}}"'
-    deleteMedia: 'Delete "{{path}}"'
 
 locale: 'fr'
 
@@ -23,10 +17,8 @@ collections:
     slug: "{{slug}}"
     extension: "md"
     format: "frontmatter"
-    editor:
-      preview: false
     fields:
-      - { label: "Titre", name: "title", widget: "string", i18n: true }
+      - { label: "Titre", name: "title", widget: "string" }
       - { 
           label: "Catégorie", 
           name: "category", 
@@ -37,18 +29,16 @@ collections:
             { label: "Dîner", value: "diner" },
             { label: "Collation", value: "collation" },
             { label: "Dessert", value: "dessert" }
-          ],
-          i18n: true 
+          ]
         }
-      - { label: "Description", name: "description", widget: "text", i18n: true }
+      - { label: "Description", name: "description", widget: "text" }
       - { label: "Image", name: "image", widget: "image" }
-      - { label: "Temps de préparation", name: "time", widget: "string", i18n: true }
+      - { label: "Temps de préparation", name: "time", widget: "string" }
       - { 
           label: "Difficulté", 
           name: "difficulty", 
           widget: "select", 
-          options: ["Facile", "Moyen", "Difficile"],
-          i18n: true 
+          options: ["Facile", "Moyen", "Difficile"]
         }
       - { label: "Calories", name: "calories", widget: "string" }
       - { label: "Protéines", name: "protein", widget: "string" }
@@ -57,12 +47,10 @@ collections:
       - label: "Ingrédients"
         name: "ingredients"
         widget: "list"
-        i18n: true
         field: { label: "Ingrédient", name: "item", widget: "string" }
       - label: "Instructions"
         name: "instructions"
         widget: "list"
-        i18n: true
         field: { label: "Étape", name: "step", widget: "text" }
 
 site_url: "https://mathildejoyeuxdiet.fr"
