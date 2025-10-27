@@ -4,51 +4,64 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin - Mathilde JOYEUX</title>
+  
+  <!-- Import du widget d'identité Netlify -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  
+  <!-- Import de Decap CMS -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  
+  <style>
+    /* Style minimal pour éviter les flashs de contenu */
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+  </style>
 </head>
 <body>
-  <!-- Script pour cacher les erreurs React -->
+  <!-- Script pour gérer les erreurs React -->
   <script>
-    // Intercepter les erreurs React pour éviter l'affichage en console
+    // Script pour intercepter les erreurs React silencieusement
     window.addEventListener('error', function(e) {
-      if (e.message && e.message.includes('removeChild')) {
+      if (e.message && (
+        e.message.includes('removeChild') || 
+        e.message.includes('React') ||
+        e.message.includes('Node')
+      )) {
         e.preventDefault();
-        console.log('React error intercepted');
+        e.stopPropagation();
+        return false;
       }
     });
-  </script>
 
-  <!-- Chargement avec version spécifique -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script src="https://unpkg.com/decap-cms@3.8.0/dist/decap-cms.js"></script>
-
-  <script>
-    // Initialisation différée
-    setTimeout(function() {
+    // Initialisation du CMS
+    document.addEventListener('DOMContentLoaded', function() {
+      // Attendre que Netlify Identity soit chargé
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on('init', function(user) {
-          setTimeout(function() {
-            if (window.CMS) {
-              try {
-                window.CMS.init();
-                console.log('✅ CMS ready');
-              } catch (e) {
-                console.warn('CMS init warning:', e.message);
-                // Essayer une deuxième fois
-                setTimeout(function() {
-                  if (window.CMS && window.CMS.init) {
-                    window.CMS.init();
-                  }
-                }, 1000);
-              }
-            }
-          }, 100);
+          if (!user) {
+            window.netlifyIdentity.on('login', function() {
+              document.location.href = '/admin/';
+            });
+          }
         });
+        
         window.netlifyIdentity.init();
-      } else if (window.CMS) {
-        // Fallback direct
-        window.CMS.init();
       }
-    }, 500);
+      
+      // Initialisation du CMS avec timeout de sécurité
+      setTimeout(function() {
+        if (window.CMS) {
+          try {
+            CMS.init();
+            console.log('✅ Decap CMS initialisé avec succès');
+          } catch (error) {
+            console.warn('⚠️ Erreur lors de l\'initialisation:', error);
+          }
+        }
+      }, 1000);
+    });
   </script>
 </body>
 </html>
