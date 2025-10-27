@@ -4,10 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin - Mathilde JOYEUX</title>
-    <!-- Netlify CMS officiel -->
     <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js"></script>
 </head>
 <body>
-    <!-- Pas besoin de script d'init, Netlify CMS se charge tout seul -->
+    <script>
+        // Forcer la config
+        CMS.registerPreviewStyle('body { display: none }');
+    </script>
 </body>
 </html>

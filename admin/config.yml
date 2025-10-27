@@ -3,8 +3,10 @@ backend:
   repo: GautierDERMONT/SitePourMathilde
   branch: main
 
-media_folder: "images/recettes"
+media_folder: "images/recettes" 
 public_folder: "/images/recettes"
+
+site_url: "https://mathildejoyeuxdiet.fr"
 
 collections:
   - name: "recettes"
@@ -45,5 +47,5 @@ collections:
         field: { label: "Ingrédient", name: "item", widget: "string" }
       - label: "Instructions"
         name: "instructions"
-        widget: "list"
+        widget: "list" 
         field: { label: "Étape", name: "step", widget: "text" }
