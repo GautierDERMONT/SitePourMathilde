@@ -2,30 +2,26 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin - Mathilde JOYEUX</title>
-    
-    <!-- Netlify CMS -->
-    <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js"></script>
-    
-    <!-- Netlify Identity -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <title>Admin Recettes - Mathilde JOYEUX</title>
+    <script src="https://unpkg.com/@tinacms/app@^1.5.0/dist/index.js"></script>
+    <style>
+        body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+        #tina-app { height: 100vh; }
+    </style>
 </head>
 <body>
-    <!-- ÉLÉMENT OBLIGATOIRE POUR EVITER L'ERREUR appendChild -->
-    <div id="root"></div>
-
-    <script>
-        // Attendre que tout soit chargé
-        window.addEventListener('load', function() {
-            console.log('Page chargée, CMS:', window.CMS);
-            
-            // Netlify CMS devrait être auto-initialisé
-            if (window.CMS) {
-                console.log('✅ CMS chargé avec succès');
-            } else {
-                console.error('❌ CMS pas chargé');
-            }
+    <div id="tina-app"></div>
+    <script type="module">
+        import { TinaApp } from 'https://unpkg.com/@tinacms/app@^1.5.0/dist/index.js';
+        
+        const tinaApp = new TinaApp({
+            config: {
+                // La configuration sera chargée depuis tina/config.js
+            },
+        });
+        
+        tinaApp.initialize().then(() => {
+            tinaApp.mount('#tina-app');
         });
     </script>
 </body>
