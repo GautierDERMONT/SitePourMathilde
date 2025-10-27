@@ -2,8 +2,7 @@ backend:
   name: github
   repo: GautierDERMONT/SitePourMathilde
   branch: main
-
-locale: 'fr'
+  auth_type: implicit
 
 media_folder: "images/recettes"
 public_folder: "/images/recettes"
@@ -11,12 +10,9 @@ public_folder: "/images/recettes"
 collections:
   - name: "recettes"
     label: "Recettes"
-    label_singular: "Recette"
     folder: "content/recettes"
     create: true
     slug: "{{slug}}"
-    extension: "md"
-    format: "frontmatter"
     fields:
       - { label: "Titre", name: "title", widget: "string" }
       - { 
@@ -52,5 +48,3 @@ collections:
         name: "instructions"
         widget: "list"
         field: { label: "Étape", name: "step", widget: "text" }
-
-site_url: "https://mathildejoyeuxdiet.fr"

@@ -1,89 +1,20 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin - Mathilde JOYEUX</title>
-  
-  <!-- IMPORTANT : Charger Decap CMS en PREMIER -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Mathilde JOYEUX</title>
+    
+    <!-- CHARGER EN PREMIER -->
+    <script src="https://unpkg.com/decap-cms@^2.0.0/dist/decap-cms.js"></script>
 </head>
 <body>
-  <!-- Élément ABSOLUMENT NÉCESSAIRE pour Decap CMS -->
-  <div id="nc-root"></div>
+    <!-- ELEMENT OBLIGATOIRE -->
+    <div id="nc-root"></div>
 
-  <script>
-    // Configuration simple et directe
-    const config = {
-      backend: {
-        name: "github",
-        repo: "GautierDERMONT/SitePourMathilde", 
-        branch: "main"
-      },
-      locale: "fr",
-      media_folder: "images/recettes",
-      public_folder: "/images/recettes", 
-      collections: [
-        {
-          name: "recettes",
-          label: "Recettes", 
-          label_singular: "Recette",
-          folder: "content/recettes",
-          create: true,
-          slug: "{{slug}}",
-          extension: "md", 
-          format: "frontmatter",
-          fields: [
-            { label: "Titre", name: "title", widget: "string" },
-            { 
-              label: "Catégorie",
-              name: "category",
-              widget: "select",
-              options: [
-                { label: "Petit-déjeuner", value: "petit-dejeuner" },
-                { label: "Déjeuner", value: "dejeuner" },
-                { label: "Dîner", value: "diner" },
-                { label: "Collation", value: "collation" },
-                { label: "Dessert", value: "dessert" }
-              ]
-            },
-            { label: "Description", name: "description", widget: "text" },
-            { label: "Image", name: "image", widget: "image" },
-            { label: "Temps de préparation", name: "time", widget: "string" },
-            { 
-              label: "Difficulté",
-              name: "difficulty", 
-              widget: "select",
-              options: ["Facile", "Moyen", "Difficile"]
-            },
-            { label: "Calories", name: "calories", widget: "string" },
-            { label: "Protéines", name: "protein", widget: "string" },
-            { label: "Glucides", name: "carbs", widget: "string" },
-            { label: "Lipides", name: "fat", widget: "string" },
-            {
-              label: "Ingrédients",
-              name: "ingredients", 
-              widget: "list",
-              field: { label: "Ingrédient", name: "item", widget: "string" }
-            },
-            {
-              label: "Instructions", 
-              name: "instructions",
-              widget: "list", 
-              field: { label: "Étape", name: "step", widget: "text" }
-            }
-          ]
-        }
-      ]
-    };
-
-    // Initialisation IMMÉDIATE sans attendre DOMContentLoaded
-    if (typeof CMS !== 'undefined') {
-      CMS.init({ config });
-    } else {
-      console.error('Decap CMS non chargé');
-    }
-  </script>
+    <script>
+        // Configuration ULTRA SIMPLE
+        window.CMS.init();
+    </script>
 </body>
 </html>
