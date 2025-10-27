@@ -1,66 +1,149 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin - Mathilde JOYEUX</title>
   
-  <!-- Import du widget d'identité Netlify -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  
-  <!-- Import de Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   
   <style>
-    /* Style minimal pour éviter les flashs de contenu */
     body {
       margin: 0;
+      padding: 0;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f5f5f5;
+    }
+    
+    #cms-loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-size: 18px;
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <!-- Script pour gérer les erreurs React -->
-  <script>
-    // Script pour intercepter les erreurs React silencieusement
-    window.addEventListener('error', function(e) {
-      if (e.message && (
-        e.message.includes('removeChild') || 
-        e.message.includes('React') ||
-        e.message.includes('Node')
-      )) {
-        e.preventDefault();
-        e.stopPropagation();
-        return false;
-      }
-    });
+  <div id="nc-root">
+    <div id="cms-loading">Chargement de l'interface d'administration...</div>
+  </div>
 
-    // Initialisation du CMS
+  <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Attendre que Netlify Identity soit chargé
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on('init', function(user) {
-          if (!user) {
-            window.netlifyIdentity.on('login', function() {
-              document.location.href = '/admin/';
-            });
-          }
-        });
-        
-        window.netlifyIdentity.init();
-      }
+      console.log('🚀 Initialisation de Decap CMS...');
       
-      // Initialisation du CMS avec timeout de sécurité
+      const originalError = console.error;
+      console.error = function(...args) {
+        if (args[0] && typeof args[0] === 'string' && 
+            (args[0].includes('removeChild') || args[0].includes('appendChild'))) {
+          console.warn('⚠️ Erreur React interceptée');
+          return;
+        }
+        originalError.apply(console, args);
+      };
+      
+      const isLocal = window.location.hostname === 'localhost' || 
+                      window.location.hostname === '127.0.0.1';
+      
+      const backendConfig = isLocal ? {
+        name: 'git-gateway',
+        branch: 'main'
+      } : {
+        name: 'github',
+        repo: 'GautierDERMONT/SitePourMathilde',
+        branch: 'main'
+      };
+      
+      const config = {
+        backend: backendConfig,
+        locale: 'fr',
+        media_folder: 'images/recettes',
+        public_folder: '/images/recettes',
+        site_url: isLocal ? 'http://localhost:3000' : 'https://mathildejoyeuxdiet.fr',
+        collections: [
+          {
+            name: 'recettes',
+            label: 'Recettes',
+            label_singular: 'Recette',
+            folder: 'content/recettes',
+            create: true,
+            slug: '{{slug}}',
+            extension: 'md',
+            format: 'frontmatter',
+            editor: {
+              preview: false
+            },
+            fields: [
+              { label: 'Titre', name: 'title', widget: 'string' },
+              { 
+                label: 'Catégorie', 
+                name: 'category', 
+                widget: 'select', 
+                options: [
+                  { label: 'Petit-déjeuner', value: 'petit-dejeuner' },
+                  { label: 'Déjeuner', value: 'dejeuner' },
+                  { label: 'Dîner', value: 'diner' },
+                  { label: 'Collation', value: 'collation' },
+                  { label: 'Dessert', value: 'dessert' }
+                ]
+              },
+              { label: 'Description', name: 'description', widget: 'text' },
+              { label: 'Image', name: 'image', widget: 'image' },
+              { label: 'Temps de préparation', name: 'time', widget: 'string' },
+              { 
+                label: 'Difficulté', 
+                name: 'difficulty', 
+                widget: 'select', 
+                options: ['Facile', 'Moyen', 'Difficile']
+              },
+              { label: 'Calories', name: 'calories', widget: 'string' },
+              { label: 'Protéines', name: 'protein', widget: 'string' },
+              { label: 'Glucides', name: 'carbs', widget: 'string' },
+              { label: 'Lipides', name: 'fat', widget: 'string' },
+              {
+                label: 'Ingrédients',
+                name: 'ingredients',
+                widget: 'list',
+                field: { label: 'Ingrédient', name: 'item', widget: 'string' }
+              },
+              {
+                label: 'Instructions',
+                name: 'instructions',
+                widget: 'list',
+                field: { label: 'Étape', name: 'step', widget: 'text' }
+              }
+            ]
+          }
+        ]
+      };
+      
       setTimeout(function() {
         if (window.CMS) {
           try {
-            CMS.init();
-            console.log('✅ Decap CMS initialisé avec succès');
+            window.CMS.init({ config });
+            const loadingElement = document.getElementById('cms-loading');
+            if (loadingElement) {
+              loadingElement.style.display = 'none';
+            }
+            console.log('✅ Decap CMS initialisé avec succès !');
           } catch (error) {
-            console.warn('⚠️ Erreur lors de l\'initialisation:', error);
+            console.error('❌ Erreur lors de l\'initialisation:', error);
+            const loadingElement = document.getElementById('cms-loading');
+            if (loadingElement) {
+              loadingElement.innerHTML = `
+                <div style="text-align: center; padding: 20px;">
+                  <h3>Erreur de chargement</h3>
+                  <p>Impossible de charger l'interface d'administration.</p>
+                  <button onclick="window.location.reload()">Réessayer</button>
+                </div>
+              `;
+            }
           }
         }
-      }, 1000);
+      }, 500);
     });
   </script>
 </body>
