@@ -65,7 +65,7 @@
     background-color: #F0F0F0;
 }
 .form-control:focus {
-    outline-color: #EDB183;
+    outline-color: #FADAB9;
 }
 
 .form-control::placeholder {
