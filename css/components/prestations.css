@@ -250,8 +250,7 @@
     transform: translateX(-50%);
     width: 12px;
     height: 12px;
-    background-color: #EDB183;
-    background-image: radial-gradient(circle at 30% 30%, #c98989, #bd0019);
+    background-image: radial-gradient(circle at 30% 30%, #ff5a6a, #B81329 40%);
     border-radius: 50%;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     z-index: 11;
