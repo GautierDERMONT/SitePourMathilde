@@ -65,10 +65,34 @@
 
 /* Service content pour les ACCOMPAGNEMENTS */
 .accompaniment-item .service-content {
-    padding: 15px 0px 8px;
+    padding: 20px 0px 0px;
     text-align: left;
     position: relative;
     background: white;
+}
+
+.accompaniment-item .service-content ul.dash-list {
+    list-style-type: none;
+    padding-left: 1.3rem;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.accompaniment-item .service-content .dash-list li {
+    position: relative;
+    padding-left: 1.2rem;
+    margin-bottom: 12px;
+    line-height: 1.6;
+    color: #555555;
+    font-size: 1rem;
+}
+
+.accompaniment-item .service-content .dash-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
 }
 
 .service-card h3 {
@@ -179,13 +203,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
+    gap: 120px;
     margin-top: 30px;
     align-items: start;
 }
 
 .accompaniment-item {
-   background-color: var(--white);
+    background-color: var(--white);
     padding: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: all 0.4s ease;
@@ -194,8 +218,8 @@
     border-radius: 0;
     margin-bottom: 0;
     transform: rotate(2deg) !important;
-    height: auto; /* Hauteur automatique */
-    min-height: auto; /* Supprimé la hauteur minimale fixe */
+    height: auto;
+    min-height: auto;
     flex: 0 0 calc(33.333% - 30px);
     min-width: 280px;
     max-width: 350px;
@@ -207,15 +231,31 @@
 .accompaniment-item::before {
     content: '';
     position: absolute;
-    top: 8px;
-    left: 8px;
-    right: 8px;
-    bottom: 8px;
-    border: 2px solid white;
-    z-index: 2;
-    pointer-events: none;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 20px;
+    background: linear-gradient(to bottom, #c0c0c0, #a0a0a0);
+    z-index: 10;
+    border-radius: 1px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
+.accompaniment-item::after {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background-color: #EDB183;
+    background-image: radial-gradient(circle at 30% 30%, #c98989, #bd0019);
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    z-index: 11;
+}
 /* Image d'accompagnement optimisée - images seulement */
 .accompaniment-image {
     height: 160px;
@@ -267,9 +307,9 @@
     position: absolute;
     top: -12px;
     left: 0;
-    width: 80px;
+    width: 100px;
     height: 4px;
-    background-color: #B81329;
+    background-color: #FADAB9;
     border-radius: 2px;
     z-index: 3;
 }
@@ -317,16 +357,6 @@
     flex: 1; /* Le texte pousse vers le bas */
 }
 
-.accompaniment-item::after {
-    content: '';
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    right: 4px;
-    bottom: 4px;
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.8);
-    pointer-events: none;
-}
 
 /* Variations d'angle - ACCOMPAGNEMENTS */
 .accompaniment-item:nth-child(2n) {
@@ -347,55 +377,10 @@
 
 /* STYLE SPÉCIFIQUE SCOTCH WASHI POUR ACCOMPAGNEMENTS */
 /* Effet de scotch washi tape uniquement pour les accompagnements */
-.accompaniment-item::before {
-    content: '';
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%) rotate(-2deg);
-    width: 60px;
-    height: 30px;
-    background-color: rgba(255, 255, 255, 0.7);
-    background-image: 
-        repeating-linear-gradient(
-            45deg,
-            transparent,
-            transparent 5px,
-            rgba(0, 0, 0, 0.1) 5px,
-            rgba(0, 0, 0, 0.1) 7px
-        );
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 10;
-    border-radius: 2px;
-    opacity: 0.9;
-}
 
-/* Variations de couleur pour le scotch */
-.accompaniment-item:nth-child(3n+1)::before {
-    background-color: rgba(237, 177, 131, 0.7);
-}
 
-.accompaniment-item:nth-child(3n+2)::before {
-    background-color: rgba(255, 240, 200, 0.7);
-}
 
-.accompaniment-item:nth-child(3n+3)::before {
-    background-color: rgba(200, 230, 255, 0.7);
-}
 
-/* Effet d'ombre sous le scotch */
-.accompaniment-item::after {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 58px;
-    height: 2px;
-    background-color: rgba(0, 0, 0, 0.1);
-    z-index: 9;
-    filter: blur(1px);
-}
 
 .accompaniment-item {
     overflow: visible;
@@ -411,12 +396,6 @@
     position: relative;
 }
 
-.accompaniments-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-}
 
 .service-content ul::before {
     color: var(--primary-color);
@@ -425,10 +404,14 @@
   margin-top: 0.5rem;
 }
 
-.service-card,
-.accompaniment-item {
+.service-card {
     flex: 0 0 calc(33.333% - 30px);
     min-width: 280px;
+    max-width: 350px;
+}
+
+.accompaniment-item {
+    min-width: 450px;
     max-width: 350px;
 }
 
@@ -473,15 +456,18 @@
         margin-bottom: 5 !important;
     }
     
-    .accompaniment-item {
-        padding: 20px;
+     .accompaniment-item {
+        flex: 0 0 100%;
+        min-width: 270px;
+        margin: 0 15px 30px;
+    }
     }
     
     .service-card,
     .accompaniment-item {
         flex: 0 0 calc(50% - 30px);
     }
-}
+
 
 @media (max-width: 576px) {
     .service-card,
