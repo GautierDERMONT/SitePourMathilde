@@ -263,25 +263,33 @@
     position: relative;
     border: 1px solid #f0f0f0;
     margin-bottom: 5px;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-    flex-shrink: 0; /* Empêche l'image de rétrécir */
+    /* Supprime les anciennes propriétés problématiques */
+    transform: none;
+    -webkit-transform: none;
+    image-rendering: auto; /* Au lieu de crisp-edges */
+    flex-shrink: 0;
+    /* Ajoute pour lisser les bords */
+    border-radius: 0; /* Ou une petite valeur si vous voulez des coins arrondis */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .accompaniment-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
+    /* Rend l'image plus lisse */
+    image-rendering: auto; /* Au lieu de crisp-edges */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Supprime les transformations problématiques */
+    transform: none;
+    -webkit-transform: none;
+    display: block;
+    /* Pour lisser les bords */
+    border-radius: 0;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    transition: transform 0.3s ease;
-    display: block;
 }
 
 /* État chargé des images */
@@ -443,7 +451,7 @@
     
     .accompaniments-grid {
         grid-template-columns: 1fr;
-        gap: 50px;
+        gap: 30px;
     }
 
     .services,
