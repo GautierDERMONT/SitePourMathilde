@@ -46,13 +46,22 @@
 }
 
 .form-group {
-    margin-bottom: 20px;
+    position: relative;
+    margin-bottom: 25px;
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 5px;
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    margin-bottom: 0;
     font-weight: 600;
+    color: #c1c1c1;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    background-color: #F0F0F0;
+    padding: 0 8px;
+    z-index: 1;
 }
 
 .form-control {
@@ -63,7 +72,10 @@
     font-family: 'Aria Text G1 Regular', sans-serif;
     font-size: 1.0rem;
     background-color: #F0F0F0;
+    position: relative;
+    z-index: 2;
 }
+
 .form-control:focus {
     outline-color: #FADAB9;
 }
