@@ -1,7 +1,50 @@
+(function preloadFilterImages() {
+    const filterImages = [
+        'images/oeuf.png',
+        'images/dejeuner.png', 
+        'images/lune.png',
+        'images/snack.png',
+        'images/dessert.png'
+    ];
+    
+    let loadedCount = 0;
+    const totalImages = filterImages.length;
+    
+    filterImages.forEach(src => {
+        const img = new Image();
+        img.onload = function() {
+            loadedCount++;
+        };
+        img.onerror = function() {
+            loadedCount++;
+        };
+        img.src = src;
+    });
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const recetteCards = document.querySelectorAll('.recette-card');
     let activeFilter = 'all';
+
+    function showLoadingState() {
+        filterButtons.forEach(btn => {
+            const icon = btn.querySelector('.filter-icon');
+            if (icon && !icon.complete) {
+                btn.style.opacity = '0.7';
+                btn.style.pointerEvents = 'none';
+            }
+        });
+    }
+
+    function hideLoadingState() {
+        filterButtons.forEach(btn => {
+            btn.style.opacity = '1';
+            btn.style.pointerEvents = 'auto';
+        });
+    }
+
+    showLoadingState();
 
     function resetAllFilters() {
         filterButtons.forEach(btn => {
@@ -11,7 +54,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         const allButton = document.querySelector('.filter-btn[data-filter="all"]');
-        allButton.classList.add('active');
+        if (allButton) {
+            allButton.classList.add('active');
+        }
         
         recetteCards.forEach(card => {
             card.style.display = 'flex';
@@ -31,9 +76,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         const clickedButton = document.querySelector(`.filter-btn[data-filter="${filterValue}"]`);
-        clickedButton.classList.add('active');
-        clickedButton.style.backgroundColor = 'white';
-        clickedButton.style.color = 'var(--primary-color)';
+        if (clickedButton) {
+            clickedButton.classList.add('active');
+            clickedButton.style.backgroundColor = 'white';
+            clickedButton.style.color = 'var(--primary-color)';
+        }
         
         activeFilter = filterValue;
         
@@ -91,6 +138,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    function checkImagesLoaded() {
+        const images = document.querySelectorAll('.filter-icon');
+        let allLoaded = true;
+        
+        images.forEach(img => {
+            if (!img.complete) {
+                allLoaded = false;
+            }
+        });
+        
+        if (allLoaded) {
+            hideLoadingState();
+        } else {
+            setTimeout(checkImagesLoaded, 100);
+        }
+    }
+
     document.querySelectorAll('.recette-card').forEach(card => {
         const cardPosition = card.getBoundingClientRect().top;
         const screenPosition = window.innerHeight;
@@ -102,7 +166,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    setTimeout(animateRecettes, 100);
+    setTimeout(() => {
+        animateRecettes();
+        checkImagesLoaded();
+    }, 100);
     
     window.addEventListener('scroll', animateRecettes);
 
@@ -421,5 +488,12 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
+    });
+});
+
+window.addEventListener('load', function() {
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.style.opacity = '1';
+        btn.style.pointerEvents = 'auto';
     });
 });
