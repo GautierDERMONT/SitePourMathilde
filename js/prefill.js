@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Vérifier si nous sommes sur la page de contact
     // Méthode plus robuste pour détecter la page contact
-    const isContactPage = window.location.pathname.includes('contact.html') || 
+    const isContactPage = window.location.pathname.includes('/contact/') || 
                          document.querySelector('body.contact') !== null ||
                          document.querySelector('.contact-form') !== null;
     

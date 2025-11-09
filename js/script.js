@@ -24,7 +24,7 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
 });
 
 // Smooth scrolling for anchor links (seulement sur la page d'accueil)
-if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
+if (window.location.pathname.endsWith('/') || window.location.pathname === '/') {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
