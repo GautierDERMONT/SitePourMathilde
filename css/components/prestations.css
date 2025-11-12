@@ -87,7 +87,7 @@
     font-size: 1rem;
 }
 
-.accompaniment-item .service-content .dash-list li::before {
+.accompaniment-item .dash-list li::before {
     content: "•";
     position: absolute;
     left: 0;
@@ -135,7 +135,6 @@
     -moz-osx-font-smoothing: auto;
     text-rendering: auto;
     text-align: left;
-    padding-left: 1.5rem;
     list-style-type: disc; 
 
 }
@@ -149,6 +148,8 @@
     -moz-osx-font-smoothing: auto;
     text-rendering: auto;
     text-align: left;
+    list-style-type: none; /* Enlève le point */
+
 }
 
 /* Pour les sous-listes */
@@ -165,7 +166,7 @@
 /* Listes avec tirets */
 .service-card .dash-list {
     list-style-type: none;
-    padding-left: 1.7rem;
+    padding-left: 0.8rem;
 }
 
 .service-card .dash-list li {
