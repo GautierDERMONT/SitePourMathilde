@@ -1,0 +1,44 @@
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/prestations.html"
+  to = "/prestations/"
+  status = 301
+
+[[redirects]]
+  from = "/recettes.html"
+  to = "/recettes/"
+  status = 301
+
+[[redirects]]
+  from = "/tarifs.html"
+  to = "/tarifs/"
+  status = 301
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact/"
+  status = 301
+
+[[redirects]]
+  from = "/prestations"
+  to = "/prestations/"
+  status = 301
+
+[[redirects]]
+  from = "/recettes"
+  to = "/recettes/"
+  status = 301
+
+[[redirects]]
+  from = "/tarifs"
+  to = "/tarifs/"
+  status = 301
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact/"
+  status = 301
