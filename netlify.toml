@@ -1,12 +1,8 @@
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
-[[redirects]]
   from = "/index.html"
   to = "/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/prestations"
@@ -27,3 +23,9 @@
   from = "/contact"
   to = "/contact/"
   status = 301
+
+# Gestion des erreurs 404
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
