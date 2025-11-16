@@ -8,21 +8,46 @@
   from = "/prestations"
   to = "/prestations/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/recettes"
   to = "/recettes/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/tarifs"
   to = "/tarifs/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/contact"
   to = "/contact/"
   status = 301
+  force = true
+
+# IMPORTANT : Éviter les boucles en définissant les URLs finales
+[[redirects]]
+  from = "/prestations/"
+  to = "/prestations/"
+  status = 200
+
+[[redirects]]
+  from = "/recettes/"
+  to = "/recettes/"
+  status = 200
+
+[[redirects]]
+  from = "/tarifs/"
+  to = "/tarifs/"
+  status = 200
+
+[[redirects]]
+  from = "/contact/"
+  to = "/contact/"
+  status = 200
 
 # Gestion des erreurs 404
 [[redirects]]
