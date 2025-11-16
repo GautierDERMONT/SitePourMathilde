@@ -4,6 +4,37 @@
   status = 301
   force = true
 
+# Redirections pour les pages .html vers les versions avec slash
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/prestations.html"
+  to = "/prestations/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/recettes.html"
+  to = "/recettes/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tarifs.html"
+  to = "/tarifs/"
+  status = 301
+  force = true
+
+# Redirections sans slash vers avec slash
+[[redirects]]
+  from = "/contact"
+  to = "/contact/"
+  status = 301
+
 [[redirects]]
   from = "/prestations"
   to = "/prestations/"
@@ -17,11 +48,6 @@
 [[redirects]]
   from = "/tarifs"
   to = "/tarifs/"
-  status = 301
-
-[[redirects]]
-  from = "/contact"
-  to = "/contact/"
   status = 301
 
 # Gestion des erreurs 404
