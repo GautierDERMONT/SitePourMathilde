@@ -8,21 +8,25 @@
   from = "/prestations"
   to = "/prestations/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/recettes"
   to = "/recettes/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/tarifs"
   to = "/tarifs/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/contact"
   to = "/contact/"
   status = 301
+  force = true
 
 # Gestion des erreurs 404
 [[redirects]]
