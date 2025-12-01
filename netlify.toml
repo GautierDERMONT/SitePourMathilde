@@ -1,26 +1,79 @@
-# netlify.toml - Version FORCÉE
+# netlify.toml - Configuration complète pour les redirections
 
-# Redirections pour les fichiers avec extensions
+# 1. Redirection de la racine et index.html
 [[redirects]]
   from = "/index.html"
   to = "/"
   status = 301
   force = true
 
+# 2. Redirection pour les autres pages HTML
 [[redirects]]
-  from = "/*.html"
-  to = "/:splat/"
+  from = "/contact.html"
+  to = "/contact/"
   status = 301
   force = true
 
-# Redirection pour toutes les URLs sans slash ni extension
 [[redirects]]
-  from = "/*"
-  to = "/:splat/"
+  from = "/prestations.html"
+  to = "/prestations/"
   status = 301
-  condition = "Path =~ ^/([^/.]+)$"
+  force = true
 
-# IMPORTANT : cette règle DOIT être en DERNIER
+[[redirects]]
+  from = "/recettes.html"
+  to = "/recettes/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tarifs.html"
+  to = "/tarifs/"
+  status = 301
+  force = true
+
+# 3. Redirection pour les URLs sans slash (pages principales)
+[[redirects]]
+  from = "/contact"
+  to = "/contact/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/prestations"
+  to = "/prestations/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/recettes"
+  to = "/recettes/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tarifs"
+  to = "/tarifs/"
+  status = 301
+  force = true
+
+# 4. Règles générales pour les assets (images, CSS, JS) - pas de slash
+[[redirects]]
+  from = "/images/*"
+  to = "/images/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/css/*"
+  to = "/css/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/js/*"
+  to = "/js/:splat"
+  status = 200
+
+# 5. IMPORTANT : 404 en dernier
 [[redirects]]
   from = "/*"
   to = "/404.html"
