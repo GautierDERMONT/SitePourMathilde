@@ -1,47 +1,6 @@
-# netlify.toml - Configuration simplifiée et sûre
+# netlify.toml - Version simplifiée
+[build]
+  publish = "."
+  command = "echo 'Build complete'"
 
-# Redirections de base
-[[redirects]]
-  from = "/index.html"
-  to = "/"
-  status = 301
-
-[[redirects]]
-  from = "/contact.html"
-  to = "/contact/"
-  status = 301
-
-[[redirects]]
-  from = "/prestations.html"
-  to = "/prestations/"
-  status = 301
-
-[[redirects]]
-  from = "/recettes.html"
-  to = "/recettes/"
-  status = 301
-
-[[redirects]]
-  from = "/tarifs.html"
-  to = "/tarifs/"
-  status = 301
-
-# IMPORTANT : NE PAS ajouter de redirections pour les URLs sans slash
-# Netlify gère cela automatiquement via les Pretty URLs
-
-# Configuration pour les Pretty URLs (permet les URLs sans .html)
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
-
-# IMPORTANT : 404 doit être AVANT la règle de redirection automatique
-# pour éviter les boucles
-[[redirects]]
-  from = "/*"
-  to = "/404.html"
-  status = 404
-  force = false  # Important : force = false
-  status = 404
-  conditions = { Status = 404 }
-  
+# Utilise le fichier _redirects
