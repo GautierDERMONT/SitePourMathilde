@@ -1,29 +1,36 @@
+# netlify.toml - Version FORCÉE
+
 [[redirects]]
   from = "/index.html"
   to = "/"
   status = 301
-
+  force = true
 
 [[redirects]]
   from = "/contact.html"
   to = "/contact/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/prestations.html"
   to = "/prestations/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/recettes.html"
   to = "/recettes/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/tarifs.html"
   to = "/tarifs/"
   status = 301
+  force = true
 
+# IMPORTANT : cette règle DOIT être en DERNIER
 [[redirects]]
   from = "/*"
   to = "/404.html"
