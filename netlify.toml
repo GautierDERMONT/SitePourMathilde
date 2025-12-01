@@ -1,5 +1,6 @@
 # netlify.toml - Version FORCÉE
 
+# Redirections pour les fichiers avec extensions
 [[redirects]]
   from = "/index.html"
   to = "/"
@@ -7,28 +8,17 @@
   force = true
 
 [[redirects]]
-  from = "/contact.html"
-  to = "/contact/"
+  from = "/*.html"
+  to = "/:splat/"
   status = 301
   force = true
 
+# Redirection pour toutes les URLs sans slash ni extension
 [[redirects]]
-  from = "/prestations.html"
-  to = "/prestations/"
+  from = "/*"
+  to = "/:splat/"
   status = 301
-  force = true
-
-[[redirects]]
-  from = "/recettes.html"
-  to = "/recettes/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/tarifs.html"
-  to = "/tarifs/"
-  status = 301
-  force = true
+  condition = "Path =~ ^/([^/.]+)$"
 
 # IMPORTANT : cette règle DOIT être en DERNIER
 [[redirects]]
