@@ -1,3 +1,5 @@
+# netlify.toml - Version corrigée
+
 [[redirects]]
   from = "/index.html"
   to = "/"
@@ -38,11 +40,6 @@
 [[redirects]]
   from = "/prestations"
   to = "/prestations/"
-  status = 301
-
-[[redirects]]
-  from = "/recettes"
-  to = "/recettes/"
   status = 301
 
 [[redirects]]
