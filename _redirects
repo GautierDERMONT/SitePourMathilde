@@ -1,5 +1,10 @@
-/index.html    /    301
-/contact.html  /contact/  301
-/prestations.html  /prestations/  301
-/recettes.html     /recettes/     301
-/tarifs.html       /tarifs/       301
+/index.html              /                      200
+/contact.html            /contact/              200!
+/prestations.html        /prestations/          200!
+/recettes.html           /recettes/             200!
+/tarifs.html             /tarifs/               200!
+
+/contact                 /contact/              301
+/prestations             /prestations/          301
+/recettes                /recettes/             301
+/tarifs                  /tarifs/               301
