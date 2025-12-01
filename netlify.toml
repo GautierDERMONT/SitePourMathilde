@@ -1,6 +1,17 @@
-# netlify.toml - Version simplifiée
+# netlify.toml
 [build]
   publish = "."
-  command = "echo 'Build complete'"
+  
+# Désactive le traitement automatique des dossiers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Type = "text/html; charset=UTF-8"
 
-# Utilise le fichier _redirects
+# Configuration pour forcer les trailing slashes
+[[redirects]]
+  from = "/:path"
+  to = "/:path/"
+  status = 301
+  force = true
+  conditions = {Path = "/prestations|/contact|/recettes|/tarifs"}
