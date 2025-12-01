@@ -1,60 +1,31 @@
-# netlify.toml - Version COMPLÈTEMENT corrigée
+# netlify.toml - ULTRA SIMPLE
 
+# Redirection de l'ancien index.html
 [[redirects]]
   from = "/index.html"
   to = "/"
   status = 301
-  force = true
 
-# Redirections pour les anciennes URLs .html (backward compatibility)
+# Redirections pour compatibilité (liens externes)
 [[redirects]]
   from = "/contact.html"
   to = "/contact/"
   status = 301
-  force = true
 
 [[redirects]]
   from = "/prestations.html"
   to = "/prestations/"
   status = 301
-  force = true
 
 [[redirects]]
   from = "/recettes.html"
   to = "/recettes/"
   status = 301
-  force = true
 
 [[redirects]]
   from = "/tarifs.html"
   to = "/tarifs/"
   status = 301
-  force = true
-
-
-[[redirects]]
-  from = "/contact"
-  to = "/contact/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/prestations"
-  to = "/prestations/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/recettes"
-  to = "/recettes/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/tarifs"
-  to = "/tarifs/"
-  status = 301
-  force = true
 
 # Gestion des erreurs 404
 [[redirects]]
