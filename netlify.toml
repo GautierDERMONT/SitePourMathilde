@@ -3,25 +3,25 @@
 # Redirections FORCÉES pour les anciennes pages HTML
 [[redirects]]
   from = "/contact.html"
-  to = "/contact/"
+  to = "/contact"
   status = 301
   force = true
 
 [[redirects]]
   from = "/prestations.html"
-  to = "/prestations/"
+  to = "/prestations"
   status = 301
   force = true
 
 [[redirects]]
   from = "/recettes.html"
-  to = "/recettes/"
+  to = "/recettes"
   status = 301
   force = true
 
 [[redirects]]
   from = "/tarifs.html"
-  to = "/tarifs/"
+  to = "/tarifs"
   status = 301
   force = true
 

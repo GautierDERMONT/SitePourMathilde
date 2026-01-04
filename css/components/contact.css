@@ -125,7 +125,7 @@ textarea.form-control {
     background-color: var(--white);
     border-radius: 30px;
     padding: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     text-align: center;
     box-shadow: var(--shadow);
     border-top: 4px solid #B81329; /* Bordure rouge ajoutée */
@@ -437,6 +437,7 @@ text-align: center !important;
     
     .contact-info {
         order: 1; /* Doctolib et map en haut */
+        
     }
     
     .contact-form {

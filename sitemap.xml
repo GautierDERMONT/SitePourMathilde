@@ -7,25 +7,25 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://mathildejoyeuxdiet.fr/prestations/</loc>
+    <loc>https://mathildejoyeuxdiet.fr/prestations</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mathildejoyeuxdiet.fr/recettes/</loc>
+    <loc>https://mathildejoyeuxdiet.fr/recettes</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>monthly</changefreq> 
     <priority>0.4</priority> 
   </url>
   <url>
-    <loc>https://mathildejoyeuxdiet.fr/tarifs/</loc>
+    <loc>https://mathildejoyeuxdiet.fr/tarifs</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mathildejoyeuxdiet.fr/contact/</loc>
+    <loc>https://mathildejoyeuxdiet.fr/contact</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

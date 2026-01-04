@@ -1,15 +1,9 @@
+
 /* Simple Navigation Section Styles */
 .navigation-section {
     padding: 80px 0;
     background-color:#FDF7F3;
 }
-
-/* 
-.home-page .navigation-section,
-.prestations-page .navigation-section {
-    background-color: #F9EBE7; 
-} */
-
 
 .simple-grid {
     display: grid;
@@ -17,77 +11,90 @@
     gap: 20px;
 }
 
-.simple-nav-card {
-    display: block;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: all 0.3s ease;
-    height: 100%;
-    transform: scale(1);
-    /* Ajout de la bordure */
-    border: 4px solid  #FADAB9;
-}
-
+/* Suppression complète des images */
 .simple-nav-image {
-    position: relative;
-    width: 100%;
+    display: none;
+}
+
+/* Styles pour les formes de "flaque d'eau" */
+.sticker-circle {
+    width: 150px;
     height: 150px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FADAB9;
+    transition: all 0.3s ease;
+    position: relative;
     overflow: hidden;
 }
 
-.simple-nav-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* OPTIMISATION SIMPLIFIÉE */
-    transition: transform 0.3s ease;
-    /* Éviter les transformations problématiques */
-    will-change: transform;
+/* Formes très arrondies - flaques douces */
+.simple-nav-card:nth-child(1) .sticker-circle {
+    background-color: #FADAB9;
+    border-radius: 70% 50% 60% 40% / 50% 40% 60% 50%;
 }
 
-.simple-nav-card:hover {
-    transform: scale(1.05); /* Agrandissement de 5% au survol */
-    z-index: 10; /* S'assurer que la carte agrandie est au-dessus des autres */
-    border-color:#EDB183
-;
+.simple-nav-card:nth-child(2) .sticker-circle {
+    background-color: #F9EBE7;
+    border-radius: 60% 70% 50% 40% / 40% 50% 60% 70%;
 }
 
-/* Ajuster l'image pour qu'elle s'adapte à la carte agrandie */
-.simple-nav-card:hover .simple-nav-image img {
-    transform: scale(1); /* On enlève le zoom précédent sur l'image seule */
+.simple-nav-card:nth-child(3) .sticker-circle {
+    background-color: #f8c7a1;
+    border-radius: 50% 60% 70% 50% / 60% 50% 40% 70%;
 }
 
-.simple-nav-title {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 12px;
-    background-color: rgba(30, 85, 92, 0.85); /* couleur avec transparence */
-    color: white;
-    text-align: center;
+.simple-nav-card:nth-child(4) .sticker-circle {
+    background-color: #F2DCCF;
+    border-radius: 65% 45% 55% 35% / 45% 65% 35% 55%;
+}
+
+/* Animation très subtile au survol */
+.simple-nav-card:hover .sticker-circle {
+    animation: gentleRipple 1.2s ease-in-out;
+}
+
+@keyframes gentleRipple {
+   0% {
+        transform: scale(1);
+    }
+     25% {
+        border-radius: 50% 50% 40% 60% / 50% 40% 60% 50%;
+    }
+    50% {
+        border-radius: 40% 60% 50% 50% / 50% 40% 50% 60%;
+    }
+    75% {
+        border-radius: 55% 45% 65% 35% / 45% 55% 45% 55%;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* Icône/Sticker à l'intérieur de la flaque */
+.sticker-icon {
+    width: 60px;
+    height: 60px;
+    color: #1E555C;
+    transition: all 0.3s ease;
+}
+
+/* Titre de la carte */
+.nav-card-title {
+    font-family: serif;
     font-weight: 600;
-    font-size: 1rem;
-    transition: background-color 0.3s ease; /* Ajout d'une transition fluide */
+    font-size: 1.3rem;
+    color: #1E555C;
+    margin: 0;
+    text-align: center;
+    transition: all 0.3s ease;
 }
 
-.simple-nav-card:hover .simple-nav-title {
-    background-color: #1E555C; /* Nouvelle couleur au survol */
-}
 
-.simple-nav-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* Améliore le rendu des images sur les écrans haute résolution */
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-    /* Évite le flou lors du redimensionnement */
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    transition: transform 0.5s ease;
-}
 
 /* Remplacer l'ancien style */
 .navigation-section .section-title h2 {
@@ -98,27 +105,6 @@
     margin-bottom: 20px;
 }
 
-/* Navigation Section avec carrousel */
-.navigation-section {
-    position: relative;
-    padding: 66px 0;
-    overflow: hidden;
-}
-
-
-
-.navigation-section .container {
-    position: relative;
-    z-index: 2;
-}
-
-
-
-@keyframes loading {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-}
-
 /* Responsive Styles */
 @media (max-width: 992px) {
     .simple-grid {
@@ -126,9 +112,20 @@
         gap: 15px;
     }
     
-    /* Augmentation de la hauteur des images pour tablette */
-    .simple-nav-image {
-        height: 180px; /* Augmenté de 150px à 180px */
+    .simple-nav-card {
+        min-height: 180px;
+        padding: 25px 15px;
+    }
+    
+    .sticker-circle {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 15px;
+    }
+    
+    .sticker-icon {
+        width: 35px;
+        height: 35px;
     }
 }
 
@@ -138,9 +135,24 @@
         gap: 15px;
     }
     
-    /* Augmentation significative de la hauteur des images pour mobile */
-    .simple-nav-image {
-        height: 150px; /* Augmenté de 120px à 200px */
+    .simple-nav-card {
+        min-height: 160px;
+        padding: 20px 15px;
+    }
+    
+    .sticker-circle {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 15px;
+    }
+    
+    .sticker-icon {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .nav-card-title {
+        font-size: 1.2rem;
     }
 }
 

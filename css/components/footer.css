@@ -258,18 +258,34 @@ footer {
 }
 
 .modal-credits .modal-close {
+    position: relative;
     color: #fff;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
     line-height: 1;
-    transition: color 0.3s ease;
-    opacity: 0.8;
+}
+
+.modal-credits .modal-close::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 35px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.08); /* très peu voyant */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.modal-credits .modal-close:hover::before {
+    opacity: 1;
 }
 
 .modal-credits .modal-close:hover {
-    color: #EDB183;
-    opacity: 1;
+    color: #B8142A;
 }
 
 .modal-credits .modal-body {
