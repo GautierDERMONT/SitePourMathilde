@@ -257,7 +257,7 @@
 }
 
 .timeline-content h3 {
-    font-size: 1.1rem !important;
+    font-size: 0.9rem !important;
     font-weight: 600;
     color: var(--primary-color);
     margin-bottom: 10px;
@@ -265,7 +265,8 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    font-family: serif;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
 }
 
 .timeline-content p {

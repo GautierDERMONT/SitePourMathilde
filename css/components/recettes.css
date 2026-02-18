@@ -201,7 +201,7 @@
     min-height: 68px;
     position: relative;
     padding-bottom: 15px;
-    font-family: serif;
+    
 }
 
 .recette-content h3::after {
@@ -306,7 +306,6 @@
 .newsletter-content h3 {
     font-size: 2rem;
     margin-bottom: 20px;
-    font-family: serif;
     color: var(--white);
 }
 
@@ -526,7 +525,6 @@
     background-color: #F9EBE7;
     border-radius: 8px;
     padding: 8px 15px;
-    font-family: serif;
 }
 
 .recette-modal-category {
@@ -624,7 +622,6 @@
     margin-bottom: 15px;
     padding-bottom: 8px;
     position: relative; /* nécessaire pour positionner ::after */
-    font-family: serif;
 }
 
 .nutrition-info h4::after {
@@ -648,7 +645,6 @@
     margin-bottom: 15px;
     padding-bottom: 8px;
     position: relative;
-    font-family: serif;
 }
 
 .ingredients-section h4::after,

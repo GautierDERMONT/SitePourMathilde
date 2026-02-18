@@ -85,13 +85,14 @@
 
 /* Titre de la carte */
 .nav-card-title {
-    font-family: serif;
     font-weight: 600;
-    font-size: 1.3rem;
+    font-size: 0.95rem;
     color: #1E555C;
     margin: 0;
     text-align: center;
     transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
 }
 
 
@@ -152,7 +153,7 @@
     }
     
     .nav-card-title {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 }
 

@@ -104,7 +104,7 @@
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
     text-rendering: auto;
-    font-family: serif;
+    
 }
 
 .service-card h3::after {
@@ -332,7 +332,7 @@
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
     text-rendering: auto;
-    font-family: serif;
+   
 }
 
 .service-content::before,

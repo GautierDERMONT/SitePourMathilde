@@ -42,16 +42,18 @@
 
 
 h1, h2, h5, h6 {
-    font-family: serif;
+    font-family: sans-serif;
 
 }
 
 h1 {
-    font-size: 3rem !important;
+    font-size: 2.7rem !important;
+ 
 }
 
 h2 {
-    font-size: 3rem !important;
+    font-size: 2.5rem !important;
+    
 }
 
 h3 {
@@ -186,6 +188,9 @@ img {
 
 
 
+
+
+
 section.accompaniments.section {
     padding: 0 !important;
 }
@@ -209,12 +214,6 @@ section.accompaniments.section {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     /* SUPPRIMER les propriétés de gradient textuel qui causent confusion */
 }
-
-
-
-
-
-
 
 
 /* Style spécifique pour les titres SANS soulignement */
